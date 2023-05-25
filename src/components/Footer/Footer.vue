@@ -1,5 +1,5 @@
 <template>
-  <div class="footerContainer animate__animated animate__slideInUp"></div>
+    <div class="footerContainer animate__animated animate__slideInUp"></div>
 </template>
 
 <script lang="ts">
