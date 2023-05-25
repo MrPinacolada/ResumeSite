@@ -87,13 +87,29 @@ export default defineComponent({
   cursor: pointer;
   z-index: 10;
   position: relative;
+  display: inline-block;
 }
 .bunchOfLie {
   display: flex;
   gap: 70px;
 }
-#Skills {
-  text-decoration: underline;
+
+#Skills::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: (216, 216, 216); 
+  transform: scaleX(0); 
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+#Skills:hover::before {
+  transform: scaleX(1); 
+  transform-origin: right;
 }
 
 .showContacts {
@@ -108,7 +124,7 @@ export default defineComponent({
   top: -40px;
   left: -170px;
   width: 400px;
-  background-color: #d8d8d8;
+  background-color: rgb(242, 244, 246);
   border: none;
   border-radius: 7px;
   animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -190,5 +206,8 @@ export default defineComponent({
 .hoverEffExp:hover {
   color: #fff;
   box-shadow: inset 200px 0 0 0 #54b3d6;;
+}
+a{
+  text-decoration: none;
 }
 </style>

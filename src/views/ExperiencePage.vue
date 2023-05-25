@@ -1,12 +1,12 @@
 <template>
   <div class="ExperienceContainer">
-    <div class="writingContainer">
+    <div class="writingContainer animate__animated animate__zoomIn">
       <ul class="ulCont">
         <p>
           Hello! <br />
           I used to work as an engineering systems designer since I got 20.
           <br />
-          All compsnies in which I spent my ages until 26 were located in
+          All companies in which I spent my ages until 26 were located in
           Moscow, and I was always up to huge projects.
           <br />
           Nowadays, I've become a front-end developer, which took almost a year.
@@ -19,6 +19,7 @@
     </div>
 
     <lottie-player
+    class="animate__animated animate__flipInX"
       src="https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json"
       mode="bounce"
       background="transparent"
