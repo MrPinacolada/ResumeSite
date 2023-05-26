@@ -1,6 +1,5 @@
 <template>
   <div class="SkillsContainer">
-
     <lottie-player
       src="https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json"
       background="transparent"
@@ -10,21 +9,33 @@
       autoplay
     ></lottie-player>
     <div class="boxesContainer">
-        <div class="SkillBox"></div>
-
+      <div class="SkillBox" v-for="item in SkillsArr">
+        <img :src="item.img" alt="" />
+        <p>{{ item.text }}</p>
+      </div>
     </div>
-
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Header from "../components/Header/Header.vue";
-import Footer from "../components/Footer/Footer.vue";
+import { defineComponent, ref } from "vue";
 export default defineComponent({
-  components: { Header, Footer },
+  components: {},
   setup() {
-    return {};
+    let SkillsArr = ref([
+      { img: "src/assets/html.png", text: "HTML 5" },
+      { img: "src/assets/typescript.png", text: "TypeScript" },
+      { img: "src/assets/css-3.png", text: "Css" },
+      { img: "src/assets/icons8-vue-js-144.png", text: "Vue 3" },
+      { img: "src/assets/Vite.js.png", text: "Vite" },
+      { img: "src/assets/tailwind-css-icon.png", text: "Tailwind" },
+      { img: "src/assets/pugjs_logo_icon_170825.png", text: "Pugjs" },
+      { img: "src/assets/1175544_firebase_google_icon.png", text: "Firebase" },
+      { img: "src/assets/pinia-seeklogo.com.svg", text: "asas" },
+      { img: "/favicon-32x32.png", text: "asas" },
+    ]);
+
+    return { SkillsArr };
   },
 });
 </script>
@@ -37,9 +48,102 @@ export default defineComponent({
   align-items: center;
   position: relative;
 }
-.boxesContainer{
-    margin-right: 100px;
-    display: grid;
+.boxesContainer {
+  margin-right: 100px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 60px;
+  margin-top: -220px;
+}
+.SkillBox {
+  display: grid;
+  width: 110px;
+  height: 130px;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(242, 244, 246);
+  animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+img {
+  align-self: center;
+  justify-self: center;
+  margin-top: 15px;
+  padding: 8px;
+  width: 70px;
+  height: 70px;
+}
+p{
+  justify-self:center;
+  align-self: center;
+}
+@keyframes slide-in-blurred-top {
+  0% {
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform-origin: 50% 0%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-blurred-bottom {
+  0% {
+    transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+    transform-origin: 50% 100%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+.SkillBox:nth-child(1) {
+  animation-delay: 0.8s;
+}
+.SkillBox:nth-child(2) {
+  animation-delay: 0.9s;
+}
+.SkillBox:nth-child(3) {
+  animation-delay: 1s;
+}
+.SkillBox:nth-child(4) {
+  animation-delay: 1.1s;
+}
+.SkillBox:nth-child(5) {
+  animation-delay: 1.2s;
 }
 
+.SkillBox:nth-child(6) {
+  animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation-delay: 1.2s;
+}
+.SkillBox:nth-child(7) {
+  animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation-delay: 1.1s;
+}
+.SkillBox:nth-child(8) {
+  animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation-delay: 1s;
+}
+.SkillBox:nth-child(9) {
+  animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation-delay: 0.9s;
+}
+.SkillBox:nth-child(10) {
+  animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation-delay: 0.8s;
+}
 </style>
