@@ -23,15 +23,15 @@ export default defineComponent({
   components: {},
   setup() {
     let SkillsArr = ref([
-      { img: "src/assets/html.png", text: "HTML 5" },
-      { img: "src/assets/typescript.png", text: "TypeScript" },
-      { img: "src/assets/css-3.png", text: "Css" },
-      { img: "src/assets/icons8-vue-js-144.png", text: "Vue 3" },
-      { img: "src/assets/Vite.js.png", text: "Vite" },
-      { img: "src/assets/tailwind-css-icon.png", text: "Tailwind" },
-      { img: "src/assets/pugjs_logo_icon_170825.png", text: "Pugjs" },
-      { img: "src/assets/1175544_firebase_google_icon.png", text: "Firebase" },
-      { img: "src/assets/pinia-seeklogo.com.svg", text: "asas" },
+      { img: "/html.png", text: "HTML 5" },
+      { img: "/typescript.png", text: "TypeScript" },
+      { img: "/css-3.png", text: "Css" },
+      { img: "/icons8-vue-js-144.png", text: "Vue 3" },
+      { img: "/Vite.js.png", text: "Vite" },
+      { img: "/tailwind-css-icon.png", text: "Tailwind" },
+      { img: "/pugjs_logo_icon_170825.png", text: "Pugjs" },
+      { img: "/1175544_firebase_google_icon.png", text: "Firebase" },
+      { img: "/pinia-seeklogo.com.svg", text: "asas" },
       { img: "/favicon-32x32.png", text: "asas" },
     ]);
 
