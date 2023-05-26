@@ -19,6 +19,12 @@ const router = createRouter({
       props: true,
       component: () => import("../views/ExperiencePage.vue"),
     },
+    {
+      path: "/Skills",
+      name:"Skills",
+      props: true,
+      component: () => import("../views/SkillsPage.vue"),
+    },
   ],
 });
 export default router;

@@ -1,13 +1,15 @@
 <template>
   <div class="HeaderContainer animate__animated animate__slideInDown">
     <RouterLink :to="{ name: 'Home' }">
-      <span class="HeadP">Resume pages</span>
+      <span class="HeadP">{{ currentTitle }}</span>
     </RouterLink>
     <div class="bunchOfLie">
       <span class="HeadP">Works</span>
-      <span class="HeadP" id="Skills">Skills</span>
+      <RouterLink :to="{ name: 'Skills' }">
+        <span class="HeadP">Skills</span>
+      </RouterLink>
       <RouterLink :to="{ name: 'Experience' }">
-        <span class="HeadP hoverEffExp">Experience</span>
+        <span class="HeadP">Experience</span>
       </RouterLink>
       <div class="contatcContainer" :class="{ showContacts: ShowContacts }">
         <div class="ContactWin animate__animated" v-if="ShowContactWin">
@@ -41,9 +43,11 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from "vue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRoute } from "vue-router";
 export default defineComponent({
   setup() {
+    let route = useRoute();
+    let currentTitle = ref("Resume pages");
     let ShowContacts = ref(false);
     let ShowContactWin = ref(false);
     let Copied = ref(false);
@@ -59,6 +63,13 @@ export default defineComponent({
         Copied.value = false;
       }, 1000);
     };
+    watch(
+      () => route.path,
+      (newPath) => {
+        currentTitle.value =
+          newPath == "/" ? "Resume pages" : "Back to homepage";
+      }
+    );
     watch(ShowContacts, () => {
       if (ShowContacts.value) {
         setTimeout(() => {
@@ -66,7 +77,14 @@ export default defineComponent({
         }, 1300);
       } else ShowContactWin.value = false;
     });
-    return { ShowContacts, ShowContactWin, clickShare, Copied, ShowUpCopied };
+    return {
+      ShowContacts,
+      ShowContactWin,
+      clickShare,
+      Copied,
+      ShowUpCopied,
+      currentTitle,
+    };
   },
 });
 </script>
@@ -94,21 +112,21 @@ export default defineComponent({
   gap: 70px;
 }
 
-#Skills::before {
+.HeadP::before {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
-  height: 2px;
-  background-color: (216, 216, 216); 
-  transform: scaleX(0); 
+  height: 1px;
+  background-color: rgb(216, 216, 216);
+  transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease-out;
 }
 
-#Skills:hover::before {
-  transform: scaleX(1); 
+.HeadP:hover::before {
+  transform: scaleX(1);
   transform-origin: right;
 }
 
@@ -197,17 +215,7 @@ export default defineComponent({
   cursor: pointer;
 }
 
-.hoverEffExp {
-  box-shadow: inset 0 0 0 0 #54b3d6;
-	padding: 0 .25rem;
-	margin: 0 -.25rem;
-  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
-}
-.hoverEffExp:hover {
-  color: #fff;
-  box-shadow: inset 200px 0 0 0 #54b3d6;;
-}
-a{
+a {
   text-decoration: none;
 }
 </style>
