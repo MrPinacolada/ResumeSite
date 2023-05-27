@@ -9,16 +9,48 @@
       autoplay
     ></lottie-player>
     <div class="workBox">
-      <p>asda</p>
+      <picture>
+        <img src="../assets/image_2023-05-27_14-36-49.png" alt="" />
+      </picture>
+      <p class="headTitle">News site. (ts,vue3,vite,firebase)</p>
+      <p class="bodyTitle">
+        Almost a full working site with the ability to Log In, set own profile
+        and like some news. It has a half works with firebase backend in parts
+        of authentication and uploading images, several functions hosted on
+        firebase as well. Also, it takes data by API requests in order to
+        populate modules.
+      </p>
     </div>
     <div class="workBox">
-      <p>asda</p>
+      <picture>
+        <img src="../assets/image_2023-05-27_16-14-17.png" alt="" />
+      </picture>
+      <p class="headTitle">Summer sports (ts, vue3, vite)</p>
+      <p class="bodyTitle">
+        Just a cozy site with an amazing photo-slider and a bit of userbar
+        functionality. Supposed to be as a site with lots of topics about sport
+        activities.
+      </p>
     </div>
     <div class="workBox">
-      <p>asda</p>
+      <picture>
+        <img src="../assets/image3.png" alt="" />
+      </picture>
+      <p class="headTitle">Save planet (ts,vue3,vite)</p>
+      <p class="bodyTitle">
+        One more qiute good frontend cover for a site about animal protection. 
+        It has not much functionality, just an envelop.  
+      </p>
     </div>
-    <div class="workBox">
-      <p>asda</p>
+    <div class="workBox" @mouseenter="hoverEffect" @mouseleave="unhoverEffect">
+      <picture>
+        <img src="../assets/img4.png" alt="" />
+      </picture>
+      <p class="headTitle">Tank war (ts, html, canvas)</p>
+      <p class="bodyTitle">
+        No libraries, no scripts from other resourses. Just a handmaded tank game. 
+        
+      </p>
     </div>
   </div>
 </template>
@@ -37,7 +69,23 @@ export default defineComponent({
         }, 7000);
       }, 1000);
     });
-    return { StartAnim };
+    let hoverEffect = () => {
+      let workBoxes = document.querySelectorAll(".workBox");
+      for (let i = 0; i < workBoxes.length; i++) {
+        if (i !== 4) {
+          workBoxes[i].classList.add("shiftLeft");
+        }
+      }
+    };
+    let unhoverEffect = () => {
+      let workBoxes = document.querySelectorAll(".workBox");
+      for (let i = 0; i < workBoxes.length; i++) {
+        if (i !== 4) {
+          workBoxes[i].classList.remove("shiftLeft");
+        }
+      }
+    };
+    return { StartAnim, hoverEffect, unhoverEffect };
   },
 });
 </script>
@@ -81,9 +129,14 @@ lottie-player {
   border: none;
   border-radius: 15px;
   background-color: antiquewhite;
-  gap: 30px;
+  gap: 5px;
   animation: slideBoxes 7s linear;
   justify-self: center;
+  transform: scale(1);
+  transition: 0.5s;
+}
+.workBox:hover {
+  transform: scale(1.4);
 }
 
 @keyframes slideBoxes {
@@ -97,5 +150,41 @@ lottie-player {
   100% {
     transform: translateX(0%);
   }
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+.workBox:nth-child(1):hover {
+  transform: translateX(+10%) scale(1.4);
+  z-index: 10;
+}
+.workBox:nth-child(1):hover ~ .workBox:nth-child(n + 2) {
+  transform: translateX(+10%);
+}
+.workBox:nth-child(4):hover {
+  transform: translateX(-10%) scale(1.4);
+  z-index: 10;
+}
+
+.shiftLeft {
+  transform: translateX(-10%);
+}
+picture {
+  padding: 3px;
+  align-self: self-start;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+.headTitle {
+  text-align: center;
+  margin: 0;
+}
+.bodyTitle {
+  margin: 0;
+  font-size: 0.8em;
+  padding: 10px;
 }
 </style>
