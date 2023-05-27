@@ -6,20 +6,20 @@
           Hello! <br />
           I used to work as an engineering systems designer since I got 20.
           <br />
-          All companies in which I spent my ages until 26 were located in
-          Moscow, and I was always up to huge projects.
+          All the companies throughout my career until I turned 26 were located
+          in Moscow, and I was always busy working on huge engineering projects.
           <br />
           Nowadays, I've become a front-end developer, which took almost a year.
-          <br>
-          I'm very creativ, 'always-make-some-fun' man and curious as hell.
-          <br>
-          Btw, my IELTS is 7, pilot one, gonna pass the real one in the end of June. 
+          <br />
+          I'm very creativ, 'always-make-some-fun' man and curious as heck.
+          <br />
+          Btw, my IELTS demo score is 7.0 and I'm gonna pass the real one at the end of June.
         </p>
       </ul>
     </div>
 
     <lottie-player
-    class="animate__animated animate__flipInX"
+      class="animate__animated animate__flipInX"
       src="https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json"
       mode="bounce"
       background="transparent"

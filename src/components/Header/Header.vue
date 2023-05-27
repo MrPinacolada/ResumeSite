@@ -1,10 +1,16 @@
 <template>
   <div class="HeaderContainer animate__animated animate__slideInDown">
     <RouterLink :to="{ name: 'Home' }">
-      <span class="HeadP">{{ currentTitle }}</span>
+      <span
+        class="MajorHead"
+        :class="{ MajorHeadBefore: route.fullPath != '/' }"
+        >{{ currentTitle }}</span
+      >
     </RouterLink>
     <div class="bunchOfLie">
-      <span class="HeadP">Works</span>
+      <RouterLink :to="{ name: 'Works' }">
+        <span class="HeadP">Works</span>
+      </RouterLink>
       <RouterLink :to="{ name: 'Skills' }">
         <span class="HeadP">Skills</span>
       </RouterLink>
@@ -57,6 +63,7 @@ export default defineComponent({
       let data = [new ClipboardItem({ [type]: blob })];
       navigator.clipboard.write(data);
     };
+    console.log(route.fullPath);
     let ShowUpCopied = () => {
       Copied.value = true;
       setTimeout(() => {
@@ -84,6 +91,7 @@ export default defineComponent({
       Copied,
       ShowUpCopied,
       currentTitle,
+      route,
     };
   },
 });
@@ -100,6 +108,13 @@ export default defineComponent({
   flex-direction: row;
   justify-content: space-between;
 }
+.MajorHead {
+  color: rgb(216, 216, 216);
+  z-index: 10;
+  position: relative;
+  display: inline-block;
+}
+.MajorHeadBefore,
 .HeadP {
   color: rgb(216, 216, 216);
   cursor: pointer;
@@ -111,7 +126,7 @@ export default defineComponent({
   display: flex;
   gap: 70px;
 }
-
+.MajorHeadBefore::before,
 .HeadP::before {
   content: "";
   position: absolute;
@@ -124,7 +139,7 @@ export default defineComponent({
   transform-origin: left;
   transition: transform 0.3s ease-out;
 }
-
+.MajorHeadBefore:hover::before,
 .HeadP:hover::before {
   transform: scaleX(1);
   transform-origin: right;
@@ -217,5 +232,6 @@ export default defineComponent({
 
 a {
   text-decoration: none;
+  cursor: context-menu;
 }
 </style>

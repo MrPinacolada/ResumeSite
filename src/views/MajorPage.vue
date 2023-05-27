@@ -19,14 +19,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent } from "vue";
 export default defineComponent({
   components: {},
   setup() {
-    onMounted(() => {
-      let body = document.querySelector("body");
-      body?.setAttribute("style", "overflow-y:hidden");
-    });
     return {};
   },
 });

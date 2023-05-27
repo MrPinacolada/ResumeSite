@@ -1,6 +1,7 @@
 <template>
   <div class="SkillsContainer">
     <lottie-player
+    class="animate__animated animate__slideInLeft"
       src="https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json"
       background="transparent"
       speed="1"
@@ -28,11 +29,11 @@ export default defineComponent({
       { img: "/css-3.png", text: "Css" },
       { img: "/icons8-vue-js-144.png", text: "Vue 3" },
       { img: "/Vite.js.png", text: "Vite" },
-      { img: "/tailwind-css-icon.png", text: "Tailwind" },
+      { img: "/file_type_tailwind_icon_130128.svg", text: "Tailwind" },
       { img: "/pugjs_logo_icon_170825.png", text: "Pugjs" },
       { img: "/1175544_firebase_google_icon.png", text: "Firebase" },
-      { img: "/pinia-seeklogo.com.svg", text: "asas" },
-      { img: "/favicon-32x32.png", text: "asas" },
+      { img: "/pinia-seeklogo.com.svg", text: "Pinia" },
+      { img: "/api.png", text: "REST API" },
     ]);
 
     return { SkillsArr };

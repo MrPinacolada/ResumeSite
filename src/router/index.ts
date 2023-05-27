@@ -25,6 +25,12 @@ const router = createRouter({
       props: true,
       component: () => import("../views/SkillsPage.vue"),
     },
+    {
+      path: "/Works",
+      name:"Works",
+      props: true,
+      component: () => import("../views/WorksPage.vue"),
+    },
   ],
 });
 export default router;
