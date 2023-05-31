@@ -78,7 +78,6 @@ lottie-player {
     margin-left: 10px;
     align-content: center;
 }
-}
 h1 {
   align-self: center;
   margin-left: 20%;
@@ -104,5 +103,7 @@ lottie-player{
   width: 70% !important;
   margin-left: 100px;
 }
+}
+
 
 </style>
