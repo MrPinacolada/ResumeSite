@@ -1,7 +1,7 @@
 <template>
   <div class="SkillsContainer">
     <lottie-player
-    class="animate__animated animate__slideInLeft"
+      class="animate__animated animate__slideInLeft"
       src="https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json"
       background="transparent"
       speed="1"
@@ -13,6 +13,10 @@
       <div class="SkillBox" v-for="item in SkillsArr">
         <img :src="item.img" alt="" />
         <p>{{ item.text }}</p>
+        <div class="disCard">
+          <p>{{ item.textSlide }}</p>
+        </div>
+        <div class="cardBorder"></div>
       </div>
     </div>
   </div>
@@ -24,16 +28,65 @@ export default defineComponent({
   components: {},
   setup() {
     let SkillsArr = ref([
-      { img: "/html.png", text: "HTML 5" },
-      { img: "/typescript.png", text: "TypeScript" },
-      { img: "/css-3.png", text: "Css" },
-      { img: "/icons8-vue-js-144.png", text: "Vue 3" },
-      { img: "/Vite.js.png", text: "Vite" },
-      { img: "/file_type_tailwind_icon_130128.svg", text: "Tailwind" },
-      { img: "/pugjs_logo_icon_170825.png", text: "Pugjs" },
-      { img: "/1175544_firebase_google_icon.png", text: "Firebase" },
-      { img: "/pinia-seeklogo.com.svg", text: "Pinia" },
-      { img: "/api.png", text: "REST API" },
+      {
+        img: "/html.png",
+        textSlide:
+          "Standard markup language for documents designed to be displayed in a web browser.",
+        text: "HTML 5",
+      },
+      {
+        img: "/typescript.png",
+        textSlide:
+          "High-level programming language that adds static typing with optional type annotations to JavaScript.",
+        text: "TypeScript",
+      },
+      {
+        img: "/css-3.png",
+        textSlide:
+          "Language used for describing the presentation of a document written in a markup language such as HTML or XML.",
+        text: "Css",
+      },
+      {
+        img: "/icons8-vue-js-144.png",
+        textSlide:
+          "Front end JavaScript framework for building user interfaces and single-page applications.",
+        text: "Vue 3",
+      },
+      {
+        img: "/Vite.js.png",
+        textSlide:
+          "Local development server which used by default by the Vue project templates.",
+        text: "Vite",
+      },
+      {
+        img: "/file_type_tailwind_icon_130128.svg",
+        textSlide: "Open source CSS framework. ",
+        text: "Tailwind",
+      },
+      {
+        img: "/pugjs_logo_icon_170825.png",
+        textSlide:
+          "Compiler and interpreter for the Raku programming language.",
+        text: "Pugjs",
+      },
+      {
+        img: "/1175544_firebase_google_icon.png",
+        textSlide:
+          "Set of backend cloud computing services and application development platforms provided by Google.",
+        text: "Firebase",
+      },
+      {
+        img: "/pinia-seeklogo.com.svg",
+        textSlide:
+          "Pinia is a store library and state management framework for Vue.js.",
+        text: "Pinia",
+      },
+      {
+        img: "/api.png",
+        textSlide:
+          "Application programming interface is a way for two or more computer programs to communicate with each other.",
+        text: "REST API",
+      },
     ]);
 
     return { SkillsArr };
@@ -42,6 +95,46 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.cardBorder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: 2px dashed black;
+  z-index: -1;
+  display: none;
+  border-radius: 15px;
+  z-index: 10;
+  background-color: #ffffff;
+}
+.SkillBox:hover .cardBorder {
+  display: block;
+}
+
+.disCard {
+  position: absolute;
+  width: 110px;
+  height: 130px;
+  left: 0;
+  top: 0;
+  background-color: rgb(242, 244, 246);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  border-radius: 15px;
+  z-index: 11;
+  padding: 5px;
+}
+.disCard > p {
+  font-size: 0.7em;
+  margin: 0;
+  cursor: context-menu;
+}
+.SkillBox:hover .disCard {
+  transform: translate(-15px, -15px);
+  opacity: 1;
+}
+
 .SkillsContainer {
   justify-content: space-between;
   margin-top: 100px;
@@ -57,6 +150,7 @@ export default defineComponent({
   grid-template-columns: repeat(5, 1fr);
   gap: 60px;
   margin-top: -220px;
+  position: relative;
 }
 .SkillBox {
   display: grid;
@@ -79,8 +173,8 @@ img {
   width: 70px;
   height: 70px;
 }
-p{
-  justify-self:center;
+p {
+  justify-self: center;
   align-self: center;
 }
 @keyframes slide-in-blurred-top {

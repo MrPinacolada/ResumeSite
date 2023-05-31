@@ -1,11 +1,11 @@
 <template>
-  <Header />
-  <RouterView/>
-  <Footer />
+  <Header @ShowContact="ShowContact()" />
+  <RouterView />
+  <Footer :ShowContact="HeaderProp" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { RouterView } from "vue-router";
 import Footer from "./components/Footer/Footer.vue";
 import Header from "./components/Header/Header.vue";
@@ -15,7 +15,11 @@ export default defineComponent({
   components: { Header, Footer },
 
   setup() {
-    return {};
+    let HeaderProp = ref(false);
+    let ShowContact = () => {
+      HeaderProp.value = !HeaderProp.value;
+    };
+    return { ShowContact, HeaderProp };
   },
 });
 </script>

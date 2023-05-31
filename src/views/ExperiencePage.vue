@@ -68,5 +68,6 @@ lottie-player {
   border: none;
   border-radius: 15px;
   margin-left: 30px;
+  cursor: context-menu;
 }
 </style>

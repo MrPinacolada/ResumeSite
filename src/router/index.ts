@@ -31,6 +31,7 @@ const router = createRouter({
       props: true,
       component: () => import("../views/WorksPage.vue"),
     },
+  
   ],
 });
 export default router;

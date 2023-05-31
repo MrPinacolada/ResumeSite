@@ -8,11 +8,28 @@
       style="width: 600px; height: 600px"
       autoplay
     ></lottie-player>
-    <div class="workBox">
+    <div
+      class="disCont animate__animated animate__fadeIn"
+      :class="{ animate__hinge: hideDisAnim }"
+      v-if="ShowDisclaimer && !hideDisclaimer"
+    >
+      <p id="disclaimer">Disclaimer!!!</p>
+      <p id="diclaimerBody">
+        You're about to see some codding which hurts. <br />
+        Please, be careful.
+      </p>
+      <button @click="hundleHideDisclaimer">Got it!</button>
+    </div>
+    <div class="workBox" @click="ShowDisclaimer = true">
+      <a
+        href="https://github.com/MrPinacolada/Raptor_News"
+        v-if="hideDisclaimer"
+        target="_blank"
+      ></a>
       <picture>
         <img src="../assets/image_2023-05-27_14-36-49.png" alt="" />
+        <p class="headTitle">News site. <br />(ts,vue3,vite,firebase)</p>
       </picture>
-      <p class="headTitle">News site. (ts,vue3,vite,firebase)</p>
       <p class="bodyTitle">
         Almost a full working site with the ability to Log In, set own profile
         and like some news. It has a half works with firebase backend in parts
@@ -21,35 +38,59 @@
         populate modules.
       </p>
     </div>
-    <div class="workBox">
+    <div class="workBox" @click="ShowDisclaimer = true">
+      <a
+        href="https://github.com/MrPinacolada/SavePlanet"
+        v-if="hideDisclaimer"
+        target="_blank"
+      ></a>
       <picture>
         <img src="../assets/image_2023-05-27_16-14-17.png" alt="" />
+        <p class="headTitle">Summer sports <br />(ts, vue3, vite)</p>
       </picture>
-      <p class="headTitle">Summer sports (ts, vue3, vite)</p>
       <p class="bodyTitle">
         Just a cozy site with an amazing photo-slider and a bit of userbar
         functionality. Supposed to be as a site with lots of topics about sport
         activities.
       </p>
     </div>
-    <div class="workBox">
+    <div class="workBox" @click="ShowDisclaimer = true">
+      <a
+        href="https://github.com/MrPinacolada/SavePlanet"
+        v-if="hideDisclaimer"
+        target="_blank"
+      ></a>
       <picture>
         <img src="../assets/image3.png" alt="" />
+        <p class="headTitle">Save planet <br />(ts,vue3,vite)</p>
       </picture>
-      <p class="headTitle">Save planet (ts,vue3,vite)</p>
       <p class="bodyTitle">
-        One more qiute good frontend cover for a site about animal protection. 
-        It has not much functionality, just an envelop.  
+        One more qiute good frontend cover for a site about animal protection.
+        It has not much functionality, just an envelop.
       </p>
     </div>
-    <div class="workBox" @mouseenter="hoverEffect" @mouseleave="unhoverEffect">
+    <div
+      class="workBox"
+      @click="ShowDisclaimer = true"
+      @mouseenter="hoverEffect"
+      @mouseleave="unhoverEffect"
+    >
+      <a
+        href="https://github.com/MrPinacolada/FirstWorks"
+        v-if="hideDisclaimer"
+        target="_blank"
+      ></a>
       <picture>
         <img src="../assets/img4.png" alt="" />
+        <p class="headTitle">
+          Tank battle <br />
+          (ts, html, canvas)
+        </p>
       </picture>
-      <p class="headTitle">Tank war (ts, html, canvas)</p>
       <p class="bodyTitle">
-        No libraries, no scripts from other resourses. Just a handmaded tank game. 
-        
+        No libraries, no scripts from other resourses. Just a handmaded tank
+        game and a few else. I was trying to learn typescript by writting some
+        simple games. It took a while but I've handle that.
       </p>
     </div>
   </div>
@@ -61,6 +102,10 @@ export default defineComponent({
   components: {},
   setup() {
     let StartAnim = ref(false);
+    let ShowDisclaimer = ref(false);
+    let hideDisclaimer = ref(false);
+    let hideDisAnim = ref(false);
+
     onMounted(() => {
       setTimeout(() => {
         StartAnim.value = true;
@@ -85,7 +130,23 @@ export default defineComponent({
         }
       }
     };
-    return { StartAnim, hoverEffect, unhoverEffect };
+
+    let hundleHideDisclaimer = () => {
+      hideDisAnim.value = true;
+      setTimeout(() => {
+        hideDisclaimer.value = true;
+      }, 2000);
+    };
+
+    return {
+      StartAnim,
+      hoverEffect,
+      unhoverEffect,
+      ShowDisclaimer,
+      hideDisclaimer,
+      hundleHideDisclaimer,
+      hideDisAnim,
+    };
   },
 });
 </script>
@@ -122,7 +183,7 @@ lottie-player {
 .workBox {
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
+  align-items: start;
   justify-items: center;
   width: 300px;
   height: 400px;
@@ -134,6 +195,8 @@ lottie-player {
   justify-self: center;
   transform: scale(1);
   transition: 0.5s;
+  cursor: pointer;
+  position: relative;
 }
 .workBox:hover {
   transform: scale(1.4);
@@ -186,5 +249,33 @@ picture {
   margin: 0;
   font-size: 0.8em;
   padding: 10px;
+}
+a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.disCont {
+  display: grid;
+  background-color: rgb(46, 46, 47, 0.9);
+  border-radius: 15px;
+  position: absolute;
+  z-index: 15;
+  width: 95%;
+  height: 100%;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+}
+#disclaimer {
+  text-align: center;
+  color: red;
+  font-size: 2em;
+  font-weight: 800;
+}
+#diclaimerBody {
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
 }
 </style>
