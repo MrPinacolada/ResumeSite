@@ -103,4 +103,58 @@ export default defineComponent({
   transform: scaleX(1);
   transform-origin: right;
 }
+@media only screen and (max-width: 768px) {
+  .HeaderContainer {
+  display: flex;
+  height: 60px;
+  background-color: rgb(46, 46, 47);
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 30px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 25px;
+}
+.MajorHead {
+  color: rgb(216, 216, 216);
+  z-index: 10;
+  position: relative;
+  display: inline-block;
+  font-size: 0.9em;
+  margin: 0;
+}
+.MajorHeadBefore,
+.HeadP {
+  color: rgb(216, 216, 216);
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  display: inline-block;
+  font-size: 0.8em;
+}
+.bunchOfLie {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.MajorHeadBefore::before,
+.HeadP::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(216, 216, 216);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+.MajorHeadBefore:hover::before,
+.HeadP:hover::before {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+}
 </style>

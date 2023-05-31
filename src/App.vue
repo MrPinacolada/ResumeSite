@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { RouterView } from "vue-router";
+import { defineComponent, ref, watch } from "vue";
+import { RouterView, useRoute } from "vue-router";
 import Footer from "./components/Footer/Footer.vue";
 import Header from "./components/Header/Header.vue";
 
@@ -16,9 +16,16 @@ export default defineComponent({
 
   setup() {
     let HeaderProp = ref(false);
+    let route = useRoute();
     let ShowContact = () => {
       HeaderProp.value = !HeaderProp.value;
     };
+    watch(
+      () => route.path,
+      () => {
+        HeaderProp.value = false;
+      }
+    );
     return { ShowContact, HeaderProp };
   },
 });
@@ -36,5 +43,17 @@ body {
   font-family: "Roboto Mono", monospace;
   overflow-y: hidden;
   overflow-x: hidden;
+}
+@media only screen and (max-width: 768px) {
+  body {
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto Mono", monospace;
+  overflow-y:auto;
+  overflow-x:auto;
+}
 }
 </style>

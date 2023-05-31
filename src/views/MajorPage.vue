@@ -50,4 +50,31 @@ h1 {
   left: 29%;
   top: 28%;
 }
+@media only screen and (max-width: 768px) {
+  .MajorPageContainer {
+  margin-top: 100px;
+}
+.bodyContainer {
+  display: grid;
+  justify-items: center
+}
+h1 {
+  align-self: center;
+  margin-left: 20%;
+  margin-bottom: 7%;
+  cursor: context-menu;
+  position: relative;
+  font-size: 1.5em;
+}
+.name::after {
+  content: "{Bob for short}";
+  font-size: 0.3em;
+  position: absolute;
+  left: 40%;
+  top: 28%;
+}
+lottie-player{
+  width: 80% !important;
+}
+}
 </style>

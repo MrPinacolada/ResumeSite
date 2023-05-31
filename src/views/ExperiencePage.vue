@@ -1,7 +1,6 @@
 <template>
   <div class="ExperienceContainer">
     <div class="writingContainer animate__animated animate__zoomIn">
-      <ul class="ulCont">
         <p>
           Hello! <br />
           I used to work as an engineering systems designer since I got 20.
@@ -15,7 +14,6 @@
           <br />
           Btw, my IELTS demo score is 7.0 and I'm gonna pass the real one at the end of June.
         </p>
-      </ul>
     </div>
 
     <lottie-player
@@ -70,4 +68,41 @@ lottie-player {
   margin-left: 30px;
   cursor: context-menu;
 }
+@media only screen and (max-width: 768px) {
+  .ExperienceContainer {
+    justify-content: center;
+    margin-top: 50px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    margin-left: 10px;
+    align-content: center;
+}
+}
+h1 {
+  align-self: center;
+  margin-left: 20%;
+  margin-bottom: 7%;
+  cursor: context-menu;
+  position: relative;
+}
+lottie-player {
+  margin-right: 100px;
+}
+.writingContainer {
+  width: 300px;
+  height: fit-content;
+  padding: 20px;
+  background-color: rgb(242, 244, 246);
+  border: none;
+  border-radius: 15px;
+  margin-left: 0;
+  cursor: context-menu;
+  font-size: 0.7em;
+} 
+lottie-player{
+  width: 70% !important;
+  margin-left: 100px;
+}
+
 </style>

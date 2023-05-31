@@ -18,7 +18,7 @@
         You're about to see some codding which hurts. <br />
         Please, be careful.
       </p>
-      <button @click="hundleHideDisclaimer">Got it!</button>
+      <button @click="handleHideDisclaimer">Got it!</button>
     </div>
     <div class="workBox" @click="ShowDisclaimer = true">
       <a
@@ -105,6 +105,8 @@ export default defineComponent({
     let ShowDisclaimer = ref(false);
     let hideDisclaimer = ref(false);
     let hideDisAnim = ref(false);
+    let screenWidth = window.innerWidth;
+
 
     onMounted(() => {
       setTimeout(() => {
@@ -113,11 +115,20 @@ export default defineComponent({
           StartAnim.value = false;
         }, 7000);
       }, 1000);
+      if (screenWidth <= 768) {
+        hideDisclaimer.value = true;
+        setTimeout(() => {
+          StartAnim.value = true;
+          setTimeout(() => {
+            StartAnim.value = false;
+          }, 4000);
+        }, 1000);
+      }
     });
     let hoverEffect = () => {
       let workBoxes = document.querySelectorAll(".workBox");
       for (let i = 0; i < workBoxes.length; i++) {
-        if (i !== 4) {
+        if (i !== 4 && screenWidth >= 768) {
           workBoxes[i].classList.add("shiftLeft");
         }
       }
@@ -125,13 +136,13 @@ export default defineComponent({
     let unhoverEffect = () => {
       let workBoxes = document.querySelectorAll(".workBox");
       for (let i = 0; i < workBoxes.length; i++) {
-        if (i !== 4) {
+        if (i !== 4 && screenWidth >= 768) {
           workBoxes[i].classList.remove("shiftLeft");
         }
       }
     };
 
-    let hundleHideDisclaimer = () => {
+    let handleHideDisclaimer = () => {
       hideDisAnim.value = true;
       setTimeout(() => {
         hideDisclaimer.value = true;
@@ -144,7 +155,7 @@ export default defineComponent({
       unhoverEffect,
       ShowDisclaimer,
       hideDisclaimer,
-      hundleHideDisclaimer,
+      handleHideDisclaimer,
       hideDisAnim,
     };
   },
@@ -197,6 +208,7 @@ lottie-player {
   transition: 0.5s;
   cursor: pointer;
   position: relative;
+  margin-bottom: 40px;
 }
 .workBox:hover {
   transform: scale(1.4);
@@ -277,5 +289,136 @@ a {
   text-align: center;
   color: white;
   font-size: 1.5em;
+}
+@media only screen and (max-width: 768px) {
+  .worksContainer {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin-top: 100px;
+    position: relative;
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+  }
+  lottie-player {
+    animation: slideAnimation 5s linear;
+    position: absolute;
+    top: 50px;
+    left: -2%;
+    height: fit-content !important;
+  }
+
+  @keyframes slideAnimation {
+    0% {
+      left: -10%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  .workBox {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    justify-items: center;
+    width: 300px;
+    height: 400px;
+    border: none;
+    border-radius: 15px;
+    background-color: antiquewhite;
+    gap: 5px;
+    animation: slideBoxes 5s linear;
+    justify-self: center;
+    transform: scale(1);
+    transition: 0.5s;
+    cursor: pointer;
+    position: relative;
+  }
+  .workBox:hover {
+    transform: scale(1);
+  }
+
+  @keyframes slideBoxes {
+    0% {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+  .workBox:nth-child(1):hover {
+    transform: translateX(0) scale(1);
+    z-index: 10;
+  }
+  .workBox:nth-child(1):hover ~ .workBox:nth-child(n + 2) {
+    transform: translateX(0);
+  }
+  .workBox:nth-child(4):hover {
+    transform: translateX(0) scale(1);
+    z-index: 10;
+  }
+
+  .shiftLeft {
+    transform: translateX(0);
+  }
+  picture {
+    padding: 3px;
+    align-self: self-start;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+  .headTitle {
+    text-align: center;
+    margin: 0;
+  }
+  .bodyTitle {
+    margin: 0;
+    font-size: 0.8em;
+    padding: 10px;
+  }
+  a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .disCont {
+    display: grid;
+    background-color: rgb(46, 46, 47, 0.9);
+    border-radius: 15px;
+    position: absolute;
+    z-index: 15;
+    width: 0;
+    height: 0;
+    display: none;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+  }
+  #disclaimer {
+    text-align: center;
+    color: red;
+    font-size: 2em;
+    font-weight: 800;
+  }
+  #diclaimerBody {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+  }
 }
 </style>
