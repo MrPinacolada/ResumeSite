@@ -29,60 +29,60 @@ export default defineComponent({
   setup() {
     let SkillsArr = ref([
       {
-        img: "assets/html.png",
+        img: "html.png",
         textSlide:
           "Standard markup language for documents designed to be displayed in a web browser.",
         text: "HTML 5",
       },
       {
-        img: "assets/typescript.png",
+        img: "typescript.png",
         textSlide:
           "High-level programming language that adds static typing with optional type annotations to JavaScript.",
         text: "TypeScript",
       },
       {
-        img: "assets/css-3.png",
+        img: "css-3.png",
         textSlide:
           "Language used for describing the presentation of a document written in a markup language such as HTML or XML.",
         text: "Css",
       },
       {
-        img: "assets/icons8-vue-js-144.png",
+        img: "icons8-vue-js-144.png",
         textSlide:
           "Front end JavaScript framework for building user interfaces and single-page applications.",
         text: "Vue 3",
       },
       {
-        img: "assets/Vite.js.png",
+        img: "Vite.js.png",
         textSlide:
           "Local development server which used by default by the Vue project templates.",
         text: "Vite",
       },
       {
-        img: "assets/file_type_tailwind_icon_130128.svg",
+        img: "file_type_tailwind_icon_130128.svg",
         textSlide: "Open source CSS framework. ",
         text: "Tailwind",
       },
       {
-        img: "assets/pugjs_logo_icon_170825.png",
+        img: "pugjs_logo_icon_170825.png",
         textSlide:
           "Compiler and interpreter for the Raku programming language.",
         text: "Pugjs",
       },
       {
-        img: "assets/1175544_firebase_google_icon.png",
+        img: "1175544_firebase_google_icon.png",
         textSlide:
           "Set of backend cloud computing services and application development platforms provided by Google.",
         text: "Firebase",
       },
       {
-        img: "assets/pinia-seeklogo.com.svg",
+        img: "pinia-seeklogo.com.svg",
         textSlide:
           "Pinia is a store library and state management framework for Vue.js.",
         text: "Pinia",
       },
       {
-        img: "assets/api.png",
+        img: "api.png",
         textSlide:
           "Application programming interface is a way for two or more computer programs to communicate with each other.",
         text: "REST API",
