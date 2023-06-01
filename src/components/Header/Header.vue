@@ -17,7 +17,9 @@
       <RouterLink :to="{ name: 'Experience' }">
         <span class="HeadP">Experience</span>
       </RouterLink>
+      <a href="">
       <span class="HeadP" @click="EmitToApp">Contact</span>
+    </a>
     </div>
   </div>
 </template>
