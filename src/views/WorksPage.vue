@@ -32,7 +32,7 @@
       </picture>
       <p class="bodyTitle">
         Almost a full working site with the ability to Log In, set own profile
-        and like some news. It has a half works with firebase backend in parts
+        and like some news. It half works with firebase backend in parts
         of authentication and uploading images, several functions hosted on
         firebase as well. Also, it takes data by API requests in order to
         populate modules.
@@ -90,7 +90,7 @@
       <p class="bodyTitle">
         No libraries, no scripts from other resourses. Just a handmaded tank
         game and a few else. I was trying to learn typescript by writting some
-        simple games. It took a while but I've handle that.
+        simple games. It took a while but I found that experience I've got very useful.
       </p>
     </div>
   </div>
@@ -211,7 +211,7 @@ lottie-player {
   margin-bottom: 40px;
 }
 .workBox:hover {
-  transform: scale(1.4);
+  transform: scale(1.1);
 }
 
 @keyframes slideBoxes {
@@ -233,14 +233,14 @@ img {
   border-top-left-radius: 15px;
 }
 .workBox:nth-child(1):hover {
-  transform: translateX(+10%) scale(1.4);
+  transform: translateX(+10%) scale(1.1);
   z-index: 10;
 }
 .workBox:nth-child(1):hover ~ .workBox:nth-child(n + 2) {
   transform: translateX(+10%);
 }
 .workBox:nth-child(4):hover {
-  transform: translateX(-10%) scale(1.4);
+  transform: translateX(-10%) scale(1.1);
   z-index: 10;
 }
 
