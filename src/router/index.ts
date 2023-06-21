@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/:catchAll(.*)",
@@ -21,17 +21,16 @@ const router = createRouter({
     },
     {
       path: "/Skills",
-      name:"Skills",
+      name: "Skills",
       props: true,
       component: () => import("../views/SkillsPage.vue"),
     },
     {
       path: "/Works",
-      name:"Works",
+      name: "Works",
       props: true,
       component: () => import("../views/WorksPage.vue"),
     },
-  
   ],
 });
 export default router;
