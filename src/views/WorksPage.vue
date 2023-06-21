@@ -2,7 +2,7 @@
   <div class="worksContainer">
     <lottie-player
       v-if="StartAnim"
-      src="https://assets3.lottiefiles.com/packages/lf20_jhaabiai.json"
+      :src="lottieAnim"
       background="transparent"
       speed="1"
       style="width: 600px; height: 600px"
@@ -97,10 +97,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { Store } from "../pinia/index";
+import { defineComponent, onMounted, ref,computed } from "vue";
 export default defineComponent({
   components: {},
   setup() {
+    let store = Store();
+    let lottieAnim = computed(() => store.WorksPage);
     let StartAnim = ref(false);
     let ShowDisclaimer = ref(false);
     let hideDisclaimer = ref(false);
@@ -157,6 +160,7 @@ export default defineComponent({
       hideDisclaimer,
       handleHideDisclaimer,
       hideDisAnim,
+      lottieAnim
     };
   },
 });

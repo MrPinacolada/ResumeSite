@@ -2,7 +2,7 @@
   <div class="SkillsContainer">
     <lottie-player
       class="animate__animated animate__slideInLeft"
-      src="https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json"
+      :src="lottieAnim"
       background="transparent"
       speed="1"
       style="width: 650px; height: 650px"
@@ -23,10 +23,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { Store } from "../pinia/index";
+import { defineComponent, ref,computed } from "vue";
 export default defineComponent({
   components: {},
   setup() {
+    let store = Store();
+    let lottieAnim = computed(() => store.SkillPage);
     let SkillsArr = ref([
       {
         img: "html.png",
@@ -89,7 +92,7 @@ export default defineComponent({
       },
     ]);
 
-    return { SkillsArr };
+    return { SkillsArr,lottieAnim };
   },
 });
 </script>

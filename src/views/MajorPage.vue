@@ -6,7 +6,7 @@
         I'm a beginer frontend developer.
       </h1>
       <lottie-player
-        src="https://assets8.lottiefiles.com/packages/lf20_ioJYvK.json"
+        :src="lottieAnim"
         background="transparent"
         speed="1"
         style="width: 40%"
@@ -19,11 +19,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
+import { Store } from "../pinia/index";
 export default defineComponent({
   components: {},
   setup() {
-    return {};
+    let store = Store();
+    let lottieAnim = computed(() => store.MajPage);
+    return { lottieAnim };
   },
 });
 </script>
@@ -52,29 +55,29 @@ h1 {
 }
 @media only screen and (max-width: 768px) {
   .MajorPageContainer {
-  margin-top: 100px;
-}
-.bodyContainer {
-  display: grid;
-  justify-items: center
-}
-h1 {
-  align-self: center;
-  margin-left: 20%;
-  margin-bottom: 7%;
-  cursor: context-menu;
-  position: relative;
-  font-size: 1.5em;
-}
-.name::after {
-  content: "{Bob for short}";
-  font-size: 0.3em;
-  position: absolute;
-  left: 40%;
-  top: 28%;
-}
-lottie-player{
-  width: 80% !important;
-}
+    margin-top: 100px;
+  }
+  .bodyContainer {
+    display: grid;
+    justify-items: center;
+  }
+  h1 {
+    align-self: center;
+    margin-left: 20%;
+    margin-bottom: 7%;
+    cursor: context-menu;
+    position: relative;
+    font-size: 1.5em;
+  }
+  .name::after {
+    content: "{Bob for short}";
+    font-size: 0.3em;
+    position: absolute;
+    left: 40%;
+    top: 28%;
+  }
+  lottie-player {
+    width: 80% !important;
+  }
 }
 </style>

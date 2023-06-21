@@ -5,16 +5,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, onBeforeMount, ref, watch } from "vue";
 import { RouterView, useRoute } from "vue-router";
 import Footer from "./components/Footer/Footer.vue";
 import Header from "./components/Header/Header.vue";
+import { Store } from "./pinia/index";
 
 import "animate.css";
 export default defineComponent({
   components: { Header, Footer },
 
   setup() {
+    let store = Store();
     let HeaderProp = ref(false);
     let route = useRoute();
     let ShowContact = () => {
@@ -26,6 +28,9 @@ export default defineComponent({
         HeaderProp.value = false;
       }
     );
+    onBeforeMount(async () => {
+      await store.fetchAllData();
+    });
     return { ShowContact, HeaderProp };
   },
 });
@@ -46,14 +51,14 @@ body {
 }
 @media only screen and (max-width: 768px) {
   body {
-  padding: 0;
-  margin: 0;
-  border: none;
-  width: 100%;
-  height: 100%;
-  font-family: "Roboto Mono", monospace;
-  overflow-y:auto;
-  overflow-x:auto;
-}
+    padding: 0;
+    margin: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto Mono", monospace;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
 }
 </style>
