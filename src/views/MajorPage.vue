@@ -1,5 +1,8 @@
 <template>
-  <div class="MajorPageContainer animate__animated animate__zoomIn">
+  <div
+    class="MajorPageContainer animate__animated animate__zoomIn"
+    v-if="lottieAnim"
+  >
     <div class="bodyContainer">
       <h1>
         Hi! I'm <span class="name">Vasilii</span>. <br />

@@ -21,11 +21,11 @@ export const Store = defineStore("DefaultStore", () => {
       }
     },
     async fetchAllData() {
-      this.ExpPage = await this.fetchData(
-        "https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json"
-      );
       this.MajPage = await this.fetchData(
         "https://assets8.lottiefiles.com/packages/lf20_ioJYvK.json"
+      );
+      this.ExpPage = await this.fetchData(
+        "https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json"
       );
       this.SkillPage = await this.fetchData(
         "https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json"
