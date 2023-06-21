@@ -1,5 +1,5 @@
 <template>
-  <div class="worksContainer">
+  <div class="worksContainer" v-if="lottieAnim">
     <lottie-player
       v-if="StartAnim"
       :src="lottieAnim"
@@ -32,8 +32,8 @@
       </picture>
       <p class="bodyTitle">
         Almost a full working site with the ability to Log In, set own profile
-        and like some news. It half works with firebase backend in parts
-        of authentication and uploading images, several functions hosted on
+        and like some news. It half works with firebase backend in parts of
+        authentication and uploading images, several functions hosted on
         firebase as well. Also, it takes data by API requests in order to
         populate modules.
       </p>
@@ -90,7 +90,8 @@
       <p class="bodyTitle">
         No libraries, no scripts from other resourses. Just a handmaded tank
         game and a few else. I was trying to learn typescript by writting some
-        simple games. It took a while but I found that experience I've got very useful.
+        simple games. It took a while but I found that experience I've got very
+        useful.
       </p>
     </div>
   </div>
@@ -98,7 +99,7 @@
 
 <script lang="ts">
 import { Store } from "../pinia/index";
-import { defineComponent, onMounted, ref,computed } from "vue";
+import { defineComponent, onMounted, ref, computed } from "vue";
 export default defineComponent({
   components: {},
   setup() {
@@ -109,7 +110,6 @@ export default defineComponent({
     let hideDisclaimer = ref(false);
     let hideDisAnim = ref(false);
     let screenWidth = window.innerWidth;
-
 
     onMounted(() => {
       setTimeout(() => {
@@ -160,7 +160,7 @@ export default defineComponent({
       hideDisclaimer,
       handleHideDisclaimer,
       hideDisAnim,
-      lottieAnim
+      lottieAnim,
     };
   },
 });

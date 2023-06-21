@@ -1,5 +1,5 @@
 <template>
-  <div class="ExperienceContainer">
+  <div class="ExperienceContainer" v-if="lottiAnim">
     <div class="writingContainer animate__animated animate__zoomIn">
       <p>
         Hello! <br />

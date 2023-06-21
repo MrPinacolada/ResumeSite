@@ -1,5 +1,5 @@
 <template>
-  <div class="SkillsContainer">
+  <div class="SkillsContainer" v-if="lottieAnim">
     <lottie-player
       class="animate__animated animate__slideInLeft"
       :src="lottieAnim"
