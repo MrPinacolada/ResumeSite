@@ -1,35 +1,39 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import MajorPageVue from "../views/MajorPage.vue";
+import ExperiencePageVue from "../views/ExperiencePage.vue";
+import SkillsPageVue from "../views/SkillsPage.vue";
+import WorksPageVue from "../views/WorksPage.vue";
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       path: "/:catchAll(.*)",
       name: "NotFound",
-      component: () => import("../views/MajorPage.vue"),
+      component: MajorPageVue,
     },
     {
       path: "/",
       name: "Home",
       props: true,
-      component: () => import("../views/MajorPage.vue"),
+      component: MajorPageVue,
     },
     {
       path: "/Experience",
       name: "Experience",
       props: true,
-      component: () => import("../views/ExperiencePage.vue"),
+      component: ExperiencePageVue,
     },
     {
       path: "/Skills",
       name: "Skills",
       props: true,
-      component: () => import("../views/SkillsPage.vue"),
+      component: SkillsPageVue,
     },
     {
       path: "/Works",
       name: "Works",
       props: true,
-      component: () => import("../views/WorksPage.vue"),
+      component: WorksPageVue,
     },
   ],
 });
