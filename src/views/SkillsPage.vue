@@ -121,7 +121,7 @@ let SkillsArr = ref([
   padding: 5px;
 }
 .disCard > p {
-  font-size: 0.7em;
+  font-size: 0.64em;
   margin: 0;
   cursor: context-menu;
 }

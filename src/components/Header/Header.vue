@@ -24,7 +24,7 @@ let currentTitle = ref("Resume pages");
 
 let items = ref([
   {
-    label: "Works",
+    label: "Portfolio",
     icon: "pi pi-fw pi-briefcase",
     to: "/Works",
   },
