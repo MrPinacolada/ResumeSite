@@ -22,79 +22,71 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { Store } from "../pinia/index";
-import { defineComponent, ref,computed } from "vue";
-export default defineComponent({
-  components: {},
-  setup() {
-    let store = Store();
-    let lottieAnim = computed(() => store.SkillPage);
-    let SkillsArr = ref([
-      {
-        img: "html.png",
-        textSlide:
-          "Standard markup language for documents designed to be displayed in a web browser.",
-        text: "HTML 5",
-      },
-      {
-        img: "typescript.png",
-        textSlide:
-          "High-level programming language that adds static typing with optional type annotations to JavaScript.",
-        text: "TypeScript",
-      },
-      {
-        img: "css-3.png",
-        textSlide:
-          "Language used for describing the presentation of a document written in a markup language such as HTML or XML.",
-        text: "Css",
-      },
-      {
-        img: "icons8-vue-js-144.png",
-        textSlide:
-          "Front end JavaScript framework for building user interfaces and single-page applications.",
-        text: "Vue 3",
-      },
-      {
-        img: "Vite.js.png",
-        textSlide:
-          "Local development server which used by default by the Vue project templates.",
-        text: "Vite",
-      },
-      {
-        img: "file_type_tailwind_icon_130128.svg",
-        textSlide: "Open source CSS framework. ",
-        text: "Tailwind",
-      },
-      {
-        img: "pugjs_logo_icon_170825.png",
-        textSlide:
-          "Compiler and interpreter for the Raku programming language.",
-        text: "Pugjs",
-      },
-      {
-        img: "1175544_firebase_google_icon.png",
-        textSlide:
-          "Set of backend cloud computing services and application development platforms provided by Google.",
-        text: "Firebase",
-      },
-      {
-        img: "pinia-seeklogo.com.svg",
-        textSlide:
-          "Pinia is a store library and state management framework for Vue.js.",
-        text: "Pinia",
-      },
-      {
-        img: "api.png",
-        textSlide:
-          "Application programming interface is a way for two or more computer programs to communicate with each other.",
-        text: "REST API",
-      },
-    ]);
-
-    return { SkillsArr,lottieAnim };
+import { ref, computed } from "vue";
+let store = Store();
+let lottieAnim = computed(() => store.SkillPage);
+let SkillsArr = ref([
+  {
+    img: "html.png",
+    textSlide:
+      "Standard markup language for documents designed to be displayed in a web browser.",
+    text: "HTML 5",
   },
-});
+  {
+    img: "typescript.png",
+    textSlide:
+      "High-level programming language that adds static typing with optional type annotations to JavaScript.",
+    text: "TypeScript",
+  },
+  {
+    img: "css-3.png",
+    textSlide:
+      "Language used for describing the presentation of a document written in a markup language such as HTML or XML.",
+    text: "Css",
+  },
+  {
+    img: "icons8-vue-js-144.png",
+    textSlide:
+      "Front end JavaScript framework for building user interfaces and single-page applications.",
+    text: "Vue 3",
+  },
+  {
+    img: "Vite.js.png",
+    textSlide:
+      "Local development server which used by default by the Vue project templates.",
+    text: "Vite",
+  },
+  {
+    img: "file_type_tailwind_icon_130128.svg",
+    textSlide: "Open source CSS framework. ",
+    text: "Tailwind",
+  },
+  {
+    img: "pugjs_logo_icon_170825.png",
+    textSlide: "Compiler and interpreter for the Raku programming language.",
+    text: "Pugjs",
+  },
+  {
+    img: "1175544_firebase_google_icon.png",
+    textSlide:
+      "Set of backend cloud computing services and application development platforms provided by Google.",
+    text: "Firebase",
+  },
+  {
+    img: "pinia-seeklogo.com.svg",
+    textSlide:
+      "Pinia is a store library and state management framework for Vue.js.",
+    text: "Pinia",
+  },
+  {
+    img: "api.png",
+    textSlide:
+      "Application programming interface is a way for two or more computer programs to communicate with each other.",
+    text: "REST API",
+  },
+]);
 </script>
 
 <style scoped>

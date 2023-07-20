@@ -8,59 +8,51 @@
       >
     </RouterLink>
     <div class="bunchOfLie">
-      <RouterLink :to="{ name: 'Works' }">
-        <span class="HeadP">Works</span>
-      </RouterLink>
-      <RouterLink :to="{ name: 'Skills' }">
-        <span class="HeadP">Skills</span>
-      </RouterLink>
-      <RouterLink :to="{ name: 'Experience' }">
-        <span class="HeadP">Experience</span>
-      </RouterLink>
-      <span class="HeadP" @click="EmitToApp">Contact</span>
+      <TabMenu v-model:activeIndex="active" :model="items" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+<script setup lang="ts">
+import { ref, watch } from "vue";
 import { RouterLink, useRoute } from "vue-router";
-export default defineComponent({
-  emits: ['ShowContact'],
-  setup(_props, { emit }) {
-    let route = useRoute();
-    let currentTitle = ref("Resume pages");
-    let EmitToApp = () => {
-      emit("ShowContact");
-    };
-    watch(
-      () => route.path,
-      (newPath) => {
-        currentTitle.value =
-          newPath == "/" ? "Resume pages" : "Back to homepage";
-      }
-    );
-    // watch(ShowContacts, () => {
-    //   if (ShowContacts.value) {
-    //     setTimeout(() => {
-    //       ShowContactWin.value = true;
-    //     }, 1300);
-    //   } else ShowContactWin.value = false;
-    // });
-    return {
-      currentTitle,
-      route,
-      EmitToApp,
-    };
+
+const route = useRoute();
+
+let active = ref(0);
+let currentTitle = ref("Resume pages");
+
+let items = ref([
+  {
+    label: "Works",
+    icon: "pi pi-fw pi-briefcase",
+    to: "/Works",
   },
-});
+  {
+    label: "Skills",
+    icon: "pi pi-fw pi-bolt",
+    to: "/Skills",
+  },
+  {
+    label: "Experience",
+    icon: "pi pi-fw pi-compass",
+    to: "/Experience",
+  },
+]);
+
+watch(
+  () => route.path,
+  (newPath) => {
+    currentTitle.value = newPath == "/" ? "Resume pages" : "Back to homepage";
+  }
+);
 </script>
 
 <style scoped>
 .HeaderContainer {
   display: flex;
   height: 60px;
-  background-color: rgb(46, 46, 47);
+  background-color: var(--gray-800);
   align-items: center;
   padding-left: 20px;
   padding-right: 30px;
@@ -68,7 +60,7 @@ export default defineComponent({
   justify-content: space-between;
 }
 .MajorHead {
-  color: rgb(216, 216, 216);
+  color: var(--surface-50);
   z-index: 10;
   position: relative;
   display: inline-block;
@@ -105,56 +97,68 @@ export default defineComponent({
 }
 @media only screen and (max-width: 768px) {
   .HeaderContainer {
-  display: flex;
-  height: 60px;
-  background-color: rgb(46, 46, 47);
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 30px;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 25px;
-}
-.MajorHead {
-  color: rgb(216, 216, 216);
-  z-index: 10;
-  position: relative;
-  display: inline-block;
-  font-size: 0.9em;
-  margin: 0;
-}
-.MajorHeadBefore,
-.HeadP {
-  color: rgb(216, 216, 216);
-  cursor: pointer;
-  z-index: 10;
-  position: relative;
-  display: inline-block;
-  font-size: 0.8em;
-}
-.bunchOfLie {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.MajorHeadBefore::before,
-.HeadP::before {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: rgb(216, 216, 216);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease-out;
-}
-.MajorHeadBefore:hover::before,
-.HeadP:hover::before {
-  transform: scaleX(1);
-  transform-origin: right;
+    display: flex;
+    height: 60px;
+    background-color: var(--gray-800);
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 25px;
+  }
+  .MajorHead {
+    color: rgb(216, 216, 216);
+    z-index: 10;
+    position: relative;
+    display: inline-block;
+    font-size: 0.9em;
+    margin: 0;
+  }
+  .MajorHeadBefore,
+  .HeadP {
+    color: rgb(216, 216, 216);
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+    display: inline-block;
+    font-size: 0.8em;
+  }
+  .bunchOfLie {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .MajorHeadBefore::before,
+  .HeadP::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(216, 216, 216);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+  }
+  .MajorHeadBefore:hover::before,
+  .HeadP:hover::before {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
 }
 
+a {
+  text-decoration: none;
+  cursor: context-menu;
+}
+:deep(.p-tabmenu .p-tabmenu-nav) {
+  background: var(--gray-800) !important;
+  border: none !important;
+}
+:deep(.p-tabmenuitem .p-menuitem-link) {
+  background-color: var(--gray-800) !important;
+  color: var(--surface-50) !important;
 }
 </style>

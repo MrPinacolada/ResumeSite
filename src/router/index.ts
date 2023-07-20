@@ -3,6 +3,7 @@ import MajorPageVue from "../views/MajorPage.vue";
 import ExperiencePageVue from "../views/ExperiencePage.vue";
 import SkillsPageVue from "../views/SkillsPage.vue";
 import WorksPageVue from "../views/WorksPage.vue";
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -37,4 +38,5 @@ const router = createRouter({
     },
   ],
 });
+
 export default router;

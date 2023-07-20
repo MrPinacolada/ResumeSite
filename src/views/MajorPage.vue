@@ -21,17 +21,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from "vue";
+<script setup lang="ts">
+import { computed } from "vue";
 import { Store } from "../pinia/index";
-export default defineComponent({
-  components: {},
-  setup() {
-    let store = Store();
-    let lottieAnim = computed(() => store.MajPage);
-    return { lottieAnim };
-  },
-});
+
+const store = Store();
+const lottieAnim = computed(() => store.MajPage);
 </script>
 
 <style scoped>

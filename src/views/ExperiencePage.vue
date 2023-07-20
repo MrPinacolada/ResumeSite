@@ -30,21 +30,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from "vue";
-import Header from "../components/Header/Header.vue";
-import Footer from "../components/Footer/Footer.vue";
+<script setup lang="ts">
+import { computed } from "vue";
 import { Store } from "../pinia/index";
 
-export default defineComponent({
-  components: { Header, Footer },
-  setup() {
-    let store = Store();
-    let lottiAnim = computed(() => store.ExpPage);
-
-    return { lottiAnim };
-  },
-});
+const store = Store();
+const lottiAnim = computed(() => store.ExpPage);
 </script>
 
 <style scoped>

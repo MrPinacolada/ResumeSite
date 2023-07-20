@@ -4,35 +4,28 @@
   <Footer :ShowContact="HeaderProp" />
 </template>
 
-<script lang="ts">
-import { defineComponent, onBeforeMount, ref, watch } from "vue";
+<script setup lang="ts">
+import { onBeforeMount, ref, watch } from "vue";
 import { RouterView, useRoute } from "vue-router";
-import Footer from "./components/Footer/Footer.vue";
-import Header from "./components/Header/Header.vue";
 import { Store } from "./pinia/index";
 
-import "animate.css";
-export default defineComponent({
-  components: { Header, Footer },
+const store = Store();
+const HeaderProp = ref(false);
+const route = useRoute();
 
-  setup() {
-    let store = Store();
-    let HeaderProp = ref(false);
-    let route = useRoute();
-    let ShowContact = () => {
-      HeaderProp.value = !HeaderProp.value;
-    };
-    watch(
-      () => route.path,
-      () => {
-        HeaderProp.value = false;
-      }
-    );
-    onBeforeMount(async () => {
-      await store.fetchAllData();
-    });
-    return { ShowContact, HeaderProp };
-  },
+const ShowContact = () => {
+  HeaderProp.value = !HeaderProp.value;
+};
+
+watch(
+  () => route.path,
+  () => {
+    HeaderProp.value = false;
+  }
+);
+
+onBeforeMount(async () => {
+  await store.fetchAllData();
 });
 </script>
 

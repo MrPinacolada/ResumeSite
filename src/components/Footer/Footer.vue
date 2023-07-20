@@ -8,71 +8,37 @@
       loop
       autoplay
     ></lottie-player>
-    <div
-      class="ContactWin animate__animated animate__backInUp"
-      v-if="props.ShowContact"
-    >
-      <ul class="contactList">
-        <li>
-          <i class="fas"></i>
-          <span
-            >Email:
-            <a
-              target="_blank"
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=vasiasko112@gmail.com&su=Offer from the best company in the world"
-              >vasiasko112@gmail.com</a
-            ></span
-          >
-        </li>
-        <li>
-          <i class="fas"></i>
-          <span id="TGshare" @click="clickShare(), ShowUpCopied()"
-            >Telegram: @Nkanka44</span
-          >
-          <span class="spanCopy" :class="{ spanCopied: Copied }"></span>
-        </li>
-      </ul>
-    </div>
+    <i
+      @click="openTG()"
+      style="font-size: 2rem; color: white; cursor: pointer"
+      class="pi pi-telegram"
+    ></i>
+    <i
+      @click="openGM()"
+      style="font-size: 2rem; color: white; cursor: pointer"
+      class="pi pi-google"
+    ></i>
+    <i
+      @click="openLI()"
+      style="font-size: 2rem; color: white; cursor: pointer"
+      class="pi pi-linkedin"
+    ></i>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-
-export default defineComponent({
-  props: {
-    ShowContact: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  setup(props) {
-    let Copied = ref(false);
-    let ShowContacts = ref(false);
-    let ShowContactWin = ref(false);
-    let clickShare = () => {
-      let type = "text/plain";
-      let blob = new Blob(["@Nkanka44"], { type });
-      let data = [new ClipboardItem({ [type]: blob })];
-      navigator.clipboard.write(data);
-    };
-    let ShowUpCopied = () => {
-      Copied.value = true;
-      setTimeout(() => {
-        Copied.value = false;
-      }, 1000);
-    };
-    
-    return {
-      props,
-      Copied,
-      clickShare,
-      ShowUpCopied,
-      ShowContacts,
-      ShowContactWin,
-    };
-  },
-});
+<script setup lang="ts">
+const openTG = () => {
+  window.open("https://t.me/Nkanka44", "_blank");
+};
+const openGM = () => {
+  window.open(
+    "https://mail.google.com/mail/?view=cm&fs=1&to=vasiasko112@gmail.com&su=Offer from the best company in the world",
+    "_blank"
+  );
+};
+const openLI = () => {
+  window.open("https://www.linkedin.com/in/mr-pinacolada/", "_blank");
+};
 </script>
 
 <style scoped>
@@ -83,9 +49,10 @@ export default defineComponent({
   width: 100%;
   height: 80px;
   background-color: rgb(46, 46, 47);
-  align-items: center;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
+  padding: 30px;
+  gap: 30px;
 }
 lottie-player {
   position: absolute;
@@ -94,158 +61,25 @@ lottie-player {
   transform: scaleX(-1);
   z-index: 999;
 }
-.ContactWin {
-  display: flex;
-  background-color: rgb(242, 244, 246);
-  border: none;
-  border-radius: 7px;
-  margin-bottom: 150px;
-}
 
-.contactList {
-  list-style: none;
-  padding: 0;
-  margin: 20px;
-}
-
-.contactList li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.contactList li i {
-  margin-right: 10px;
-}
-
-.contactList li span {
-  color: #000;
-}
-
-.fas {
-  font-size: 16px;
-  margin-right: 5px;
-}
-.spanCopy {
-  display: inline-block;
-  position: absolute;
-  top: 53px;
-  left: 215px;
-  padding: 3px 6px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 10px;
-  border-radius: 4px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  cursor: pointer;
-}
-.spanCopy::after {
-  content: "Copied!";
-  display: block;
-  position: absolute;
-  top: -3px;
-  left: -2px;
-  padding: 3px 6px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 8px;
-  border-radius: 4px;
-  transition: opacity 0.3s ease-in-out;
-}
-.spanCopied {
-  opacity: 1;
-}
-#TGshare {
-  cursor: pointer;
-}
-
-a {
-  text-decoration: none;
-  cursor: context-menu;
-}
 @media only screen and (max-width: 768px) {
   .footerContainer {
-  display: flex;
-  position: fixed;
-  bottom: -40px;
-  width: 100%;
-  height: 80px;
-  background-color: rgb(46, 46, 47);
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-  z-index: 999;
-}
-lottie-player {
-  position: absolute;
-  left: -30px;
-  top: -108px;
-  transform: scaleX(-1);
-  z-index: 999;
-}
-.ContactWin {
-  display: flex;
-  background-color: rgb(242, 244, 246);
-  border: none;
-  border-radius: 7px;
-  margin-bottom: 150px;
-}
-
-.contactList {
-  list-style: none;
-  padding: 0;
-  margin: 20px;
-}
-
-.contactList li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.contactList li i {
-  margin-right: 10px;
-}
-
-.contactList li span {
-  color: #000;
-}
-
-.fas {
-  font-size: 16px;
-  margin-right: 5px;
-}
-.spanCopy {
-  display: inline-block;
-  position: absolute;
-  top: 53px;
-  left: 215px;
-  padding: 3px 6px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 10px;
-  border-radius: 4px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  cursor: pointer;
-}
-.spanCopy::after {
-  content: "Copied!";
-  display: block;
-  position: absolute;
-  top: -3px;
-  left: -2px;
-  padding: 3px 6px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 8px;
-  border-radius: 4px;
-  transition: opacity 0.3s ease-in-out;
-}
-.spanCopied {
-  opacity: 1;
-}
-
+    display: flex;
+    position: fixed;
+    bottom: -40px;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(46, 46, 47);
+    flex-direction: row;
+    justify-content: flex-end;
+    z-index: 999;
+  }
+  lottie-player {
+    position: absolute;
+    left: -30px;
+    top: -108px;
+    transform: scaleX(-1);
+    z-index: 999;
+  }
 }
 </style>
