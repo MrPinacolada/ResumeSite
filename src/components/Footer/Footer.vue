@@ -8,6 +8,7 @@
       loop
       autoplay
     ></lottie-player>
+    
     <i
       @click="openTG()"
       style="font-size: 2rem; color: white; cursor: pointer"
@@ -51,6 +52,7 @@ const openLI = () => {
   background-color: rgb(46, 46, 47);
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
   padding: 30px;
   gap: 30px;
 }
@@ -61,6 +63,7 @@ lottie-player {
   transform: scaleX(-1);
   z-index: 999;
 }
+
 
 @media only screen and (max-width: 768px) {
   .footerContainer {
