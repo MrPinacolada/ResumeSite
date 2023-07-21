@@ -3,6 +3,7 @@ import MajorPageVue from "../views/MajorPage.vue";
 import ExperiencePageVue from "../views/ExperiencePage.vue";
 import SkillsPageVue from "../views/SkillsPage.vue";
 import WorksPageVue from "../views/WorksPage.vue";
+import PortfolioPageVue from "../views/PortfolioPage.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -35,6 +36,12 @@ const router = createRouter({
       name: "Works",
       props: true,
       component: WorksPageVue,
+    },
+    {
+      path: "/PortfolioPage",
+      name: "PortfolioPage",
+      props: true,
+      component: PortfolioPageVue,
     },
   ],
 });

@@ -25,9 +25,10 @@
 <script setup lang="ts">
 import { Store } from "../pinia/index";
 import { ref, computed } from "vue";
-let store = Store();
-let lottieAnim = computed(() => store.SkillPage);
-let SkillsArr = ref([
+
+const store = Store();
+const lottieAnim = computed(() => store.SkillPage);
+const SkillsArr = ref([
   {
     img: "html.png",
     textSlide:

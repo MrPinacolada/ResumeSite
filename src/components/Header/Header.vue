@@ -38,6 +38,11 @@ let items = ref([
     icon: "pi pi-fw pi-compass",
     to: "/Experience",
   },
+  // {
+  //   label: "Portfolio!",
+  //   icon: "pi pi-fw pi-compass",
+  //   to: "/PortfolioPage",
+  // },
 ]);
 
 watch(
@@ -50,6 +55,7 @@ watch(
 
 <style scoped>
 .HeaderContainer {
+  position: relative;
   display: flex;
   height: 60px;
   background-color: var(--gray-800);
@@ -58,6 +64,7 @@ watch(
   padding-right: 30px;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 999;
 }
 .MajorHead {
   color: var(--surface-50);
