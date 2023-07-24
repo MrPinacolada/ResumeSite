@@ -26,7 +26,7 @@ let items = ref([
   {
     label: "Portfolio",
     icon: "pi pi-fw pi-briefcase",
-    to: "/Works",
+    to: "/PortfolioPage",
   },
   {
     label: "Skills",
@@ -38,11 +38,6 @@ let items = ref([
     icon: "pi pi-fw pi-compass",
     to: "/Experience",
   },
-  // {
-  //   label: "Portfolio!",
-  //   icon: "pi pi-fw pi-compass",
-  //   to: "/PortfolioPage",
-  // },
 ]);
 
 watch(
@@ -134,7 +129,7 @@ watch(
   .bunchOfLie {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 0px;
   }
   .MajorHeadBefore::before,
   .HeadP::before {
@@ -154,8 +149,20 @@ watch(
     transform: scaleX(1);
     transform-origin: right;
   }
+  :deep(.p-menuitem-link) {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 5px;
+  }
+  :deep(.p-menuitem-text) {
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    line-height: 0 !important;
+  }
+  :deep(.p-menuitem-icon) {
+    font-size: 0.7rem !important;
+  }
 }
-
 a {
   text-decoration: none;
   cursor: context-menu;

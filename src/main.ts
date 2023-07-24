@@ -6,6 +6,9 @@ import PrimeVue from "primevue/config";
 import TabMenu from 'primevue/tabmenu'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
+import Tag from 'primevue/tag'
+import Card from 'primevue/card'
+import ProgressSpinner  from 'primevue/progressspinner'
 
 import Footer from "./components/Footer/Footer.vue";
 import Header from "./components/Header/Header.vue";
@@ -35,6 +38,9 @@ app.component("Header", Header);
 app.component("TabMenu", TabMenu);
 app.component("Button", Button);
 app.component("Dialog", Dialog);
+app.component("Tag", Tag);
+app.component("Card", Card);
+app.component("ProgressSpinner", ProgressSpinner);
 
 app.mount("#app");
 export default app;

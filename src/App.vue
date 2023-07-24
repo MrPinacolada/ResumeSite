@@ -43,6 +43,16 @@ main::before {
   opacity: 0.3;
   z-index: 0;
 }
+h1,
+h2,
+h3,
+a,
+p,
+span {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
 @media only screen and (max-width: 768px) {
   body {
     overflow-y: auto;

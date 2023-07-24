@@ -1,15 +1,17 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import path from 'path';
+import path from "path";
 export default defineConfig({
-  base: '/ResumeSite',
-  plugins: [vue({
-    template: {
-      compilerOptions: {
-        isCustomElement: (tag) => ["lottie-player"].includes(tag),
+  base: "/ResumeSite",
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ["lottie-player"].includes(tag),
+        },
       },
-    },
-  })],
+    }),
+  ],
   resolve: {
     alias: [
       {
@@ -17,5 +19,10 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "src"),
       },
     ],
+  },
+  server: {
+    watch: {
+      usePolling: true,
+    },
   },
 });

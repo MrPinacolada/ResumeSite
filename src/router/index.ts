@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import MajorPageVue from "../views/MajorPage.vue";
 import ExperiencePageVue from "../views/ExperiencePage.vue";
 import SkillsPageVue from "../views/SkillsPage.vue";
-import WorksPageVue from "../views/WorksPage.vue";
 import PortfolioPageVue from "../views/PortfolioPage.vue";
 
 const router = createRouter({
@@ -30,12 +29,6 @@ const router = createRouter({
       name: "Skills",
       props: true,
       component: SkillsPageVue,
-    },
-    {
-      path: "/Works",
-      name: "Works",
-      props: true,
-      component: WorksPageVue,
     },
     {
       path: "/PortfolioPage",
