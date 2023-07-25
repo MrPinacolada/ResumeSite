@@ -19,7 +19,6 @@
     <section class="preview_right_side animate__animated animate__flipInY">
       <Card style="width: 25em; height: 27em">
         <template #header>
-          <div style="position: relative">
             <a
               :href="store.$state.mypainPortfolio_db[selectedItemindex].link"
               target="_blank"
@@ -55,8 +54,7 @@
               />
               Ваш браузер не поддерживает HTML5 видео.
             </video>
-            <ProgressSpinner style="margin-left: 40%; position: absolute; top: 0;" v-if="showSpinner" />
-          </div>
+            <ProgressSpinner style="margin-left: 40%; margin-top: -100px;" v-if="showSpinner" />
         </template>
         <template #title>{{
           store.$state.mypainPortfolio_db[selectedItemindex].title

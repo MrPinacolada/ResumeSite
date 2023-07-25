@@ -33,7 +33,7 @@ export const Store = defineStore("pinia", {
         title: "Save planet {envelop}",
         content: `One more qiute good frontend cover for a site about animal protection.
             It has not much functionality, just an envelop.`,
-        video: "/ResumeSite/src/assets/24.07.2023_18.10.43_REC.mp4",
+        video: "24.07.2023_18.10.43_REC.mp4",
         severity: "",
         tagValue: "",
         link: "https://github.com/MrPinacolada/SavePlanet",
