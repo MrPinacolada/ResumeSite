@@ -14,7 +14,7 @@ export const Store = defineStore("pinia", {
             game and a few else. I was trying to learn typescript by writting some
             simple games. It took a while but I found that experience I've got very
             useful.`,
-        video: "/ResumeSite/src/assets/24.07.2023_17.33.07_REC.mp4",
+        video: "24.07.2023_17.33.07_REC.mp4",
         severity: "info",
         tagValue: "Start of learning",
         link: "https://github.com/MrPinacolada/FirstWorks",
@@ -24,7 +24,7 @@ export const Store = defineStore("pinia", {
         content: `Just a cozy site with an amazing photo-slider and a bit of userbar
             functionality. Supposed to be as a site with lots of topics about sport
             activities.`,
-        video: "/ResumeSite/src/assets/24.07.2023_17.45.15_REC.mp4",
+        video: "24.07.2023_17.45.15_REC.mp4",
         severity: "",
         tagValue: "",
         link: "https://github.com/MrPinacolada/SavePlanet",
@@ -45,7 +45,7 @@ export const Store = defineStore("pinia", {
             authentication and uploading images, several functions hosted on
             firebase as well. Also, it takes data by API requests in order to
             populate modules.`,
-        video: "/ResumeSite/src/assets/24.07.2023_18.17.17_REC.mp4",
+        video: "24.07.2023_18.17.17_REC.mp4",
         severity: "info",
         tagValue: "With backend",
         link: "https://github.com/MrPinacolada/Raptor_News",
@@ -54,7 +54,7 @@ export const Store = defineStore("pinia", {
         title: "Emotional notebook {personal site}",
         content: `Meant to be useful source to write your thoughts, feels and emotions.`,
 
-        video: "/ResumeSite/src/assets/24.07.2023_18.21.09_REC.mp4",
+        video: "24.07.2023_18.21.09_REC.mp4",
         severity: "danger",
         tagValue: "Ongoing",
         link: "https://github.com/MrPinacolada/EmotionalNotebook",
