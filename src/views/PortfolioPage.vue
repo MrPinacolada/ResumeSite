@@ -17,13 +17,14 @@
       </div>
     </section>
     <section class="preview_right_side animate__animated animate__flipInY">
-      <Card style="width: 25em; height: 27em;">
+      <Card style="width: 25em; height: 27em">
         <template #header>
-          <a
-            :href="store.$state.mypainPortfolio_db[selectedItemindex].link"
-            target="_blank"
-          ></a>
-          <!-- <img
+          <div style="position: relative">
+            <a
+              :href="store.$state.mypainPortfolio_db[selectedItemindex].link"
+              target="_blank"
+            ></a>
+            <!-- <img
             v-if="store.$state.mypainPortfolio_db[selectedItemindex].img"
             style="
               max-width: 100%;
@@ -35,26 +36,27 @@
             alt="img should be right back"
             :src="store.$state.mypainPortfolio_db[selectedItemindex].img"
           /> -->
-          <video
-            ref="videoPlayer"
-            style="
-              max-width: 100%;
-              border-top-left-radius: 10px;
-              border-top-right-radius: 10px;
-            "
-            @loadeddata="onDataLoad"
-            autoplay
-            loop
-            muted
-            controls
-          >
-            <source
-              :src="store.$state.mypainPortfolio_db[selectedItemindex].video"
-              type="video/mp4"
-            />
-            Ваш браузер не поддерживает HTML5 видео.
-          </video>
-          <ProgressSpinner style="margin-left: 40%" v-if="showSpinner" />
+            <video
+              ref="videoPlayer"
+              style="
+                max-width: 100%;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+              "
+              @loadeddata="onDataLoad"
+              autoplay
+              loop
+              muted
+              controls
+            >
+              <source
+                :src="store.$state.mypainPortfolio_db[selectedItemindex].video"
+                type="video/mp4"
+              />
+              Ваш браузер не поддерживает HTML5 видео.
+            </video>
+            <ProgressSpinner style="margin-left: 40%; position: absolute; top: 0;" v-if="showSpinner" />
+          </div>
         </template>
         <template #title>{{
           store.$state.mypainPortfolio_db[selectedItemindex].title
