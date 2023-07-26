@@ -58,5 +58,8 @@ span {
     overflow-y: auto;
     overflow-x: auto;
   }
+  main::before {
+  height: 100ch;
+}
 }
 </style>

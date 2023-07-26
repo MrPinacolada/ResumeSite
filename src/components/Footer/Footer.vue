@@ -69,12 +69,7 @@ lottie-player {
   .footerContainer {
     display: flex;
     position: fixed;
-    bottom: -40px;
-    width: 100%;
-    height: 80px;
-    background-color: rgb(46, 46, 47);
-    flex-direction: row;
-    justify-content: flex-end;
+    height: 40px;
     z-index: 999;
   }
   lottie-player {

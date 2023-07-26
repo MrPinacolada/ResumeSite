@@ -120,6 +120,8 @@ const SkillsArr = ref([
   border-radius: 15px;
   z-index: 11;
   padding: 5px;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+
 }
 .disCard > p {
   font-size: 0.64em;
@@ -159,6 +161,7 @@ const SkillsArr = ref([
   border: none;
   border-radius: 15px;
   background-color: rgb(242, 244, 246);
+  
   animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 img {

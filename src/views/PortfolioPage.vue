@@ -17,44 +17,35 @@
       </div>
     </section>
     <section class="preview_right_side animate__animated animate__flipInY">
-      <Card style="width: 25em; height: 27em">
+      <Card>
         <template #header>
-            <a
-              :href="store.$state.mypainPortfolio_db[selectedItemindex].link"
-              target="_blank"
-            ></a>
-            <!-- <img
-            v-if="store.$state.mypainPortfolio_db[selectedItemindex].img"
+          <a
+            :href="store.$state.mypainPortfolio_db[selectedItemindex].link"
+            target="_blank"
+          ></a>
+          <video
+            ref="videoPlayer"
             style="
               max-width: 100%;
               border-top-left-radius: 10px;
               border-top-right-radius: 10px;
             "
-            loading="lazy"
-            @load="onDataLoad"
-            alt="img should be right back"
-            :src="store.$state.mypainPortfolio_db[selectedItemindex].img"
-          /> -->
-            <video
-              ref="videoPlayer"
-              style="
-                max-width: 100%;
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-              "
-              @loadeddata="onDataLoad"
-              autoplay
-              loop
-              muted
-              controls
-            >
-              <source
-                :src="store.$state.mypainPortfolio_db[selectedItemindex].video"
-                type="video/mp4"
-              />
-              Ваш браузер не поддерживает HTML5 видео.
-            </video>
-            <ProgressSpinner style="margin-left: 40%; margin-top: -100px;" v-if="showSpinner" />
+            @loadeddata="onDataLoad"
+            autoplay
+            loop
+            muted
+            controls
+          >
+            <source
+              :src="store.$state.mypainPortfolio_db[selectedItemindex].video"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает HTML5 видео.
+          </video>
+          <ProgressSpinner
+            style="margin-left: 40%; margin-top: -100px"
+            v-if="showSpinner"
+          />
         </template>
         <template #title>{{
           store.$state.mypainPortfolio_db[selectedItemindex].title
@@ -86,9 +77,10 @@ const onDataLoad = () => {
 };
 
 const selectItem = (index: number) => {
-  document
-    .querySelector(".preview_right_side")
-    ?.classList.remove("animate__flipInY");
+  let workCardInView: HTMLElement | null = document.querySelector(
+    ".preview_right_side"
+  );
+  workCardInView?.classList.remove("animate__flipInY");
   setTimeout(() => {
     selectedItemindex.value = index;
     if (videoPlayer.value) {
@@ -100,6 +92,9 @@ const selectItem = (index: number) => {
       .querySelector(".preview_right_side")
       ?.classList.add("animate__flipInY");
   }, 100);
+  if (window.innerWidth <= 768) {
+    workCardInView?.scrollIntoView({ behavior: "smooth" });
+  }
 };
 </script>
 
@@ -184,5 +179,35 @@ a {
   width: 100%;
   height: 100%;
   top: 0;
+}
+
+:deep(.p-card) {
+  width: 25em;
+  height: 27em;
+}
+@media only screen and (max-width: 768px) {
+  .work_boxes_wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 30%;
+  }
+  .boxes_left_side {
+    display: grid;
+    gap: 10px;
+    margin-left: 20px;
+  }
+  .boxes_left_side .wokr_box {
+    width: 90%;
+    max-height: 20px;
+    font-size: 0.7em;
+  }
+  :deep(.p-card) {
+    width: 20rem;
+    height: 25rem;
+    font-size: 0.8em;
+  }
+  :deep(.p-tag-value) {
+    font-size: 0.85em;
+  }
 }
 </style>
