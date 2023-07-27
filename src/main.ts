@@ -3,12 +3,14 @@ import App from "./App.vue";
 import router from "./router";
 import { createPinia } from "pinia";
 import PrimeVue from "primevue/config";
-import TabMenu from 'primevue/tabmenu'
-import Button from 'primevue/button'
-import Dialog from 'primevue/dialog'
-import Tag from 'primevue/tag'
-import Card from 'primevue/card'
-import ProgressSpinner  from 'primevue/progressspinner'
+import TabMenu from "primevue/tabmenu";
+import Button from "primevue/button";
+import Dialog from "primevue/dialog";
+import Tag from "primevue/tag";
+import Card from "primevue/card";
+import ProgressSpinner from "primevue/progressspinner";
+import Toolbar from "primevue/toolbar";
+import Tooltip from 'primevue/tooltip';
 
 import Footer from "./components/Footer/Footer.vue";
 import Header from "./components/Header/Header.vue";
@@ -32,6 +34,7 @@ app.use(PrimeVue, {
 });
 app.use(createPinia());
 app.use(router);
+app.directive('tooltip', Tooltip);
 
 app.component("Footer", Footer);
 app.component("Header", Header);
@@ -41,6 +44,7 @@ app.component("Dialog", Dialog);
 app.component("Tag", Tag);
 app.component("Card", Card);
 app.component("ProgressSpinner", ProgressSpinner);
+app.component("Toolbar", Toolbar);
 
 app.mount("#app");
 export default app;

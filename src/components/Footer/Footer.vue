@@ -8,7 +8,22 @@
       loop
       autoplay
     ></lottie-player>
-    
+    <Toolbar style="height: 60px; font-size: 0.9em; margin-right: 50px">
+      <template #start>
+        <span><b>docker </b>pull mrpinacolada/resumesite:latest</span>
+      </template>
+      <template #end>
+        <i
+          @click="copyCode()"
+          style="font-size: 1em; cursor: pointer"
+          class="pi pi-copy"
+          v-tooltip.top="{
+            value: 'Copy Code',
+            class: 'custom-tooltip',
+          }"
+        ></i>
+      </template>
+    </Toolbar>
     <i
       @click="openTG()"
       style="font-size: 2rem; color: white; cursor: pointer"
@@ -40,6 +55,10 @@ const openGM = () => {
 const openLI = () => {
   window.open("https://www.linkedin.com/in/mr-pinacolada/", "_blank");
 };
+
+const copyCode = () => {
+  navigator.clipboard.writeText("pull mrpinacolada/resumesite:latest");
+};
 </script>
 
 <style scoped>
@@ -64,6 +83,9 @@ lottie-player {
   z-index: 999;
 }
 
+:deep(.p-toolbar) {
+  align-content: center;
+}
 
 @media only screen and (max-width: 768px) {
   .footerContainer {
@@ -78,6 +100,9 @@ lottie-player {
     top: -108px;
     transform: scaleX(-1);
     z-index: 999;
+  }
+  :deep(.p-toolbar) {
+    display: none;
   }
 }
 </style>

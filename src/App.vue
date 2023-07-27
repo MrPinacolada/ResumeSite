@@ -53,13 +53,19 @@ span {
   margin: 0;
   padding: 0;
 }
+.custom-tooltip .p-tooltip-text {
+  font-size: 0.7em !important;
+  padding: 5px !important;
+}
 @media only screen and (max-width: 768px) {
   body {
     overflow-y: auto;
     overflow-x: auto;
   }
   main::before {
-  height: 100ch;
-}
+    height: 100ch;
+  }
+  
+  
 }
 </style>
