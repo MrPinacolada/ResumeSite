@@ -1,5 +1,5 @@
 <template>
-  <div class="HeaderContainer animate__animated animate__slideInDown">
+  <header class="HeaderContainer animate__animated animate__slideInDown">
     <RouterLink :to="{ name: 'Home' }">
       <span
         class="MajorHead"
@@ -10,7 +10,7 @@
     <div class="bunchOfLie">
       <TabMenu v-model:activeIndex="active" :model="items" />
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">

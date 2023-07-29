@@ -8,7 +8,8 @@
         All the companies throughout my career until I turned 26 were located in
         Moscow, and I was always busy working on huge engineering projects.
         <br />
-        Nowadays, I've become a front-end developer, which took more than a year.
+        Nowadays, I've become a front-end developer, which took more than a
+        year.
         <br />
         I'm very creativ, 'always-make-some-fun' man and curious as heck.
         <br />
@@ -16,7 +17,7 @@
         end of August.
       </p>
     </div>
-
+    <div id="asdadadsd"></div>
     <lottie-player
       class="animate__animated animate__flipInX"
       :src="lottiAnim"
@@ -31,11 +32,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed} from "vue";
 import { Store } from "../pinia/index";
 
 const store = Store();
 const lottiAnim = computed(() => store.ExpPage);
+
 </script>
 
 <style scoped>

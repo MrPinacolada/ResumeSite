@@ -60,8 +60,9 @@ h1 {
     justify-items: center;
   }
   h1 {
+    text-align: center;
     align-self: center;
-    margin-left: 20%;
+    margin-left: 0%;
     margin-bottom: 7%;
     cursor: context-menu;
     position: relative;
@@ -71,7 +72,7 @@ h1 {
     content: "{Bob for short}";
     font-size: 0.3em;
     position: absolute;
-    left: 40%;
+    left: 55%;
     top: 28%;
   }
   lottie-player {

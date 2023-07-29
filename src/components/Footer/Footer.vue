@@ -1,5 +1,5 @@
 <template>
-  <div class="footerContainer animate__animated animate__slideInUp">
+  <footer class="footerContainer animate__animated animate__slideInUp">
     <lottie-player
       src="https://assets2.lottiefiles.com/packages/lf20_OT15QW.json"
       background="transparent"
@@ -39,7 +39,7 @@
       style="font-size: 2rem; color: white; cursor: pointer"
       class="pi pi-linkedin"
     ></i>
-  </div>
+  </footer>
 </template>
 
 <script setup lang="ts">
