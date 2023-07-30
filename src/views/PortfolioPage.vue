@@ -43,7 +43,7 @@
             Ваш браузер не поддерживает HTML5 видео.
           </video>
           <ProgressSpinner
-            style="margin-left: 40%; margin-top: -100px"
+            style="margin-left: 36%; margin-top: 30%"
             v-if="showSpinner"
           />
         </template>
@@ -70,10 +70,12 @@ const selectedItemindex = ref<number>(0);
 const showSpinner = ref<boolean>(true);
 const videoPlayer = ref<HTMLVideoElement | null>(null);
 const onDataLoad = () => {
-  showSpinner.value = false;
   if (videoPlayer.value) {
     videoPlayer.value.play();
   }
+  setTimeout(() => {
+    showSpinner.value = false;
+  }, 1000);
 };
 
 const selectItem = (index: number) => {
