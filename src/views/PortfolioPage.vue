@@ -23,29 +23,31 @@
             :href="store.$state.mypainPortfolio_db[selectedItemindex].link"
             target="_blank"
           ></a>
-          <video
-            ref="videoPlayer"
-            style="
-              max-width: 100%;
-              border-top-left-radius: 10px;
-              border-top-right-radius: 10px;
-            "
-            @loadeddata="onDataLoad"
-            autoplay
-            loop
-            muted
-            controls
-          >
-            <source
-              :src="store.$state.mypainPortfolio_db[selectedItemindex].video"
-              type="video/mp4"
+          <div class="video-wrapper" style="position: relative">
+            <video
+              ref="videoPlayer"
+              style="
+                max-width: 100%;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+              "
+              @loadeddata="onDataLoad"
+              autoplay
+              loop
+              muted
+              controls
+            >
+              <source
+                :src="store.$state.mypainPortfolio_db[selectedItemindex].video"
+                type="video/mp4"
+              />
+              Ваш браузер не поддерживает HTML5 видео.
+            </video>
+            <ProgressSpinner
+              style="position: absolute; left: 35%; top: 10%"
+              v-if="showSpinner"
             />
-            Ваш браузер не поддерживает HTML5 видео.
-          </video>
-          <ProgressSpinner
-            style="margin-left: 36%; margin-top: 30%"
-            v-if="showSpinner"
-          />
+          </div>
         </template>
         <template #title>{{
           store.$state.mypainPortfolio_db[selectedItemindex].title
@@ -61,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref} from "vue";
 import { Store } from "../pinia/index";
 
 const store = Store();

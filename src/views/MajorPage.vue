@@ -6,7 +6,7 @@
     <div class="bodyContainer">
       <h1>
         Hi! I'm <span class="name">Vasilii</span>. <br />
-        I'm a beginer frontend developer.
+        I'm a ninja frontend developer.
       </h1>
       <lottie-player
         :src="lottieAnim"
@@ -44,12 +44,15 @@ h1 {
   cursor: context-menu;
   position: relative;
 }
+.name{
+  position: relative;
+}
 .name::after {
   content: "{Bob for short}";
   font-size: 0.3em;
   position: absolute;
-  left: 29%;
-  top: 28%;
+  left: 20%;
+  top: 80%;
 }
 @media only screen and (max-width: 768px) {
   .MajorPageContainer {
@@ -72,8 +75,8 @@ h1 {
     content: "{Bob for short}";
     font-size: 0.3em;
     position: absolute;
-    left: 55%;
-    top: 28%;
+    left: 20%;
+    top: 80%;
   }
   lottie-player {
     width: 80% !important;
