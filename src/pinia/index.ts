@@ -17,7 +17,7 @@ export const Store = defineStore("pinia", {
         video: "24.07.2023_17.33.07_REC.mp4",
         severity: "info",
         tagValue: "Start of learning",
-        link: "https://github.com/MrPinacolada/FirstWorks",
+        link: "/PortfolioPage/tankgame",
       },
       {
         title: "Summer sports {envelop}",

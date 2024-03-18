@@ -16,13 +16,16 @@
         ></Tag>
       </div>
     </section>
-    <section class="preview_right_side animate__animated animate__flipInY">
+    <section
+      class="preview_right_side animate__animated animate__flipInY"
+      @click="openItem(store.$state.mypainPortfolio_db[selectedItemindex].link)"
+    >
       <Card>
         <template #header>
-          <a
+          <!-- <a
             :href="store.$state.mypainPortfolio_db[selectedItemindex].link"
             target="_blank"
-          ></a>
+          ></a> -->
           <div class="video-wrapper" style="position: relative">
             <video
               ref="videoPlayer"
@@ -63,10 +66,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref} from "vue";
+import { ref } from "vue";
 import { Store } from "../pinia/index";
+import { useRouter } from "vue-router";
 
 const store = Store();
+const router = useRouter();
 
 const selectedItemindex = ref<number>(0);
 const showSpinner = ref<boolean>(true);
@@ -78,6 +83,10 @@ const onDataLoad = () => {
   setTimeout(() => {
     showSpinner.value = false;
   }, 1000);
+};
+
+const openItem = (path: string) => {
+  router.push(path);
 };
 
 const selectItem = (index: number) => {

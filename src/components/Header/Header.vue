@@ -59,11 +59,11 @@ watch(
   padding-right: 30px;
   flex-direction: row;
   justify-content: space-between;
-  z-index: 999;
+  z-index: 9;
 }
 .MajorHead {
   color: var(--surface-50);
-  z-index: 10;
+  z-index: 9;
   position: relative;
   display: inline-block;
 }
@@ -71,13 +71,15 @@ watch(
 .HeadP {
   color: rgb(216, 216, 216);
   cursor: pointer;
-  z-index: 10;
+  z-index: 9;
   position: relative;
   display: inline-block;
 }
 .bunchOfLie {
   display: flex;
   gap: 70px;
+  z-index: 9;
+
 }
 .MajorHeadBefore::before,
 .HeadP::before {
