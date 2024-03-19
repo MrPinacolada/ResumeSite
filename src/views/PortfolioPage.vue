@@ -19,7 +19,7 @@
     </section>
     <section
       class="preview_right_side animate__animated animate__flipInY"
-      @click="openItem(store.$state.mypainPortfolio_db[selectedItemindex].link)"
+      @click="openItem(store.$state.mypainPortfolio_db[selectedItemindex])"
     >
       <Card>
         <template #header>
@@ -82,8 +82,12 @@ const onDataLoad = () => {
   }, 1000);
 };
 
-const openItem = (path: string) => {
-  router.push(path);
+const openItem = (item: { link: string; isSameOrigin: boolean }) => {
+  if (item.isSameOrigin) {
+    router.push(item.link);
+    return;
+  }
+  window.open(item.link, "_blank");
 };
 
 const selectItem = (index: number) => {
