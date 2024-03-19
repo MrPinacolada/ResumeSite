@@ -1,27 +1,68 @@
 <template>
-  <Header />
-  <main>
-    <RouterView />
-    
-  </main>
-  <Footer />
+  <customLoader v-if="loader" :isFetchError="isFetchError" />
+  <div v-show="!loader">
+    <Header />
+    <main>
+      <RouterView />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount } from "vue";
+import { onBeforeMount, ref } from "vue";
 import { RouterView } from "vue-router";
 import { Store } from "./pinia/index";
+import customLoader from "./components/Loader/customLoader.vue";
 
 const store = Store();
+const loader = ref(true);
+const isFetchError = ref(false);
 
-onBeforeMount(async () => {
-  await store.fetchAllData();
+const loadAnims = async () => {
+  try {
+    const res = await store.fetchAllData();
+    if (!res) {
+      isFetchError.value = true;
+      return;
+    }
+    setTimeout(() => {
+      loader.value = false;
+    }, 3000);
+  } catch (error) {}
+};
+
+onBeforeMount(() => {
+  loadAnims();
 });
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
-
+:root {
+  --white: #ffffff;
+  --turquoise: #3dbaba;
+  --powder-blue: #87aeaf;
+  --alice-blue: #d7eff7;
+  --anti-flash-white: #f6f9fd;
+  --oxford-blue: #011529;
+  --aquamarine: #7fffd4;
+  --payne-gray: #607080;
+  --prussian-blue: #082e47;
+  --rich-black: #03101c;
+  --brand: var(--turquoise);
+  --fg: var(--oxford-blue);
+  --fg-1: var(--rich-black);
+  --fg-2: var(--prussian-blue);
+  --dark: var(--oxford-blue);
+  --light: var(--white);
+  --bg: var(--white);
+  --bg-1: var(--alice-blue);
+  --bg-2: var(--anti-flash-white);
+  --neutral: var(--powder-blue);
+  --tone-1: var(--turquoise);
+  --tone-2: var(--aquamarine);
+}
 body {
   padding: 0;
   margin: 0;
@@ -66,7 +107,5 @@ span {
   main::before {
     height: 100ch;
   }
-  
-  
 }
 </style>

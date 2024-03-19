@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
-import video1 from '../assets/portfolio_videos/24.07.2023_17.33.07_REC.mp4'
-import video2 from '../assets/portfolio_videos/24.07.2023_17.45.15_REC.mp4'
-import video3 from '../assets/portfolio_videos/24.07.2023_18.10.43_REC.mp4'
-import video4 from '../assets/portfolio_videos/24.07.2023_18.17.17_REC.mp4'
-import video5 from '../assets/portfolio_videos/24.07.2023_18.21.09_REC.mp4'
+import video1 from "../assets/portfolio_videos/24.07.2023_17.33.07_REC.mp4";
+import video2 from "../assets/portfolio_videos/24.07.2023_17.45.15_REC.mp4";
+import video3 from "../assets/portfolio_videos/24.07.2023_18.10.43_REC.mp4";
+import video4 from "../assets/portfolio_videos/24.07.2023_18.17.17_REC.mp4";
+import video5 from "../assets/portfolio_videos/24.07.2023_18.21.09_REC.mp4";
+import err_json from "../assets/err_json.json";
 
 export const Store = defineStore("pinia", {
   state: () => ({
@@ -20,7 +21,8 @@ export const Store = defineStore("pinia", {
             useful.`,
         video: video1,
         severity: "info",
-        tagValue: "Start of learning",
+        tagValue: "Some games",
+        isSameOrigin: true,
         link: "/PortfolioPage/tankgame",
       },
       {
@@ -31,7 +33,8 @@ export const Store = defineStore("pinia", {
         video: video2,
         severity: "",
         tagValue: "",
-        link: "https://github.com/MrPinacolada/SavePlanet",
+        isSameOrigin: false,
+        link: "https://mrpinacolada.github.io/SavePlanet/",
       },
       {
         title: "Save planet {envelop}",
@@ -40,7 +43,8 @@ export const Store = defineStore("pinia", {
         video: video3,
         severity: "",
         tagValue: "",
-        link: "https://github.com/MrPinacolada/SavePlanet",
+        isSameOrigin: false,
+        link: "https://mrpinacolada.github.io/SavePlanet/",
       },
       {
         title: "Raptor news {news site}",
@@ -52,7 +56,8 @@ export const Store = defineStore("pinia", {
         video: video4,
         severity: "info",
         tagValue: "With backend",
-        link: "https://github.com/MrPinacolada/Raptor_News",
+        isSameOrigin: false,
+        link: "https://mrpinacolada.github.io/Raptor_News/",
       },
       {
         title: "Emotional notebook {personal site}",
@@ -60,7 +65,8 @@ export const Store = defineStore("pinia", {
 
         video: video5,
         severity: "danger",
-        tagValue: "Ongoing",
+        tagValue: "Ongoing / rebase to React Native",
+        isSameOrigin: false,
         link: "https://github.com/MrPinacolada/EmotionalNotebook",
       },
       // {
@@ -82,7 +88,7 @@ export const Store = defineStore("pinia", {
           const json = await response.json();
           return json;
         } else {
-          throw new Error("Ошибка загрузки JSON");
+          return err_json;
         }
       } catch (error) {
         console.error("Ошибка: ", error);
@@ -90,18 +96,24 @@ export const Store = defineStore("pinia", {
       }
     },
     async fetchAllData() {
-      this.MajPage = await this.fetchData(
-        "https://assets8.lottiefiles.com/packages/lf20_ioJYvK.json"
-      );
-      this.ExpPage = await this.fetchData(
-        "https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json"
-      );
-      this.SkillPage = await this.fetchData(
-        "https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json"
-      );
-      this.WorksPage = await this.fetchData(
-        "https://assets3.lottiefiles.com/packages/lf20_jhaabiai.json"
-      );
+      try {
+        this.MajPage = await this.fetchData(
+          "https://assets8.lottiefiles.com/packages/lf20_ioJYvK.json"
+        );
+        this.ExpPage = await this.fetchData(
+          "https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json"
+        );
+        this.SkillPage = await this.fetchData(
+          "https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json"
+        );
+        this.WorksPage = await this.fetchData(
+          "https://assets3.lottiefiles.com/packages/lf20_jhaabiai.json"
+        );
+        return true;
+      } catch (error) {
+        console.error("Ошибка при загрузке данных:", error);
+        return false;
+      }
     },
   },
 });

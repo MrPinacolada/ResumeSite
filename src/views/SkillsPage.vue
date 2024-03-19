@@ -25,25 +25,25 @@
 <script setup lang="ts">
 import { Store } from "../pinia/index";
 import { ref, computed } from "vue";
-import icon1 from '../assets/skillset/html.png'
-import icon2 from '../assets/skillset/typescript.png'
-import icon3 from '../assets/skillset/css-3.png'
-import icon4 from '../assets/skillset/icons8-vue-js-144.png'
-import icon5 from '../assets/skillset/Vite.js.png'
-import icon6 from '../assets/skillset/file_type_tailwind_icon_130128.svg'
-import icon7 from '../assets/skillset/pugjs_logo_icon_170825.png'
-import icon8 from '../assets/skillset/1175544_firebase_google_icon.png'
-import icon9 from '../assets/skillset/pinia-seeklogo.com.svg'
-import icon10 from '../assets/skillset/api.png'
+import icon1 from "../assets/skillset/nuxt-svgrepo-com.svg";
+import icon2 from "../assets/skillset/typescript.png";
+import icon3 from "../assets/skillset/sass-1.svg";
+import icon4 from "../assets/skillset/icons8-vue-js-144.png";
+import icon5 from "../assets/skillset/Vite.js.png";
+import icon6 from "../assets/skillset/file_type_tailwind_icon_130128.svg";
+import icon7 from "../assets/skillset/pugjs_logo_icon_170825.png";
+import icon8 from "../assets/skillset/1175544_firebase_google_icon.png";
+import icon9 from "../assets/skillset/pinia-seeklogo.com.svg";
+import icon10 from "../assets/skillset/api.png";
 
 const store = Store();
 const lottieAnim = computed(() => store.SkillPage);
 const SkillsArr = ref([
   {
     img: icon1,
-    textSlide:
-      "Standard markup language for documents designed to be displayed in a web browser.",
-    text: "HTML 5",
+    textSlide: `Framework that makes web development intuitive and powerful.
+Create production-grade full-stack web apps and websites.`,
+    text: "Nuxt 3",
   },
   {
     img: icon2,
@@ -55,7 +55,7 @@ const SkillsArr = ref([
     img: icon3,
     textSlide:
       "Language used for describing the presentation of a document written in a markup language such as HTML or XML.",
-    text: "Css",
+    text: "Sass",
   },
   {
     img: icon4,
@@ -131,7 +131,6 @@ const SkillsArr = ref([
   z-index: 11;
   padding: 5px;
   transition: transform 0.4s ease, opacity 0.3s ease;
-
 }
 .disCard > p {
   font-size: 0.64em;
@@ -171,7 +170,7 @@ const SkillsArr = ref([
   border: none;
   border-radius: 15px;
   background-color: rgb(242, 244, 246);
-  
+
   animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 img {
