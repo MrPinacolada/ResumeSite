@@ -25,64 +25,74 @@
 <script setup lang="ts">
 import { Store } from "../pinia/index";
 import { ref, computed } from "vue";
+import icon1 from '../assets/skillset/html.png'
+import icon2 from '../assets/skillset/typescript.png'
+import icon3 from '../assets/skillset/css-3.png'
+import icon4 from '../assets/skillset/icons8-vue-js-144.png'
+import icon5 from '../assets/skillset/Vite.js.png'
+import icon6 from '../assets/skillset/file_type_tailwind_icon_130128.svg'
+import icon7 from '../assets/skillset/pugjs_logo_icon_170825.png'
+import icon8 from '../assets/skillset/1175544_firebase_google_icon.png'
+import icon9 from '../assets/skillset/pinia-seeklogo.com.svg'
+import icon10 from '../assets/skillset/api.png'
 
 const store = Store();
 const lottieAnim = computed(() => store.SkillPage);
 const SkillsArr = ref([
   {
-    img: "html.png",
+    img: icon1,
     textSlide:
       "Standard markup language for documents designed to be displayed in a web browser.",
     text: "HTML 5",
   },
   {
-    img: "typescript.png",
+    img: icon2,
     textSlide:
       "High-level programming language that adds static typing with optional type annotations to JavaScript.",
     text: "TypeScript",
   },
   {
-    img: "css-3.png",
+    img: icon3,
     textSlide:
       "Language used for describing the presentation of a document written in a markup language such as HTML or XML.",
     text: "Css",
   },
   {
-    img: "icons8-vue-js-144.png",
+    img: icon4,
     textSlide:
       "Front end JavaScript framework for building user interfaces and single-page applications.",
     text: "Vue 3",
   },
   {
-    img: "Vite.js.png",
+    img: icon5,
     textSlide:
       "Local development server which used by default by the Vue project templates.",
     text: "Vite",
   },
   {
-    img: "file_type_tailwind_icon_130128.svg",
+    img: icon6,
     textSlide: "Open source CSS framework. ",
     text: "Tailwind",
   },
   {
-    img: "pugjs_logo_icon_170825.png",
+    img: icon7,
     textSlide: "Compiler and interpreter for the Raku programming language.",
     text: "Pugjs",
   },
   {
-    img: "1175544_firebase_google_icon.png",
+    img: icon8,
     textSlide:
       "Set of backend cloud computing services and application development platforms provided by Google.",
     text: "Firebase",
   },
   {
-    img: "pinia-seeklogo.com.svg",
+    img: icon9,
     textSlide:
       "Pinia is a store library and state management framework for Vue.js.",
     text: "Pinia",
   },
   {
-    img: "api.png",
+    img: icon10,
     textSlide:
       "Application programming interface is a way for two or more computer programs to communicate with each other.",
     text: "REST API",

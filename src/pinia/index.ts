@@ -1,5 +1,9 @@
 import { defineStore } from "pinia";
-
+import video1 from '../assets/portfolio_videos/24.07.2023_17.33.07_REC.mp4'
+import video2 from '../assets/portfolio_videos/24.07.2023_17.45.15_REC.mp4'
+import video3 from '../assets/portfolio_videos/24.07.2023_18.10.43_REC.mp4'
+import video4 from '../assets/portfolio_videos/24.07.2023_18.17.17_REC.mp4'
+import video5 from '../assets/portfolio_videos/24.07.2023_18.21.09_REC.mp4'
 
 export const Store = defineStore("pinia", {
   state: () => ({
@@ -14,7 +18,7 @@ export const Store = defineStore("pinia", {
             game and a few else. I was trying to learn typescript by writting some
             simple games. It took a while but I found that experience I've got very
             useful.`,
-        video: "24.07.2023_17.33.07_REC.mp4",
+        video: video1,
         severity: "info",
         tagValue: "Start of learning",
         link: "/PortfolioPage/tankgame",
@@ -24,7 +28,7 @@ export const Store = defineStore("pinia", {
         content: `Just a cozy site with an amazing photo-slider and a bit of userbar
             functionality. Supposed to be as a site with lots of topics about sport
             activities.`,
-        video: "24.07.2023_17.45.15_REC.mp4",
+        video: video2,
         severity: "",
         tagValue: "",
         link: "https://github.com/MrPinacolada/SavePlanet",
@@ -33,7 +37,7 @@ export const Store = defineStore("pinia", {
         title: "Save planet {envelop}",
         content: `One more qiute good frontend cover for a site about animal protection.
             It has not much functionality, just an envelop.`,
-        video: "24.07.2023_18.10.43_REC.mp4",
+        video: video3,
         severity: "",
         tagValue: "",
         link: "https://github.com/MrPinacolada/SavePlanet",
@@ -45,7 +49,7 @@ export const Store = defineStore("pinia", {
             authentication and uploading images, several functions hosted on
             firebase as well. Also, it takes data by API requests in order to
             populate modules.`,
-        video: "24.07.2023_18.17.17_REC.mp4",
+        video: video4,
         severity: "info",
         tagValue: "With backend",
         link: "https://github.com/MrPinacolada/Raptor_News",
@@ -54,7 +58,7 @@ export const Store = defineStore("pinia", {
         title: "Emotional notebook {personal site}",
         content: `Meant to be useful source to write your thoughts, feels and emotions.`,
 
-        video: "24.07.2023_18.21.09_REC.mp4",
+        video: video5,
         severity: "danger",
         tagValue: "Ongoing",
         link: "https://github.com/MrPinacolada/EmotionalNotebook",
