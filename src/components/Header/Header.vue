@@ -8,7 +8,8 @@
       >
     </RouterLink>
     <div class="bunchOfLie">
-      <TabMenu v-model:activeIndex="active" :model="items" />
+      <TabMenu
+       v-model:activeIndex="active" :model="items" />
     </div>
   </header>
 </template>
@@ -48,7 +49,7 @@ watch(
 );
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .HeaderContainer {
   position: relative;
   display: flex;
@@ -79,7 +80,6 @@ watch(
   display: flex;
   gap: 70px;
   z-index: 9;
-
 }
 .MajorHeadBefore::before,
 .HeadP::before {
@@ -174,6 +174,9 @@ a {
   border: none !important;
 }
 :deep(.p-tabmenuitem .p-menuitem-link) {
+  &:focus {
+    box-shadow: none !important;
+  }
   background-color: var(--gray-800) !important;
   color: var(--surface-50) !important;
 }
