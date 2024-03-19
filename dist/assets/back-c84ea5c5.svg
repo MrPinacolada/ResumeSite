@@ -1,0 +1,533 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    style="margin:auto;background:#f1f2f3;display:block;z-index:1;position:relative" width="1084"
+    height="322" preserveAspectRatio="xMidYMid" viewBox="0 0 1084 322">
+    <defs>
+        <pattern id="pid-0.8312198735984857" x="0" y="0" width="128" height="128"
+            patternUnits="userSpaceOnUse">
+            <g transform="scale(0.5)">
+                <g style="font-family:courier new;font-size:19.692307692307693">
+                    <g transform="translate(0 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.526867755210257s">コ</text>
+                    </g>
+                    <g transform="translate(0 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.4185253933467687s">ム</text>
+                    </g>
+                    <g transform="translate(0 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.31018303148328s">２</text>
+                    </g>
+                    <g transform="translate(0 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.201840669619792s">５</text>
+                    </g>
+                    <g transform="translate(0 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.093498307756303s">キ</text>
+                    </g>
+                    <g transform="translate(0 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9851559458928143s">Ｊ</text>
+                    </g>
+                    <g transform="translate(0 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.8768135840293259s">サ</text>
+                    </g>
+                    <g transform="translate(0 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.768471222165837s">ニ</text>
+                    </g>
+                    <g transform="translate(0 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6601288603023485s">カ</text>
+                    </g>
+                    <g transform="translate(0 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5517864984388599s">Ｏ</text>
+                    </g>
+                    <g transform="translate(0 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4434441365753714s">ヲ</text>
+                    </g>
+                    <g transform="translate(0 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3351017747118827s">ノ</text>
+                    </g>
+                    <g transform="translate(0 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.2267594128483938s">Ｎ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9308581586737619s">キ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.8225157968102732s">ニ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.7141734349467848s">ム</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6058310730832959s">Ｚ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4974887112198074s">Ｎ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3891463493563188s">Ｈ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.28080398749283s">ヨ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.1724616256293416s">４</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.0641192637658528s">ヒ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.9557769019023643s">ヱ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.8474345400388757s">フ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.7390921781753871s">ヌ</text>
+                    </g>
+                    <g transform="translate(19.692307692307693 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.6307498163118984s">ヒ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.63857686969392s">Ｃ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.5302345078304316s">イ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.421892145966943s">ネ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.3135497841034542s">Ｊ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.2052074222399654s">ホ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.096865060376477s">Ｒ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9885226985129882s">Ｙ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.8801803366495s">ル</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.7718379747860111s">Ｎ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6634956129225225s">ナ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.555153251059034s">ニ</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4468108891955451s">５</text>
+                    </g>
+                    <g transform="translate(39.38461538461539 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3384685273320567s">Ｋ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.4571519476914165s">２</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.348809585827928s">ウ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.240467223964439s">８</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.132124862100951s">ハ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.0237825002374623s">６</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9154401383739736s">Ｍ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.807097776510485s">リ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6987554146469963s">セ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5904130527835076s">ト</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4820706909200192s">テ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3737283290565305s">Ｔ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.2653859671930419s">ノ</text>
+                    </g>
+                    <g transform="translate(59.07692307692308 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.1570436053295532s">６</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.7076928081596308s">Ｒ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5993504462961423s">Ａ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4910080844326534s">ワ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.382665722569165s">メ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.2743233607056763s">Ｗ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.1659809988421879s">Ｃ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.0576386369786992s">ヌ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.9492962751152105s">レ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.8409539132517219s">ロ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.7326115513882333s">ヒ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.6242691895247447s">Ｐ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.5159268276612561s">リ</text>
+                    </g>
+                    <g transform="translate(78.76923076923077 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.40758446579776747s">カ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5741500151435788s">ヱ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4658076532800903s">ツ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3574652914166017s">コ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.249122929553113s">ス</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.1407805676896243s">ソ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.0324382058261359s">Ａ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.9240958439626471s">Ｆ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.8157534820991585s">ム</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.7074111202356699s">Ｊ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.5990687583721813s">ヰ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.49072639650869276s">モ</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.38238403464520415s">８</text>
+                    </g>
+                    <g transform="translate(98.46153846153847 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.2740416727817155s">オ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.3462897219568273s">Ｇ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.237947360093339s">ツ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.12960499822985s">セ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.0212626363663615s">ソ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9129202745028728s">ソ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.8045779126393842s">Ｑ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6962355507758957s">５</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5878931889124068s">２</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4795508270489184s">Ｌ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3712084651854297s">Ｃ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.2628661033219413s">５</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.1545237414584526s">ヤ</text>
+                    </g>
+                    <g transform="translate(118.15384615384616 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.0461813795949637s">テ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.6745715102565852s">ホ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.566229148393097s">ス</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.457886786529608s">Ｅ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.3495444246661195s">４</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.2412020628026306s">キ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.132859700939142s">メ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.0245173390756537s">Ａ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9161749772121648s">６</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.8078326153486761s">ン</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6994902534851877s">オ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.591147891621699s">ソ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4828055297582106s">ネ</text>
+                    </g>
+                    <g transform="translate(137.84615384615387 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3744631678947217s">Ｐ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.5049299005577566s">チ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.396587538694268s">ヤ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.288245176830779s">キ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.1799028149672903s">７</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.071560453103802s">ム</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9632180912403134s">Ａ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.8548757293768245s">Ｃ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.7465333675133363s">キ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6381910056498474s">９</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.529848643786359s">マ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4215062819228703s">１</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3131639200593817s">Ｑ</text>
+                    </g>
+                    <g transform="translate(157.53846153846155 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.204821558195893s">ワ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.675629689963209s">ト</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5672873280997206s">Ｐ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4589449662362317s">カ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3506026043727435s">チ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.2422602425092546s">９</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.1339178806457662s">Ｍ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.0255755187822775s">ツ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.9172331569187889s">Ｗ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.8088907950553003s">マ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.7005484331918117s">ケ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.592206071328323s">ク</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.4838637094648344s">Ｐ</text>
+                    </g>
+                    <g transform="translate(177.23076923076923 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-0.3755213476013458s">Ｚ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.682380940482192s">Ｋ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.5740385786187034s">ツ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.4656962167552146s">ム</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.357353854891726s">ネ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.249011493028237s">Ｇ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.1406691311647488s">オ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.03232676930126s">Ｐ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9239844074377717s">ケ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.815642045574283s">１</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.7072996837107943s">キ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5989573218473059s">テ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.490614959983817s">ワ</text>
+                    </g>
+                    <g transform="translate(196.92307692307693 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3822725981203283s">タ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.7040347827583684s">Ｉ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.59569242089488s">Ｉ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.487350059031391s">ユ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.3790076971679026s">Ｔ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.2706653353044137s">Ｏ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.1623229734409253s">０</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.053980611577437s">２</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.945638249713948s">ル</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.8372958878504595s">ツ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.7289535259869708s">Ｓ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6206111641234824s">Ｍ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5122688022599937s">ニ</text>
+                    </g>
+                    <g transform="translate(216.61538461538464 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.403926440396505s">Ｄ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 19.692307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.6119638538829135s">セ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 39.38461538461539)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.503621492019425s">Ｅ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 59.07692307692308)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.3952791301559366s">Ｅ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 78.76923076923077)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.2869367682924477s">Ｙ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 98.46153846153847)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.1785944064289593s">サ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 118.15384615384616)">
+                        <text fill="#8cd0e5" style="animation-delay:-2.0702520445654704s">ヌ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 137.84615384615387)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.9619096827019817s">０</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 157.53846153846155)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.8535673208384935s">０</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 177.23076923076923)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.7452249589750046s">Ｘ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 196.92307692307693)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.6368825971115162s">６</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 216.61538461538464)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.5285402352480275s">Ｘ</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 236.30769230769232)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.4201978733845388s">０</text>
+                    </g>
+                    <g transform="translate(236.30769230769232 256)">
+                        <text fill="#8cd0e5" style="animation-delay:-1.3118555115210502s">ネ</text>
+                    </g>
+                    <style type="text/css">
+                        @keyframes ldp-matrix {
+                        0% { opacity: 1; fill: #376888;}
+                        10% { opacity: 1; fill: #8cd0e5; }
+                        50% { opacity: 0}
+                        100% { opacity: 0}
+                        }
+                        text {
+                        animation: ldp-matrix 1.408450704225352s linear infinite;
+                        transform: scaleX(-0.7);
+                        }
+                    </style>
+                </g>
+            </g>
+        </pattern>
+    </defs>
+    <rect x="0" y="0" width="1084" height="322" fill="url(#pid-0.8312198735984857)"></rect>
+</svg>
