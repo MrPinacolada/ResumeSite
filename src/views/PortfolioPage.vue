@@ -9,6 +9,7 @@
         @click="selectItem(index)"
       >
         <h3>{{ item.title }}</h3>
+        
         <Tag
           v-if="item.tagValue"
           :severity="item.severity"
