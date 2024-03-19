@@ -56,7 +56,7 @@ export const Store = defineStore("pinia", {
         severity: "info",
         tagValue: "With backend",
         isSameOrigin: false,
-        link: "https://github.com/MrPinacolada/Raptor_News",
+        link: "https://mrpinacolada.github.io/Raptor_News/",
       },
       {
         title: "Emotional notebook {personal site}",
