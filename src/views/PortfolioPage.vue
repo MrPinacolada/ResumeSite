@@ -9,7 +9,7 @@
         @click="selectItem(index)"
       >
         <h3>{{ item.title }}</h3>
-        
+
         <Tag
           v-if="item.tagValue"
           :severity="item.severity"
@@ -23,10 +23,6 @@
     >
       <Card>
         <template #header>
-          <!-- <a
-            :href="store.$state.mypainPortfolio_db[selectedItemindex].link"
-            target="_blank"
-          ></a> -->
           <div class="video-wrapper" style="position: relative">
             <video
               ref="videoPlayer"
