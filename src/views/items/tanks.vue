@@ -33,7 +33,7 @@ import wall from "@/assets/tankgame/wallsimg/sidesWall.png";
 import sound from "@/assets/tankgame/bulletexp/sound/bulletexplosion.mp3";
 import { useRouter } from "vue-router";
 const router = useRouter();
-const tankGame = ref(null);
+const tankGame = ref<any>(null);
 const endgame = () => {
   router.back();
 };
@@ -418,7 +418,7 @@ onMounted(() => {
       this.eges = eges;
     }
   }
-  function willCollide(box1: any, box2: any, isWall?: boolean) {
+  function willCollide(box1: any, box2: any) {
     let p1 = box1.x + box1.w / 2;
     let q1 = box1.y + box1.h / 2;
     let x1 = box1.x;
