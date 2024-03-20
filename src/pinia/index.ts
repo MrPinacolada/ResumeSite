@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import video1 from "../assets/portfolio_videos/24.07.2023_17.33.07_REC.mp4";
-import video2 from "../assets/portfolio_videos/24.07.2023_17.45.15_REC.mp4";
-import video3 from "../assets/portfolio_videos/24.07.2023_18.10.43_REC.mp4";
+import video2 from "../assets/portfolio_videos/agentum.mp4";
 import video4 from "../assets/portfolio_videos/24.07.2023_18.17.17_REC.mp4";
 import video5 from "../assets/portfolio_videos/24.07.2023_18.21.09_REC.mp4";
 import err_json from "../assets/err_json.json";
@@ -26,26 +25,35 @@ export const Store = defineStore("pinia", {
         link: "/PortfolioPage/tankgame",
       },
       {
-        title: "Summer sports {envelop}",
-        content: `Just a cozy site with an amazing photo-slider and a bit of userbar
-            functionality. Supposed to be as a site with lots of topics about sport
-            activities.`,
+        title: "Agentum.pro {full working}",
+        content: `Commercial project aimed at simplifying the work of real estate agents. {Php, Nuxt3, Yandex Maps, TypeSript}`,
         video: video2,
         severity: "",
         tagValue: "",
         isSameOrigin: false,
-        link: "https://mrpinacolada.github.io/SavePlanet/",
+        link: "https://agentum.pro",
       },
-      {
-        title: "Save planet {envelop}",
-        content: `One more qiute good frontend cover for a site about animal protection.
-            It has not much functionality, just an envelop.`,
-        video: video3,
-        severity: "",
-        tagValue: "",
-        isSameOrigin: false,
-        link: "https://mrpinacolada.github.io/SavePlanet/",
-      },
+      // {
+      //   title: "Summer sports {envelop}",
+      //   content: `Just a cozy site with an amazing photo-slider and a bit of userbar
+      //       functionality. Supposed to be as a site with lots of topics about sport
+      //       activities.`,
+      //   video: video2,
+      //   severity: "",
+      //   tagValue: "",
+      //   isSameOrigin: false,
+      //   link: "https://mrpinacolada.github.io/SavePlanet/",
+      // },
+      // {
+      //   title: "Save planet {envelop}",
+      //   content: `One more qiute good frontend cover for a site about animal protection.
+      //       It has not much functionality, just an envelop.`,
+      //   video: video3,
+      //   severity: "",
+      //   tagValue: "",
+      //   isSameOrigin: false,
+      //   link: "https://mrpinacolada.github.io/SavePlanet/",
+      // },
       {
         title: "Raptor news {news site}",
         content: `Almost a full working site with the ability to Log In, set own profile

@@ -17,45 +17,56 @@
         ></Tag>
       </div>
     </section>
-    <section
-      class="preview_right_side animate__animated animate__flipInY"
-      @click="openItem(store.$state.mypainPortfolio_db[selectedItemindex])"
-    >
+    <section class="preview_right_side animate__animated animate__flipInY">
       <Card>
-        <template #header>
-          <div class="video-wrapper" style="position: relative">
-            <video
-              ref="videoPlayer"
-              style="
-                max-width: 100%;
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-              "
-              @loadeddata="onDataLoad"
-              autoplay
-              loop
-              muted
-              controls
-            >
-              <source
-                :src="store.$state.mypainPortfolio_db[selectedItemindex].video"
-                type="video/mp4"
-              />
-              Ваш браузер не поддерживает HTML5 видео.
-            </video>
-            <ProgressSpinner
-              style="position: absolute; left: 35%; top: 10%"
-              v-if="showSpinner"
-            />
-          </div>
-        </template>
-        <template #title>{{
-          store.$state.mypainPortfolio_db[selectedItemindex].title
-        }}</template>
         <template #content>
-          <p>
-            {{ store.$state.mypainPortfolio_db[selectedItemindex].content }}
-          </p>
+          <div class="card">
+            <div class="video-wrapper" style="position: relative">
+              <video
+                ref="videoPlayer"
+                style="
+                  max-width: 100%;
+                  border-top-left-radius: 10px;
+                  border-top-right-radius: 10px;
+                "
+                @loadeddata="onDataLoad"
+                autoplay
+                loop
+                muted
+                controls
+              >
+                <source
+                  :src="
+                    store.$state.mypainPortfolio_db[selectedItemindex].video
+                  "
+                  type="video/mp4"
+                />
+                Ваш браузер не поддерживает HTML5 видео.
+              </video>
+              <ProgressSpinner
+                style="position: absolute; left: 35%; top: 10%"
+                v-if="showSpinner"
+              />
+            </div>
+            <div class="text">
+              <h3 style="margin-bottom: 15px">
+                {{ store.$state.mypainPortfolio_db[selectedItemindex].title }}
+              </h3>
+              <p>
+                {{ store.$state.mypainPortfolio_db[selectedItemindex].content }}
+              </p>
+            </div>
+            <div class="footer">
+              <button
+                class="footer-butt"
+                @click="
+                  openItem(store.$state.mypainPortfolio_db[selectedItemindex])
+                "
+              >
+                Explore
+              </button>
+            </div>
+          </div>
         </template>
       </Card>
     </section>
@@ -112,7 +123,7 @@ const selectItem = (index: number) => {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .work_boxes_wrapper {
   display: grid;
   margin: 10px;
@@ -122,7 +133,8 @@ const selectItem = (index: number) => {
 }
 .boxes_left_side {
   display: grid;
-  gap: 40px;
+  gap: 20px;
+  height: fit-content;
 }
 .boxes_left_side .wokr_box {
   display: flex;
@@ -183,8 +195,70 @@ const selectItem = (index: number) => {
   z-index: 9;
   cursor: pointer;
   position: relative;
+  .card {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+    .text {
+      margin-top: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .footer {
+      display: grid;
+      align-items: flex-end;
+      justify-items: flex-start;
+      padding: 10px;
+      &-butt {
+        border: none;
+        border-radius: 9px;
+        padding: 7px 10px 7px 10px;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+        background: linear-gradient(42deg, #11d4a1, #b6d411, #d49311);
+        background-size: 600% 600%;
+        -webkit-animation: AnimationName 5s ease infinite;
+        -moz-animation: AnimationName 5s ease infinite;
+        animation: AnimationName 5s ease infinite;
+      }
+    }
+  }
 }
 
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 video::-webkit-media-controls {
   display: none !important;
 }
@@ -223,5 +297,13 @@ a {
   :deep(.p-tag-value) {
     font-size: 0.85em;
   }
+}
+:deep(.p-card-body) {
+  padding: 0 !important;
+  height: 100%;
+}
+:deep(.p-card-content) {
+  padding: 0 !important;
+  height: 100%;
 }
 </style>
