@@ -24,10 +24,5 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
-    fs: {
-      allow: [".."],
-    },
-    // host: true,
-    // port: 8080,
   },
 });
