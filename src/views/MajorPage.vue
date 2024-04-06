@@ -1,4 +1,5 @@
 <template>
+  
   <div
     class="MajorPageContainer animate__animated animate__zoomIn"
     v-if="lottieAnim"
@@ -44,7 +45,7 @@ h1 {
   cursor: context-menu;
   position: relative;
 }
-.name{
+.name {
   position: relative;
 }
 .name::after {

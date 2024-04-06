@@ -1,4 +1,7 @@
 <template>
+  <div style="position: absolute; z-index: -1; width: 100%; height: 100%">
+    <amazing-spider background_color="#fff" dots_border_color="rgba(10, 163, 243, 0.39)" />
+  </div>
   <customLoader v-if="loader" :isFetchError="isFetchError" />
   <div v-show="!loader">
     <Header />
@@ -14,6 +17,7 @@ import { onBeforeMount, ref } from "vue";
 import { RouterView } from "vue-router";
 import { Store } from "./pinia/index";
 import customLoader from "./components/Loader/customLoader.vue";
+import amazingSpider from "amazing__spider";
 
 const store = Store();
 const loader = ref(true);
