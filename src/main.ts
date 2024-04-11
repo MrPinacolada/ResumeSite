@@ -11,6 +11,7 @@ import Card from "primevue/card";
 import ProgressSpinner from "primevue/progressspinner";
 import Toolbar from "primevue/toolbar";
 import Tooltip from 'primevue/tooltip';
+import yandexMetrika from './plugins/ym_metrika'
 
 import Footer from "./components/Footer/Footer.vue";
 import Header from "./components/Header/Header.vue";
@@ -34,6 +35,7 @@ app.use(PrimeVue, {
 });
 app.use(createPinia());
 app.use(router);
+app.use(yandexMetrika);
 app.directive('tooltip', Tooltip);
 
 app.component("Footer", Footer);
