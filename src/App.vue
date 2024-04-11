@@ -1,5 +1,5 @@
 <template>
-  <div style="position: absolute; z-index: -1; width: 100%; height: 100%">
+  <div v-if="!loader" style="position: absolute; z-index: -1; width: 100%; height: 100%">
     <amazing-spider background_color="#fff" dots_border_color="rgba(10, 163, 243, 0.39)" />
   </div>
   <customLoader v-if="loader" :isFetchError="isFetchError" />
