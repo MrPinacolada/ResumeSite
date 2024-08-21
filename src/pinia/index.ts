@@ -3,6 +3,7 @@ import video1 from "../assets/portfolio_videos/24.07.2023_17.33.07_REC.mp4";
 import video2 from "../assets/portfolio_videos/agentum.mp4";
 import video4 from "../assets/portfolio_videos/24.07.2023_18.17.17_REC.mp4";
 import video5 from "../assets/portfolio_videos/24.07.2023_18.21.09_REC.mp4";
+import rwa from "../assets/portfolio_videos/rwa.mp4";
 import err_json from "../assets/err_json.json";
 
 export const Store = defineStore("pinia", {
@@ -32,6 +33,24 @@ export const Store = defineStore("pinia", {
         tagValue: "",
         isSameOrigin: false,
         link: "https://agentum.pro",
+      },
+      {
+        title: "RWA Estate {full working}",
+        content: `A platform for buying and selling real estate-backed cryptocurrency tokens, offering secure and transparent investments in property.`,
+        video: rwa,
+        severity: "",
+        tagValue: "",
+        isSameOrigin: false,
+        link: "https://www.rwa-estate.com",
+      },
+      {
+        title: "Kazakhstan railways {full working}",
+        content: `A platform dedicated to tracking and reporting railway incidents across Kazakhstan, ensuring enhanced safety and timely responses.`,
+        video: null,
+        severity: "",
+        tagValue: "",
+        isSameOrigin: false,
+        link: "https://ispb.dev2uit.ru",
       },
       // {
       //   title: "Summer sports {envelop}",

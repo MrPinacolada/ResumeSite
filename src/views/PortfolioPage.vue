@@ -23,6 +23,7 @@
           <div class="card">
             <div class="video-wrapper" style="position: relative">
               <video
+                v-if="store.$state.mypainPortfolio_db[selectedItemindex].video"
                 ref="videoPlayer"
                 style="
                   max-width: 100%;
@@ -43,6 +44,11 @@
                 />
                 Ваш браузер не поддерживает HTML5 видео.
               </video>
+              <span v-else class="no-video">
+                <div class="text">
+                  <h3>No video here =(</h3>
+                </div>
+              </span>
               <ProgressSpinner
                 style="position: absolute; left: 35%; top: 10%"
                 v-if="showSpinner"
@@ -199,6 +205,13 @@ const selectItem = (index: number) => {
     display: grid;
     grid-template-columns: 1fr;
     height: 100%;
+    .no-video {
+      width: 400px;
+      height: 183px;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+    }
     .text {
       margin-top: 5px;
       padding-left: 10px;
