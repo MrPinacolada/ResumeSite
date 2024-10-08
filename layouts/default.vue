@@ -16,6 +16,7 @@
   </main>
 
   <backdrop />
+  <base-loader v-if="loader" />
   <div class="spider-box">
     <amazing-spider
       v-show="!loader"
