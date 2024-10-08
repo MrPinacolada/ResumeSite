@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
     "amazing__spider": "^0.0.6",
     "get-sass-vars": "^4.0.2",
     "normalize.css": "^8.0.1",

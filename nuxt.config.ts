@@ -10,7 +10,12 @@ export default defineNuxtConfig({
     },
   ],
   css: ["~/assets/styles/index.scss"],
-  modules: ["nuxt-icons"],
-  
+  modules: ["nuxt-icons", "@nuxtjs/google-fonts"],
+  googleFonts: {
+    families: {
+      "Roboto+Mono": "200..700",
+    },
+  },
+
   ssr: false,
 });
