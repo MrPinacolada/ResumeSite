@@ -7,6 +7,10 @@
       <nuxt-link class="pages-item">Skills</nuxt-link>
     </nav>
   </header>
+  <main class="layout__main">
+    <slot />
+  </main>
+
   <backdrop />
   <div class="spider-box">
     <amazing-spider
@@ -15,9 +19,9 @@
     />
   </div>
   <footer class="layout layout__footer">
-    <base-icon name="telegram" filled size="32px"/>
-    <base-icon name="google" filled size="32px"/>
-    <base-icon name="linkedin" filled size="32px"/>
+    <base-icon name="telegram" filled size="32px" />
+    <base-icon name="google" filled size="32px" />
+    <base-icon name="linkedin" filled size="32px" />
   </footer>
 </template>
 
@@ -27,7 +31,7 @@ import amazingSpider from "amazing__spider";
 
 <style lang="scss">
 .layout {
-  position: fixed;
+  position: relative;
   height: 60px;
   max-width: 100dvw;
   width: 100%;
@@ -53,7 +57,13 @@ import amazingSpider from "amazing__spider";
       }
     }
   }
+  &__main {
+    width: 100dvw;
+    height: calc(100dvh - 120px);
+    margin-bottom: 60px;
+  }
   &__footer {
+    position: fixed;
     bottom: 0;
     left: 0;
     display: flex;
@@ -64,6 +74,8 @@ import amazingSpider from "amazing__spider";
 }
 .spider-box {
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
   width: 100vw;
   height: 100vh;
