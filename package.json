@@ -13,6 +13,7 @@
     "@lottiefiles/lottie-player": "^2.0.4",
     "@nuxtjs/google-fonts": "^3.2.0",
     "amazing__spider": "^0.0.6",
+    "animate.css": "^4.1.1",
     "get-sass-vars": "^4.0.2",
     "normalize.css": "^8.0.1",
     "nuxt": "^3.13.0",

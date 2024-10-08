@@ -17,6 +17,9 @@ importers:
       amazing__spider:
         specifier: ^0.0.6
         version: 0.0.6(vue@3.5.10)
+      animate.css:
+        specifier: ^4.1.1
+        version: 4.1.1
       get-sass-vars:
         specifier: ^4.0.2
         version: 4.0.2
@@ -1140,6 +1143,9 @@ packages:
     resolution: {integrity: sha512-1sFfrxXKN2Ejd0PY3M6ItH09ZQ59gL+O0tSVu3aWHVjt2idplL1uxBJgQ9rxYkahriYeB0He7wI2ByYtAjVd4Q==}
     peerDependencies:
       vue: ^3.0.0
+
+  animate.css@4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
 
   ansi-colors@4.1.3:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
@@ -4546,6 +4552,8 @@ snapshots:
   amazing__spider@0.0.6(vue@3.5.10):
     dependencies:
       vue: 3.5.10
+
+  animate.css@4.1.1: {}
 
   ansi-colors@4.1.3: {}
 

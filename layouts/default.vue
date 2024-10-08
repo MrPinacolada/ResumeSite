@@ -1,5 +1,8 @@
 <template>
-  <header class="layout layout__header">
+  <header
+    v-show="!loader"
+    class="layout layout__header animate__animated animate__fadeInDown"
+  >
     <h5 class="title">Resume pages</h5>
     <nav class="pages">
       <nuxt-link class="pages-item"> About </nuxt-link>
@@ -7,18 +10,23 @@
       <nuxt-link class="pages-item">Skills</nuxt-link>
     </nav>
   </header>
-  <main class="layout__main">
-    <slot />
+  <main v-show="!loader" class="layout__main animate__animated animate__fadeIn">
+    <NuxtPage :major-anim="majorAnim" />
+    <!-- <slot :major-anim="majorAnim" /> -->
   </main>
 
   <backdrop />
   <div class="spider-box">
     <amazing-spider
+      v-show="!loader"
       background_color="#fff"
       dots_border_color="rgba(10, 163, 243, 0.39)"
     />
   </div>
-  <footer class="layout layout__footer">
+  <footer
+    v-show="!loader"
+    class="layout layout__footer animate__animated animate__fadeInUp"
+  >
     <base-icon name="telegram" filled size="32px" />
     <base-icon name="google" filled size="32px" />
     <base-icon name="linkedin" filled size="32px" />
@@ -28,6 +36,36 @@
 <script setup lang="ts">
 import "@lottiefiles/lottie-player";
 import amazingSpider from "amazing__spider";
+
+const majorAnim = ref<Record<string, any> | null>(null);
+const loader = ref(true);
+
+const callLoaderOf = () => {
+  setTimeout(() => {
+    loader.value = false;
+  }, 1000);
+};
+
+const getMajotAnim = async () => {
+  loader.value = true;
+  try {
+    const data = await useFetch(
+      "https://assets8.lottiefiles.com/packages/lf20_ioJYvK.json"
+    );
+    if (!data.data.value) {
+      return;
+    }
+    majorAnim.value = data.data.value as unknown as Record<string, any>;
+    callLoaderOf();
+  } catch (error) {
+    console.log("error: ", error);
+    throw Error;
+  }
+};
+
+onMounted(() => {
+  getMajotAnim();
+});
 </script>
 
 <style lang="scss">
