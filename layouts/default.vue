@@ -2,20 +2,32 @@
   <header
     v-show="!loader"
     class="layout layout__header animate__animated animate__fadeInDown"
+    @mouseleave="handleHoverLink"
   >
-    <h5 class="title">Resume pages</h5>
-    <nav class="pages">
-      <nuxt-link class="pages-item"> About </nuxt-link>
-      <nuxt-link class="pages-item">Portfolio</nuxt-link>
-      <nuxt-link class="pages-item">Skills</nuxt-link>
+    <h5 class="title font--b3 text-white-contrast">Resume pages</h5>
+    <nav class="pages" @mouseenter="handleHoverLink">
+      <nuxt-link
+        to="/about"
+        class="font--b3 text-white-monochrome"
+        @click.prevent="handleLinkClick('/about')"
+      >
+        About
+      </nuxt-link>
+      <nuxt-link class="font--b3 text-white-monochrome">Portfolio</nuxt-link>
+      <nuxt-link class="font--b3 text-white-monochrome">Skills</nuxt-link>
     </nav>
   </header>
   <main v-show="!loader" class="layout__main animate__animated animate__fadeIn">
+    <!-- <div
+      :class="['curtain', { 'curtain--active': showCurtain }]"
+      class="animate__animated"
+      @mouseenter="handleHoverLink"
+      @mouseleave="handleHoverLink"
+    ></div> -->
     <NuxtPage :major-anim="majorAnim" />
-    <!-- <slot :major-anim="majorAnim" /> -->
   </main>
 
-  <backdrop />
+  <backdrop v-if="!loader" />
   <base-loader v-if="loader" />
   <div class="spider-box">
     <amazing-spider
@@ -28,9 +40,9 @@
     v-show="!loader"
     class="layout layout__footer animate__animated animate__fadeInUp"
   >
-    <base-icon name="telegram" filled size="32px" />
-    <base-icon name="google" filled size="32px" />
-    <base-icon name="linkedin" filled size="32px" />
+    <nuxt-link v-for="icon in footerIcons">
+      <base-icon :name="icon.icon" filled size="32px" />
+    </nuxt-link>
   </footer>
 </template>
 
@@ -39,12 +51,40 @@ import "@lottiefiles/lottie-player";
 import amazingSpider from "amazing__spider";
 
 const majorAnim = ref<Record<string, any> | null>(null);
+const footerIcons = ref([
+  {
+    icon: "telegram",
+    link: "",
+  },
+  {
+    icon: "google",
+    link: "",
+  },
+  {
+    icon: "linkedin",
+    link: "",
+  },
+]);
 const loader = ref(true);
+const showCurtain = ref(false);
+const { lockScroll, unlockScroll } = useScrollLock();
+
+const handleLinkClick = (link: string) => {
+  lockScroll();
+  setTimeout(() => {
+    unlockScroll();
+  }, 600);
+  navigateTo(link);
+};
+
+const handleHoverLink = () => {
+  showCurtain.value = !showCurtain.value;
+};
 
 const callLoaderOf = () => {
   setTimeout(() => {
     loader.value = false;
-  }, 1000);
+  }, 3000);
 };
 
 const getMajotAnim = async () => {
@@ -86,21 +126,43 @@ onMounted(() => {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    .title {
-    }
+    z-index: 9999;
     .pages {
       display: flex;
       align-items: center;
       gap: 20px;
-
-      &-item {
+      h5 {
+        cursor: default;
+      }
+      a {
+        cursor: pointer;
+        text-decoration: none;
       }
     }
   }
   &__main {
+    position: relative;
     width: 100dvw;
     height: calc(100dvh - 120px);
     margin-bottom: 60px;
+    z-index: 4;
+    .curtain {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: var(--lilac-secondary);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      z-index: -1;
+      overflow: hidden;
+      transition: height 0.5s ease; /* Smooth transition */
+
+      &--active {
+        height: 30px; /* Final height when curtain is active */
+      }
+    }
   }
   &__footer {
     position: fixed;
@@ -110,6 +172,14 @@ onMounted(() => {
     align-items: center;
     justify-content: flex-end;
     gap: 20px;
+    a {
+      transition: scale 0.3s ease, rotate 0.3s ease-in-out;
+      will-change: scale, rotate;
+      &:hover {
+        scale: 1.1;
+        rotate: 1turn;
+      }
+    }
   }
 }
 .spider-box {
