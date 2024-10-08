@@ -26,6 +26,7 @@
 </template>
 
 <script setup lang="ts">
+import "@lottiefiles/lottie-player";
 import amazingSpider from "amazing__spider";
 </script>
 
