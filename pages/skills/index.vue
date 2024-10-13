@@ -47,9 +47,7 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Scrollbar, Grid, Autoplay } from "swiper/modules";
-import "swiper/css/scrollbar";
-import "swiper/css/grid";
-import "swiper/css";
+
 
 definePageMeta({
   layout: "default",

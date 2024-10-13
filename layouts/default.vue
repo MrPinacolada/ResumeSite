@@ -49,6 +49,7 @@
   <base-loader v-if="loader" />
   <div class="spider-box">
     <amazing-spider
+      v-if="!$device.isMobile"
       v-show="!loader"
       background_color="#fff"
       dots_border_color="rgba(10, 163, 243, 0.39)"
@@ -65,8 +66,11 @@
 </template>
 
 <script setup lang="ts">
-import "@lottiefiles/lottie-player";
 import amazingSpider from "amazing__spider";
+import "@lottiefiles/lottie-player";
+import "swiper/css/scrollbar";
+import "swiper/css/grid";
+import "swiper/css";
 
 type LottieData = Record<string, any>;
 
