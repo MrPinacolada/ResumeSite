@@ -30,6 +30,10 @@ export default defineNuxtConfig({
       sourcemap: true,
     },
   },
+  router: {
+    base: "/ResumeSite/",
+  },
+  target: "static",
 
   ssr: false,
 });
