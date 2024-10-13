@@ -6,6 +6,7 @@
         :key="item.title"
         class="box font--b4 text-black-monochrome"
         :class="{ 'box-active': index === activeSlide }"
+        @click="swiperInst?.slideTo(index)"
       >
         {{ item.title }}
       </button>
@@ -26,7 +27,7 @@
         shadowOffset: 20,
         shadowScale: 0.94,
       }"
-      @activeIndexChange="setNewActiveSlide"
+      @swiper="onSwiper"
     >
       <SwiperSlide v-for="item in works" :key="item.title">
         <div class="slider__box">
@@ -38,7 +39,7 @@
           }}</span>
           <span class="slider__box-action">
             <button
-              @click="item.b_action ?? goExplore(item.link)"
+              @click="item.b_action ? item.b_action() : goExplore(item.link)"
               class="text-white-monochrome font--b3"
             >
               {{ item.b_text || "Explore" }}
@@ -64,6 +65,14 @@ type Work = {
   b_action?: Function;
 };
 
+const swiperInst = ref<typeof Swiper | null>(null);
+const onSwiper = (swiper: any) => {
+  swiperInst.value = swiper;
+  swiper.on("slideChange", () => {
+    activeSlide.value = swiperInst.value?.realIndex;
+  });
+};
+
 const works: Work[] = [
   {
     title: "RWA Estate",
@@ -75,26 +84,26 @@ const works: Work[] = [
     title: "RWA Scan",
     img: "/img/rwa-scan.jpg",
     link: "https://rwa-scan.com/",
-    description: "",
+    description: `RWA Scan is a platform that consolidates all RWA's & Security tokens in one place. Our aim is to increase visibility for RWA's, akin to what happened with crypto initially. We list tokens and provide real-time information and statistics about them.`,
   },
   {
     title: "Agentum",
     img: "/img/agentum.jpg",
     link: "https://agentum.pro/",
-    description: "",
+    description: "Real estate search.",
   },
   {
     title: "Autoimport",
     img: "/img/autoimpirt.jpg",
     link: "https://autoimport.group/",
-    description: "",
+    description: "Car dillers.",
   },
   {
     title: "Tanks game",
-    img: "https://cdn.culture.ru/images/94ed4aac-f861-5df3-ae25-07a3d67892c7",
+    img: "https://wotpack.ru/wp-content/uploads/2019/12/48f87a35b66241b5d331eb099b9f6c8a-1.jpg",
     b_text: "Play",
     b_action: () => navigateTo("/tanks"),
-    description: "",
+    description: "Try it.",
   },
 ];
 
@@ -103,14 +112,6 @@ const activeSlide = ref<number>(0);
 const goExplore = (url: string | undefined) => {
   if (!url) return;
   window.open(url, "_blank");
-};
-
-const setNewActiveSlide = (data: { activeIndex: number }) => {
-  if (typeof data.activeIndex !== "number") {
-    activeSlide.value = 0;
-    return;
-  }
-  activeSlide.value = data.activeIndex;
 };
 </script>
 
@@ -121,8 +122,8 @@ const setNewActiveSlide = (data: { activeIndex: number }) => {
   justify-content: center;
   padding-left: 30px;
   padding-right: 30px;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   gap: 50px;
   @media (max-width: 65rem) {
     flex-direction: column;
@@ -166,8 +167,8 @@ const setNewActiveSlide = (data: { activeIndex: number }) => {
   .swiper {
     width: 100%;
     height: 100%;
-    max-width: 450px;
-    max-height: 320px;
+    max-width: 650px;
+    // max-height: 320px;
     padding: 20px;
     .swiper-slide {
       position: relative;
