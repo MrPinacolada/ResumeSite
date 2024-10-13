@@ -170,11 +170,12 @@ const goExplore = (url: string | undefined) => {
     max-width: 650px;
     // max-height: 320px;
     padding: 20px;
+    background-color: transparent;
     .swiper-slide {
       position: relative;
       text-align: center;
       font-size: 18px;
-      background: var(--white-contrast);
+      background-color: var(--white-contrast);
       display: flex;
       justify-content: center;
       align-items: center;
