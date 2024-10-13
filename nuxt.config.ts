@@ -18,6 +18,19 @@ export default defineNuxtConfig({
       "Roboto+Mono": "200..700",
     },
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/styles/variables/mixins.scss" as *;',
+        },
+      },
+    },
+    build: {
+      sourcemap: true,
+    },
+    
+  },
 
   ssr: false,
 });

@@ -4,17 +4,33 @@
     class="layout layout__header animate__animated animate__fadeInDown"
     @mouseleave="handleHoverLink"
   >
-    <h5 class="title font--b3 text-white-contrast">Resume pages</h5>
+    <h5
+      v-if="route.name === 'index'"
+      class="title font--b3 text-white-contrast"
+    >
+      Resume pages
+    </h5>
+    <button
+      v-else
+      class="go-back-butt font--b3 text-white-contrast"
+      @click="router.back()"
+    >
+      <base-icon
+        name="ArrowDown"
+        rot="90deg"
+        color="var(--white-monochrome)"
+        size="18px"
+      />
+      Back
+    </button>
     <nav class="pages" @mouseenter="handleHoverLink">
-      <nuxt-link
-        to="/about"
-        class="font--b3 text-white-monochrome"
-        @click.prevent="handleLinkClick('/about')"
-      >
+      <nuxt-link to="/about" class="font--b3 text-white-monochrome">
         About
       </nuxt-link>
       <nuxt-link class="font--b3 text-white-monochrome">Portfolio</nuxt-link>
-      <nuxt-link class="font--b3 text-white-monochrome">Skills</nuxt-link>
+      <nuxt-link to="/skills" class="font--b3 text-white-monochrome"
+        >Skills</nuxt-link
+      >
     </nav>
   </header>
   <main v-show="!loader" class="layout__main animate__animated animate__fadeIn">
@@ -50,6 +66,11 @@
 import "@lottiefiles/lottie-player";
 import amazingSpider from "amazing__spider";
 
+type LottieData = Record<string, any>;
+
+const route = useRoute();
+const router = useRouter();
+
 const majorAnim = ref<Record<string, any> | null>(null);
 const footerIcons = ref([
   {
@@ -69,12 +90,11 @@ const loader = ref(true);
 const showCurtain = ref(false);
 const { lockScroll, unlockScroll } = useScrollLock();
 
-const handleLinkClick = (link: string) => {
+const blockScroll = () => {
   lockScroll();
   setTimeout(() => {
     unlockScroll();
   }, 600);
-  navigateTo(link);
 };
 
 const handleHoverLink = () => {
@@ -84,7 +104,13 @@ const handleHoverLink = () => {
 const callLoaderOf = () => {
   setTimeout(() => {
     loader.value = false;
-  }, 3000);
+  }, 2000);
+};
+
+const urls: Record<string, string> = {
+  ExpPage: "https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json",
+  SkillPage: "https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json",
+  WorksPage: "https://assets3.lottiefiles.com/packages/lf20_jhaabiai.json",
 };
 
 const getMajotAnim = async () => {
@@ -96,7 +122,8 @@ const getMajotAnim = async () => {
     if (!data.data.value) {
       return;
     }
-    majorAnim.value = data.data.value as unknown as Record<string, any>;
+    majorAnim.value = data.data.value as unknown as LottieData;
+
     callLoaderOf();
   } catch (error) {
     console.log("error: ", error);
@@ -104,8 +131,35 @@ const getMajotAnim = async () => {
   }
 };
 
-onMounted(() => {
+const fetchRestAnims = async (
+  urls: Record<string, string>
+): Promise<LottieData> => {
+  const entries = Object.entries(urls);
+
+  try {
+    const results = await Promise.all(
+      entries.map(async ([key, url]) => {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Failed to load ${key} from ${url}`);
+        }
+        const data = await response.json();
+        return [key, data] as [string, any];
+      })
+    );
+
+    return Object.fromEntries(results);
+  } catch (error) {
+    console.error("Error loading Lottie data:", error);
+    throw error;
+  }
+};
+
+onMounted(async () => {
   getMajotAnim();
+  router.afterEach(blockScroll);
+  const anims = await fetchRestAnims(urls);
+  useState("lottie_anims", () => anims);
 });
 </script>
 
@@ -127,6 +181,17 @@ onMounted(() => {
     justify-content: space-between;
     gap: 20px;
     z-index: 9999;
+    .go-back-butt {
+      @include drop-button-styles;
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 5px;
+      .base-icon {
+        margin-top: 3px;
+      }
+    }
     .pages {
       display: flex;
       align-items: center;
@@ -157,10 +222,10 @@ onMounted(() => {
       border-bottom-right-radius: 30px;
       z-index: -1;
       overflow: hidden;
-      transition: height 0.5s ease; /* Smooth transition */
+      transition: height 0.5s ease;
 
       &--active {
-        height: 30px; /* Final height when curtain is active */
+        height: 30px;
       }
     }
   }
@@ -190,5 +255,12 @@ onMounted(() => {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+.me {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  height: 100%;
 }
 </style>

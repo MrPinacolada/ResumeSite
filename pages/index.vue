@@ -1,5 +1,5 @@
 <template>
-  <section class="me-title">
+  <section class="me me-title">
     <h3 class="text-black-monochrome font--h3">
       Hi! I'm Vasilii. <br />
       I'm a ninja frontend <br />
@@ -43,14 +43,18 @@ const props = defineProps<IProps>();
 
 <style scoped lang="scss">
 .me-title {
-  position: relative;
-  padding-left: 30px;
-  padding-right: 30px;
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9;
+  @media (max-width: 65rem) {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    lottie-player {
+      max-width: 100vw;
+      max-height: 300px;
+    }
+  }
 }
 </style>
