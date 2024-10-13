@@ -27,13 +27,15 @@
       <nuxt-link to="/about" class="font--b3 text-white-monochrome">
         About
       </nuxt-link>
-      <nuxt-link class="font--b3 text-white-monochrome">Portfolio</nuxt-link>
+      <nuxt-link to="/portfolio" class="font--b3 text-white-monochrome"
+        >Portfolio</nuxt-link
+      >
       <nuxt-link to="/skills" class="font--b3 text-white-monochrome"
         >Skills</nuxt-link
       >
     </nav>
   </header>
-  <main v-show="!loader" class="layout__main animate__animated animate__fadeIn">
+  <main v-if="!loader" class="layout__main animate__animated animate__fadeIn">
     <!-- <div
       :class="['curtain', { 'curtain--active': showCurtain }]"
       class="animate__animated"

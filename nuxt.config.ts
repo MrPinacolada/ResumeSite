@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
   app: {
-    pageTransition: { name: 'slide-fade', mode: 'out-in' }
+    pageTransition: { name: "slide-fade", mode: "out-in" },
   },
   components: [
     {
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     },
   ],
   css: ["~/assets/styles/index.scss"],
-  modules: ["nuxt-icons", "@nuxtjs/google-fonts"],
+  modules: ["nuxt-icons", "@nuxtjs/google-fonts", "@nuxtjs/device"],
   googleFonts: {
     families: {
       "Roboto+Mono": "200..700",
@@ -29,7 +29,6 @@ export default defineNuxtConfig({
     build: {
       sourcemap: true,
     },
-    
   },
 
   ssr: false,
