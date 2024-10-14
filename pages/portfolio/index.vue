@@ -9,8 +9,6 @@
         @click="swiperInst ? swiperInst?.slideTo(index) : () => {}"
       >
         {{ item.title }}
-        {{ activeSlide }}
-        {{ index }}
       </button>
     </div>
     <Swiper
