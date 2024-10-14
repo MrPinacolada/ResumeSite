@@ -6,9 +6,11 @@
         :key="item.title"
         class="box font--b4 text-black-monochrome"
         :class="{ 'box-active': index === activeSlide }"
-        @click="swiperInst?.slideTo(index)"
+        @click="swiperInst ? swiperInst?.slideTo(index) : () => {}"
       >
         {{ item.title }}
+        {{ activeSlide }}
+        {{ index }}
       </button>
     </div>
     <Swiper
