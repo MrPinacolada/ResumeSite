@@ -54,6 +54,10 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, EffectCube } from "swiper/modules";
+import img1 from "~/public/img/rwa-estate.jpg";
+import img2 from "~/public/img/rwa-scan.jpg";
+import img3 from "~/public/img/agentum.jpg";
+import img4 from "~/public/img/autoimpirt.jpg";
 import "swiper/css/effect-cube";
 
 type Work = {
@@ -76,25 +80,25 @@ const onSwiper = (swiper: any) => {
 const works: Work[] = [
   {
     title: "RWA Estate",
-    img: "/img/rwa-estate.jpg",
+    img: img1,
     link: "https://rwa-estate.com/",
     description: `Estate RWAs (or tokenized estate) are physical, tangible assets such as residential homes, commercial buildings, and land. Unlike stocks or bonds, which are intangible financial instruments, estate RWAs have a physical presence and can be seen and touched.`,
   },
   {
     title: "RWA Scan",
-    img: "/img/rwa-scan.jpg",
+    img: img2,
     link: "https://rwa-scan.com/",
     description: `RWA Scan is a platform that consolidates all RWA's & Security tokens in one place. Our aim is to increase visibility for RWA's, akin to what happened with crypto initially. We list tokens and provide real-time information and statistics about them.`,
   },
   {
     title: "Agentum",
-    img: "/img/agentum.jpg",
+    img: img3,
     link: "https://agentum.pro/",
     description: "Real estate search.",
   },
   {
     title: "Autoimport",
-    img: "/img/autoimpirt.jpg",
+    img: img4,
     link: "https://autoimport.group/",
     description: "Car dillers.",
   },
