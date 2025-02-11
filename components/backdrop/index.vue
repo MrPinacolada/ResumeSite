@@ -1,5 +1,6 @@
 <template>
   <div class="backdrop"></div>
+  <span></span>
 </template>
 
 <script setup lang="ts"></script>
