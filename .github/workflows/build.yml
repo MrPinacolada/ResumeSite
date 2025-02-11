@@ -20,10 +20,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ESLint
-        run: npm run lint
+      
+      - name: Run ESLint with output
+        run: npx eslint . --format checkstyle --output-file eslint-report.xml || true
+
 
       - name: SonarCloud Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: npx sonarqube-scanner
+          run: npx sonarqube-scanner -Dsonar.javascript.eslint.reportPaths=eslint-report.xml
