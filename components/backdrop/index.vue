@@ -1,5 +1,6 @@
 <template>
   <div class="backdrop"></div>
+  <img src="/assets/anim/back.svg" alt="">
   <span></span>
 </template>
 
