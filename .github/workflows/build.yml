@@ -22,7 +22,7 @@ jobs:
 
       
       - name: Run ESLint with output
-        run: npx eslint . --format checkstyle --output-file eslint-report.xml || true
+        run: npx eslint .  --output-file eslint-report.xml || true
 
 
       - name: SonarCloud Scan
