@@ -25,5 +25,10 @@
     "swiper": "^11.1.14",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "eslint-plugin-sonarjs": "^3.0.1",
+    "eslint-plugin-vue": "^9.32.0",
+    "vue-eslint-parser": "^9.4.3"
   }
 }
