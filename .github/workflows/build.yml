@@ -23,7 +23,8 @@ jobs:
       
 
       - name: Run ESLint with output
-        run: npx eslint . --output-file eslint-report.xml
+        run: |
+          npx eslint . --format xml --output-file eslint-report.xml || (echo "ESLint failed"; exit 1)
 
 
       - name: SonarCloud Scan
