@@ -1,28 +1,17 @@
-import vue from "eslint-plugin-vue";
-import ts from "@typescript-eslint/eslint-plugin";
-import parser from "@typescript-eslint/parser";
+import js from '@eslint/js'
+import eslintPluginVue from 'eslint-plugin-vue'
+import ts from 'typescript-eslint'
 
-export default [
+export default ts.config(
+  js.configs.recommended,
+  ...ts.configs.recommended,
+  ...eslintPluginVue.configs['flat/recommended'],
   {
-    ignores: ["node_modules", "dist", ".nuxt", ".output"],
-  },
-  {
+    files: ['*.vue', '**/*.vue'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      parser,
       parserOptions: {
-        project: "./tsconfig.json",
-        extraFileExtensions: [".vue"],
-      },
-    },
-    files: ["**/*.ts", "**/*.tsx", "**/*.vue"],
-    plugins: {
-      vue,
-      "@typescript-eslint": ts,
-    },
-    rules: {
-      "vue/multi-word-component-names": "off",
-    },
-  },
-];
+        parser: '@typescript-eslint/parser'
+      }
+    }
+  }
+)
