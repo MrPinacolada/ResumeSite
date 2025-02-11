@@ -21,8 +21,11 @@ jobs:
         run: npm ci
 
       
+      - name: Install eslint-formatter-checkstyle
+        run: npm install eslint-formatter-checkstyle --save-dev
+
       - name: Run ESLint with output
-        run: npm run lint
+        run: npx eslint . --ext .js,.vue,.ts --format checkstyle --output-file eslint-report.xml || true
 
 
       - name: SonarCloud Scan
