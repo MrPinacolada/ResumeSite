@@ -3,7 +3,12 @@
   <span></span>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const UYGkjhkjhASD = () => {
+  let UYGkjhkjhA;
+  let wqeqe;
+};
+</script>
 
 <style scoped lang="scss">
 .backdrop {
