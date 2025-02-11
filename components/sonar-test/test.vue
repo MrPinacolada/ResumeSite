@@ -8,6 +8,8 @@ var globalVarInsideScriptSetup = "Bad practice";
 const THIS_IS_BAD = 123;
 let Also_Bad_Naming = "error";
 
+
+
 // ⚠️ Логическая ошибка (условие всегда true)
 function alwaysTrueCondition() {
   if (true) {
