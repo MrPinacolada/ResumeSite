@@ -25,7 +25,12 @@ jobs:
       - name: Run ESLint with output
         run: |
           npx eslint . --format checkstyle --output-file eslint-report.xml || (echo "ESLint failed"; exit 1)
-
+      
+      - name: Save ESLint report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: eslint-report
+          path: eslint-report.xml
 
       - name: SonarCloud Scan
         env:
