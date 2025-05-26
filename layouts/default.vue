@@ -59,7 +59,7 @@
     v-show="!loader"
     class="layout layout__footer animate__animated animate__fadeInUp"
   >
-    <nuxt-link v-for="icon in footerIcons">
+    <nuxt-link v-for="icon in footerIcons" :to="icon.link" target="_blank">
       <base-icon :name="icon.icon" filled size="32px" />
     </nuxt-link>
   </footer>
@@ -81,15 +81,15 @@ const majorAnim = ref<Record<string, any> | null>(null);
 const footerIcons = ref([
   {
     icon: "telegram",
-    link: "",
+    link: "https://t.me/Nkanka44",
   },
   {
     icon: "google",
-    link: "",
+    link: "mailto:vasiasko112@gmail.com",
   },
   {
     icon: "linkedin",
-    link: "",
+    link: "https://www.linkedin.com/in/mr-pinacolada/",
   },
 ]);
 const loader = ref(true);
