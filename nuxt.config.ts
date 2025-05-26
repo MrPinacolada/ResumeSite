@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
   app: {
-    baseURL: "/ResumeSite/",
+    baseURL: "/",
     pageTransition: { name: "slide-fade", mode: "out-in" },
     head: {
       title: "Resume pages",
@@ -41,7 +41,18 @@ export default defineNuxtConfig({
     },
   },
   router: {
-    base: "/ResumeSite/",
+    base: "/",
+  },
+  nitro: {
+    hooks: {
+      "prerender:done": async () => {
+        const fs = await import("fs/promises");
+        const path = await import("path");
+        const publicDir = path.resolve(".output/public");
+
+        await fs.writeFile(path.join(publicDir, "CNAME"), "devninja.net");
+      },
+    },
   },
   target: "static",
   ssr: false,
