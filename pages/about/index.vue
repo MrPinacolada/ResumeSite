@@ -4,63 +4,86 @@
       <article class="animate__animated animate__fadeIn">
         <h2>About Me</h2>
         <p>
-          I am an enthusiastic and self-motivated frontend developer with a
-          strong passion for learning and staying up-to-date with the latest web
-          development trends. Based in Azerbaijan, I have pursued web
-          development as my area of expertise. Having lived in different
-          countries, I value diverse cultures and ideas, which have shaped my
-          adaptable and curious nature. I thrive in large-scale projects where I
-          can explore my potential and utilize my skills effectively.
+          I'm a frontend developer and team lead with over 4 years of hands-on
+          experience, currently based in Melbourne, Australia. I specialize in
+          building fast, scalable, and elegant user interfaces using Vue 3, Nuxt
+          3, and React Native. My journey started as a self-taught developer and
+          grew into a leadership role where I guide frontend teams, define best
+          practices, and deliver clean, maintainable code.
         </p>
         <p>
-          I bring humor and positivity to every team I join, building rapport
-          naturally with colleagues. Conflict resolution and self-irony are
-          among my strengths. In addition to development, I’m passionate about
-          snowboarding, rock climbing, and snakes. I plan to relocate to
-          Indonesia soon, where I’ll stay for a few years.
+          Having lived in different countries, including Azerbaijan, I’ve
+          developed a strong cultural awareness and adaptability that enhances
+          my collaboration within global teams. I'm naturally curious, always
+          up-to-date with modern frontend trends, and enjoy contributing to
+          large-scale systems where attention to detail and user experience are
+          key.
         </p>
         <p>
-          Thank you for your attention! I look forward to contributing to new
-          projects and continuing my professional growth.
+          Outside of work, I’m passionate about snowboarding, rock climbing, and
+          reptiles (yes—especially snakes!). I'm currently preparing for a move
+          to Indonesia, where I’ll continue my remote work while embracing a new
+          culture.
         </p>
 
         <h2>Hard Skills</h2>
         <ul>
           <li>
-            <strong>Frontend Development:</strong> HTML5, SASS, TypeScript
+            <strong>Frontend Development:</strong> TypeScript, JavaScript,
+            HTML5, SASS, CSS3, Pug
           </li>
-          <li><strong>Frameworks:</strong> Vue 3, Nuxt 3, React Native</li>
-          <li><strong>Backend:</strong> Firebase</li>
-          <li><strong>Version Control:</strong> Git</li>
           <li>
-            <strong>Languages:</strong> English (C1), Russian (Fluent), Spanish
+            <strong>Frameworks:</strong> Vue 3, Nuxt 3, React Native, Node.js,
+            Firebase
+          </li>
+          <li>
+            <strong>Tooling & DevOps:</strong> Git, Docker, Webpack, Vite,
+            GitHub Actions
+          </li>
+          <li>
+            <strong>Testing & Monitoring:</strong> Jest, Sentry, SonarQube,
+            Lighthouse
+          </li>
+          <li>
+            <strong>Languages:</strong> English (C1), Russian (Native), Spanish
             (A1)
           </li>
         </ul>
 
         <h2>Technology Stack</h2>
         <ul>
-          <li>TypeScript, Vue 3, Nuxt 3, React Native, Firebase</li>
-          <li>REST, Node.js, Docker, Pug, Tailwind CSS</li>
-          <li>Vite, Webpack, Yandex Map, Sentry, SonarQube, Jest</li>
+          <li>
+            Vue 3, Nuxt 3, React Native, TypeScript, Tailwind CSS, Node.js,
+            Firebase
+          </li>
+          <li>
+            REST API, Docker, Webpack, Vite, Sentry, SonarQube, Yandex Maps
+          </li>
+          <li>Jest, CI/CD, Performance Auditing, Pug, Figma Integration</li>
         </ul>
 
         <h2>Soft Skills</h2>
         <ul>
-          <li>Problem-solving</li>
-          <li>Team player with leadership potential</li>
-          <li>Self-reliant and independent thinker</li>
-          <li>Adaptable and resilient under pressure</li>
-          <li>Positive mindset, rarely angry or bored</li>
+          <li>Strong leadership and mentoring</li>
+          <li>Problem-solving mindset</li>
+          <li>UX-oriented thinking</li>
+          <li>Clear communication in cross-functional teams</li>
+          <li>Adaptive, resilient, and growth-oriented personality</li>
         </ul>
 
         <h2>Education & Career</h2>
         <p>
-          I am a self-taught frontend developer with three years of experience.
-          For nearly a year, I’ve worked at a sales arrangement company as a
-          frontend developer. I’m continuously learning React Native and
-          exploring its components, with plans to dive deeper into both React
-          Native and Flutter for personal growth.
+          I'm a self-taught frontend developer with over 4 years of experience,
+          currently working as a team lead. I’ve led development at Gentlyx,
+          SwitchCase, and other tech companies, contributing to scalable
+          platforms, SSR-based marketing systems, and high-load apps. My core
+          motivation lies in clean UI, solid architecture, and strong teamwork.
+        </p>
+        <p>
+          I graduated from Kostroma Polytechnic College in Microprocessor
+          Electronics in 2016. I continue to grow by learning new technologies
+          like Flutter and improving my proficiency in mobile development with
+          React Native.
         </p>
 
         <h2>Contact Information</h2>
@@ -76,10 +99,23 @@
               >MrPinacolada</a
             >
           </li>
-          <li><strong>Location:</strong> Baku, AZN</li>
+          <li>
+            <strong>Portfolio:</strong>
+            <a href="https://mrpinacolada.github.io/ResumeSite" target="_blank"
+              >mrpinacolada.github.io/ResumeSite</a
+            >
+          </li>
+          <li>
+            <strong>LinkedIn:</strong>
+            <a href="https://linkedin.com/in/mr-pinacolada" target="_blank"
+              >linkedin.com/in/mr-pinacolada</a
+            >
+          </li>
+          <li><strong>Location:</strong> Melbourne, VIC, Australia (for now)</li>
         </ul>
       </article>
     </div>
+
     <lottie-player
       v-if="anim?.ExpPage"
       class="animate__animated animate__fadeIn"
