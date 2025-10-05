@@ -6,16 +6,50 @@ export default defineNuxtConfig({
     baseURL: "/",
     pageTransition: { name: "slide-fade", mode: "out-in" },
     head: {
-      title: "NinjaDev",
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-        meta: [
-        { property: "og:title", content: "NinjaDev" },
-        { property: "og:description", content: "NinjaDev Site 🚀" },
+      title: "NinjaDev — Vasilii Skovorodin",
+      htmlAttrs: { lang: "en" },
+      meta: [
+        {
+          name: "description",
+          content:
+            "Frontend Ninja Developer with 4+ years of experience in Vue, Nuxt, and React Native. Building scalable, high-performance interfaces and leading teams to deliver products used by thousands.",
+        },
+
+        // Open Graph
+        { property: "og:title", content: "NinjaDev — Vasilii Skovorodin" },
+        {
+          property: "og:description",
+          content:
+            "Creative and pragmatic frontend ninja with 4+ years of experience in Vue, Nuxt, and React Native. Passionate about clean UI, performance optimization, and scalable architecture.",
+        },
         { property: "og:type", content: "website" },
         { property: "og:url", content: "https://devninja.net" },
         { property: "og:image", content: "https://devninja.net/og-image.png" },
+        { property: "og:site_name", content: "NinjaDev" },
+        { property: "og:locale", content: "en_US" },
+
+        // Twitter
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "NinjaDev — Vasilii Skovorodin" },
+        {
+          name: "twitter:description",
+          content:
+            "Frontend Ninja Developer with 4+ years of experience in Vue, Nuxt, and React Native. Focused on clean UI, performance, and scalable frontend systems.",
+        },
         { name: "twitter:image", content: "https://devninja.net/og-image.png" },
+
+        // Extra SEO
+        { name: "author", content: "Vasilii Skovorodin" },
+        { name: "robots", content: "index, follow" },
+        {
+          name: "keywords",
+          content:
+            "Frontend Developer, NinjaDev, Vasilii Skovorodin, Vue, Nuxt, React Native, TypeScript, Web Performance, Team Lead",
+        },
+      ],
+      link: [
+        { rel: "canonical", href: "https://devninja.net" },
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       ],
     },
   },
