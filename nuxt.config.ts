@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     baseURL: "/",
     pageTransition: { name: "slide-fade", mode: "out-in" },
     head: {
-      title: "Resume pages",
+      title: "NinjaDev",
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
