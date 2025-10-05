@@ -351,6 +351,36 @@
             </div>
           </div>
         </div>
+
+        <div
+          class="project-card animate__animated animate__fadeInUp"
+          style="animation-delay: 0.6s"
+        >
+          <div class="project-image">
+            <img src="/assets/img/buzz.png" alt="Gentlyx Platform" />
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://gentlyx.com/" target="_blank" class="project-link"
+                  >Live Demo</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Gentlyx - Content Creator Platform (18+)</h3>
+            <p>
+              Advanced platform for content creators with AI-powered smart search algorithms, personalized content discovery, and seamless creator-user interactions. Features crypto/fiat payment integration and privacy-focused architecture.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Nuxt 4</span>
+              <span class="tag">TypeScript 5</span>
+              <span class="tag">AI Algorithms</span>
+              <span class="tag">Crypto Payments</span>
+              <span class="tag">WebRTC</span>
+              <span class="tag">Redis</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
