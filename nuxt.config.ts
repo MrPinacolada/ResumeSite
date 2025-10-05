@@ -8,6 +8,15 @@ export default defineNuxtConfig({
     head: {
       title: "NinjaDev",
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+        meta: [
+        { property: "og:title", content: "NinjaDev" },
+        { property: "og:description", content: "NinjaDev Site 🚀" },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://devninja.net" },
+        { property: "og:image", content: "https://devninja.net/og-image.png" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: "https://devninja.net/og-image.png" },
+      ],
     },
   },
   components: [
@@ -23,6 +32,7 @@ export default defineNuxtConfig({
     "@nuxtjs/device",
     "@nuxt/image",
   ],
+
   googleFonts: {
     families: {
       "Roboto+Mono": "200..700",
