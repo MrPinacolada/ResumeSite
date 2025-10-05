@@ -179,7 +179,10 @@
             <img src="/assets/img/rwa-estate.jpg" alt="Real Estate Platform" />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://www.rwa-estate.com/" target="_blank" class="project-link"
+                <a
+                  href="https://www.rwa-estate.com/"
+                  target="_blank"
+                  class="project-link"
                   >Live Demo</a
                 >
               </div>
@@ -210,7 +213,10 @@
             <img src="/assets/img/newtify.png" alt="Newtify" />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://x.com/newtifyapp?lang=en" target="_blank" class="project-link"
+                <a
+                  href="https://x.com/newtifyapp?lang=en"
+                  target="_blank"
+                  class="project-link"
                   >Live Demo</a
                 >
               </div>
@@ -242,7 +248,9 @@
             <img src="/assets/img/buzz.png" alt="Buzz Social Platform" />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://buzz.ai/" target="_blank" class="project-link">Live Demo</a>
+                <a href="https://buzz.ai/" target="_blank" class="project-link"
+                  >Live Demo</a
+                >
               </div>
             </div>
           </div>
@@ -274,7 +282,10 @@
             <img src="/assets/img/tokenizer.png" alt="Tokenizer Tool" />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://tokenizer.estate/" target="_blank" class="project-link"
+                <a
+                  href="https://tokenizer.estate/"
+                  target="_blank"
+                  class="project-link"
                   >Live Demo</a
                 >
               </div>
@@ -302,7 +313,10 @@
             <img src="/assets/img/autoimpirt.jpg" alt="Auto Import Scanner" />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://avtoimportrus.ru/" target="_blank" class="project-link"
+                <a
+                  href="https://avtoimportrus.ru/"
+                  target="_blank"
+                  class="project-link"
                   >Live Demo</a
                 >
               </div>
@@ -333,7 +347,10 @@
             <img src="/assets/img/rwa-scan.jpg" alt="Rwa-Scan" />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://www.rwa-scan.com/" target="_blank" class="project-link"
+                <a
+                  href="https://www.rwa-scan.com/"
+                  target="_blank"
+                  class="project-link"
                   >Live Demo</a
                 >
               </div>
@@ -341,6 +358,12 @@
           </div>
           <div class="project-content">
             <h3>RWA-Scan</h3>
+            <p>
+              Discover tokenized assets, real estate, commodities, and more with
+              RWA Scan. Track market trends, token prices, and trading volume
+              across various blockchain networks. Explore a centralized hub for
+              global tokenized projects and investments.",
+            </p>
             <div class="project-tags">
               <span class="tag">SvelteKit 2</span>
               <span class="tag">Svelte 5</span>
@@ -357,10 +380,13 @@
           style="animation-delay: 0.6s"
         >
           <div class="project-image">
-            <img src="/assets/img/buzz.png" alt="Gentlyx Platform" />
+            <img src="/assets/img/gentlyx-og-width-new.png" alt="Gentlyx Platform" />
             <div class="project-overlay">
               <div class="project-links">
-                <a href="https://gentlyx.com/" target="_blank" class="project-link"
+                <a
+                  href="https://gentlyx.com/"
+                  target="_blank"
+                  class="project-link"
                   >Live Demo</a
                 >
               </div>
@@ -369,7 +395,10 @@
           <div class="project-content">
             <h3>Gentlyx - Content Creator Platform (18+)</h3>
             <p>
-              Advanced platform for content creators with AI-powered smart search algorithms, personalized content discovery, and seamless creator-user interactions. Features crypto/fiat payment integration and privacy-focused architecture.
+              Advanced platform for content creators with AI-powered smart
+              search algorithms, personalized content discovery, and seamless
+              creator-user interactions. Features crypto/fiat payment
+              integration and privacy-focused architecture.
             </p>
             <div class="project-tags">
               <span class="tag">Nuxt 4</span>
@@ -378,6 +407,42 @@
               <span class="tag">Crypto Payments</span>
               <span class="tag">WebRTC</span>
               <span class="tag">Redis</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="project-card animate__animated animate__fadeInUp"
+          style="animation-delay: 0.7s"
+        >
+          <div class="project-image">
+            <img
+              src="/assets/img/2uit.png"
+              alt="2UIT Development Agency"
+            />
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="https://2uit.ru/" target="_blank" class="project-link"
+                  >Live Demo</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>2UIT - IT Development Agency</h3>
+            <p>
+              Comprehensive IT development agency specializing in mobile & web
+              development, business automation, CRM/ERP systems. Successfully
+              delivered enterprise solutions for top Russian companies including
+              Samolet Group and Bashgeofizika.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Vue.js 3</span>
+              <span class="tag">Nuxt.js 3</span>
+              <span class="tag">React Native</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">CRM/ERP</span>
+              <span class="tag">Enterprise</span>
             </div>
           </div>
         </div>
