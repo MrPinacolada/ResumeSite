@@ -8,7 +8,7 @@
       v-if="route.name === 'index'"
       class="title font--b3 text-white-contrast"
     >
-      Resume pages
+      NinjaDev
     </h5>
     <button
       v-else
@@ -23,17 +23,7 @@
       />
       Back
     </button>
-    <nav class="pages" @mouseenter="handleHoverLink">
-      <nuxt-link to="/about" class="font--b3 text-white-monochrome">
-        About
-      </nuxt-link>
-      <nuxt-link to="/portfolio" class="font--b3 text-white-monochrome"
-        >Portfolio</nuxt-link
-      >
-      <nuxt-link to="/skills" class="font--b3 text-white-monochrome"
-        >Skills</nuxt-link
-      >
-    </nav>
+   <HeaderDinoRunner class="text-current" />
   </header>
   <main v-if="!loader" class="layout__main animate__animated animate__fadeIn">
     <!-- <div
@@ -47,14 +37,7 @@
 
   <backdrop v-if="!loader" />
   <base-loader v-if="loader" />
-  <div class="spider-box">
-    <amazing-spider
-      v-if="!$device.isMobile"
-      v-show="!loader"
-      background_color="#fff"
-      dots_border_color="rgba(10, 163, 243, 0.39)"
-    />
-  </div>
+  
   <footer
     v-show="!loader"
     class="layout layout__footer animate__animated animate__fadeInUp"
@@ -63,6 +46,14 @@
       <base-icon :name="icon.icon" filled size="32px" />
     </nuxt-link>
   </footer>
+  <div class="spider-box">
+    <amazing-spider
+      v-if="!$device.isMobile"
+      v-show="!loader"
+      background_color="#fff"
+      dots_border_color="rgba(10, 163, 243, 0.39)"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -71,6 +62,7 @@ import "@lottiefiles/lottie-player";
 import "swiper/css/scrollbar";
 import "swiper/css/grid";
 import "swiper/css";
+import HeaderDinoRunner from "~/components/base/HeaderDinoRunner.vue";
 
 type LottieData = Record<string, any>;
 
@@ -180,6 +172,7 @@ onMounted(async () => {
   background-color: var(--gray-800);
   z-index: 3;
   &__header {
+    position: sticky;
     top: 0;
     left: 0;
     display: flex;
@@ -217,6 +210,7 @@ onMounted(async () => {
     height: calc(100dvh - 120px);
     margin-bottom: 60px;
     z-index: 4;
+    overflow-y: auto;
     .curtain {
       position: relative;
       top: 0;
@@ -243,6 +237,7 @@ onMounted(async () => {
     align-items: center;
     justify-content: flex-end;
     gap: 20px;
+    z-index: 9999;
     a {
       transition: scale 0.3s ease, rotate 0.3s ease-in-out;
       will-change: scale, rotate;
@@ -267,6 +262,6 @@ onMounted(async () => {
   padding-left: 30px;
   padding-right: 30px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 </style>
