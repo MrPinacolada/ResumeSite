@@ -21,7 +21,7 @@ type TgUpdate = {
 };
 
 const START_VIDEO =
-  "BQACAgIAAxkBAAMKaZRLQJOTytXqcUn9cfXzBJSLMVwAAnCLAAII3KBI8Pn0g1fVQLI6BA";
+  "BAACAgIAAxkBAAMbaZRNH0V0vd-vw_etNmVrqXzprskAAoaLAAII3KBIL5115z3dtLM6BA";
 
 // callback_data
 const CB_START = "start_practice";
