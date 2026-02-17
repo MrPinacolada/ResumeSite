@@ -21,7 +21,7 @@ type TgUpdate = {
 };
 
 const START_VIDEO =
-  "https://na7bileqnaywmmto.public.blob.vercel-storage.com/intro_small.mp4";
+  "BQACAgIAAxkBAAMKaZRLQJOTytXqcUn9cfXzBJSLMVwAAnCLAAII3KBI8Pn0g1fVQLI6BA";
 
 // callback_data
 const CB_START = "start_practice";
