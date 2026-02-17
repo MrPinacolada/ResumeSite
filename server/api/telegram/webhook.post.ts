@@ -1,6 +1,11 @@
 // server/api/telegram/webhook.post.ts
 import { getTgState, resetTgState, setTgState } from "~/server/utils/tgState";
-import { makeInlineButton, tgAnswerCallback, tgSendMessage, tgSendVideo } from "~/server/utils/telegram";
+import {
+  makeInlineButton,
+  tgAnswerCallback,
+  tgSendMessage,
+  tgSendVideo,
+} from "~/server/utils/telegram";
 
 type TgUpdate = {
   message?: {
@@ -15,7 +20,8 @@ type TgUpdate = {
   };
 };
 
-const START_VIDEO = "https://na7bileqnaywmmto.public.blob.vercel-storage.com/intro_small.mp4";
+const START_VIDEO =
+  "https://na7bileqnaywmmto.public.blob.vercel-storage.com/intro_small.mp4";
 
 // callback_data
 const CB_START = "start_practice";
@@ -41,16 +47,28 @@ export default defineEventHandler(async (event) => {
   const token = cfg.telegramBotToken as string | undefined;
   const secret = cfg.telegramWebhookSecret as string | undefined;
 
-  if (!token) throw createError({ statusCode: 500, statusMessage: "Missing TELEGRAM_BOT_TOKEN" });
+  if (!token)
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Missing TELEGRAM_BOT_TOKEN",
+    });
 
   if (secret) {
     const headerSecret = getHeader(event, "x-telegram-bot-api-secret-token");
     if (headerSecret !== secret) {
-      throw createError({ statusCode: 401, statusMessage: "Invalid webhook secret" });
+      throw createError({
+        statusCode: 401,
+        statusMessage: "Invalid webhook secret",
+      });
     }
   }
 
   const update = await readBody<TgUpdate>(event);
+
+  const maybeVideo = (update as any)?.message?.video;
+  if (maybeVideo?.file_id) {
+    console.log("VIDEO_FILE_ID:", maybeVideo.file_id);
+  }
 
   // ===== /start =====
   const chatId = update.message?.chat?.id;
@@ -133,7 +151,9 @@ export default defineEventHandler(async (event) => {
         token,
         chatId: cbChatId,
         text: QUESTIONS[nextStep - 1],
-        replyMarkup: isLast ? undefined : makeInlineButton("Следующий вопрос ▶️", CB_NEXT),
+        replyMarkup: isLast
+          ? undefined
+          : makeInlineButton("Следующий вопрос ▶️", CB_NEXT),
       });
 
       if (isLast) {
