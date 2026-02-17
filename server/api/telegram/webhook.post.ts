@@ -48,6 +48,14 @@ const QUESTIONS = [
   "15) Что самое страшное может случиться, если ваша цель реализуется?",
 ];
 
+const AFTER_MESSAGES: Record<number, string> = {
+  3: "Уже сам факт, что вы это замечаете — шаг вперёд🦶",
+  6: "Обратите внимание, что внутри вас есть не только сопротивление, но осознанность и желание развиваться 🧬🔥",
+  8: "Важно не торопиться. Позвольте себе быть искренней здесь 🫂",
+  10: "Вы проделали большую работу 🤌🔥 Осталось 5 вопросов 🤍",
+  13: "Очень ценно, что вы это увидели! Так держать❤️‍🔥",
+};
+
 export default defineEventHandler(async (event) => {
   const cfg = useRuntimeConfig();
   const token = cfg.telegramBotToken as string | undefined;
@@ -98,9 +106,10 @@ export default defineEventHandler(async (event) => {
       token,
       chatId,
       text:
-        "Начать практику 📃 🖊️\n" +
-        "Отвечать на вопросы нужно письменно — либо в телефоне, либо приготовьте ручку и блокнот.",
-      replyMarkup: makeInlineButton("Начать ✅", CB_START),
+        "Подготовьтесь к важной необходимой работе с вашим мышлением и бессознательным🧬\n" +
+        "Отвечать на вопросы нужно письменно — либо в телефоне, либо приготовьте ручку и блокнот.\n" +
+        "Выделите примерно полчаса-час ⌚️ Будет 15 вопросов.",
+      replyMarkup: makeInlineButton("Начать практику 📃 🖊️", CB_START),
     });
 
     return { ok: true };
@@ -161,6 +170,11 @@ export default defineEventHandler(async (event) => {
           ? undefined
           : makeInlineButton("Следующий вопрос ▶️", CB_NEXT),
       });
+
+      const followUp = AFTER_MESSAGES[state.step];
+      if (followUp) {
+        await tgSendMessage({ token, chatId: cbChatId, text: followUp });
+      }
 
       if (isLast) {
         await tgSendMessage({
