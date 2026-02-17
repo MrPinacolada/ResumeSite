@@ -103,8 +103,8 @@ export default defineNuxtConfig({
     telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
     telegramWebhookSecret: process.env.TELEGRAM_WEBHOOK_SECRET,
     // Upstash KV (Redis REST)
-    kvRestApiUrl: process.env.KV_REST_API_URL,
-    kvRestApiToken: process.env.KV_REST_API_TOKEN,
+    kvRestApiUrl: process.env.UPSTASH_REDIS_REST_URL,
+    kvRestApiToken: process.env.UPSTASH_REDIS_REST_TOKEN,
   },
   // ssr: true,
 });
