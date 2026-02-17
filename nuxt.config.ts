@@ -105,6 +105,5 @@ export default defineNuxtConfig({
     kvRestApiUrl: process.env.KV_REST_API_URL,
     kvRestApiToken: process.env.KV_REST_API_TOKEN,
   },
-  target: "static",
   ssr: true,
 });
