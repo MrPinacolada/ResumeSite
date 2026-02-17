@@ -19,7 +19,7 @@ const MAX_STEPS = 10;
 const BTN_TEXT = "Дальше ▶️";
 const CB_NEXT = "next";
 
-const START_VIDEO = "https://devninja.net/intro.mp4";
+const START_VIDEO = "https://na7bileqnaywmmto.public.blob.vercel-storage.com/intro.mp4";
 
 export default defineEventHandler(async (event) => {
   const cfg = useRuntimeConfig();
