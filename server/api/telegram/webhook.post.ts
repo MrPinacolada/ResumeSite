@@ -1,6 +1,6 @@
 // server/api/telegram/webhook.post.ts
 import { getTgState, resetTgState, setTgState } from "~/server/utils/tgState";
-import { makeInlineButton, tgAnswerCallback, tgSendMessage } from "~/server/utils/telegram";
+import { makeInlineButton, tgAnswerCallback, tgSendMessage, tgSendVideo } from "~/server/utils/telegram";
 
 type TgUpdate = {
   message?: {
@@ -11,15 +11,15 @@ type TgUpdate = {
   callback_query?: {
     id: string;
     data?: string;
-    message?: {
-      chat: { id: number };
-    };
+    message?: { chat: { id: number } };
   };
 };
 
 const MAX_STEPS = 10;
 const BTN_TEXT = "Дальше ▶️";
-const CB_NEXT = "next"; // callback_data
+const CB_NEXT = "next";
+
+const START_VIDEO = "https://devninja.net/intro.mp4";
 
 export default defineEventHandler(async (event) => {
   const cfg = useRuntimeConfig();
@@ -35,45 +35,44 @@ export default defineEventHandler(async (event) => {
 
   const update = await readBody<TgUpdate>(event);
 
-  // 1) /start (обычное сообщение)
-  const chatIdFromMessage = update.message?.chat?.id;
+  // /start
+  const chatId = update.message?.chat?.id;
   const text = update.message?.text?.trim();
 
-  if (chatIdFromMessage && text === "/start") {
-    await resetTgState(chatIdFromMessage);
-    await setTgState(chatIdFromMessage, { step: 0 });
+  if (chatId && text === "/start") {
+    await resetTgState(chatId);
+    await setTgState(chatId, { step: 0 });
 
-    await tgSendMessage({
+    await tgSendVideo({
       token,
-      chatId: chatIdFromMessage,
-      text: `Привет! Нажми кнопку в сообщении — будет 10 шагов.`,
+      chatId,
+      video: START_VIDEO,
+      caption: `Привет! Я бот на Nuxt3 (Vercel) + Upstash.\nНажми кнопку в сообщении — будет 10 шагов.`,
       replyMarkup: makeInlineButton(BTN_TEXT, CB_NEXT),
     });
 
     return { ok: true };
   }
 
-  // 2) Нажатие inline-кнопки приходит как callback_query
+  // callback на кнопку
   const cb = update.callback_query;
   const cbId = cb?.id;
   const cbData = cb?.data;
-  const chatIdFromCb = cb?.message?.chat?.id;
+  const cbChatId = cb?.message?.chat?.id;
 
-  if (cbId && chatIdFromCb && cbData === CB_NEXT) {
-    // чтобы Telegram убрал "часики" на кнопке
+  if (cbId && cbChatId && cbData === CB_NEXT) {
     await tgAnswerCallback({ token, callbackQueryId: cbId });
 
-    const state = await getTgState(chatIdFromCb);
+    const state = await getTgState(cbChatId);
     const nextStep = state.step + 1;
 
     if (nextStep <= MAX_STEPS) {
-      await setTgState(chatIdFromCb, { step: nextStep });
-
+      await setTgState(cbChatId, { step: nextStep });
       const isLast = nextStep === MAX_STEPS;
 
       await tgSendMessage({
         token,
-        chatId: chatIdFromCb,
+        chatId: cbChatId,
         text: isLast
           ? `Шаг ${nextStep}/${MAX_STEPS}. Это был последний шаг ✅`
           : `Шаг ${nextStep}/${MAX_STEPS}. Нажми кнопку ниже:`,
@@ -85,14 +84,12 @@ export default defineEventHandler(async (event) => {
 
     await tgSendMessage({
       token,
-      chatId: chatIdFromCb,
+      chatId: cbChatId,
       text: `Мы уже закончили. Напиши /start чтобы начать заново.`,
     });
 
     return { ok: true };
   }
 
-  // 3) На всё остальное — молча ок (или можно подсказать)
-  // Чтобы не спамить, можно просто return ok
   return { ok: true };
 });

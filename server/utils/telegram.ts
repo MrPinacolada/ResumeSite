@@ -6,9 +6,14 @@ export type InlineKeyboardMarkup = {
 export type ReplyMarkup = InlineKeyboardMarkup | { remove_keyboard: true };
 
 export function makeInlineButton(text: string, callbackData: string): InlineKeyboardMarkup {
-  return {
-    inline_keyboard: [[{ text, callback_data: callbackData }]],
-  };
+  return { inline_keyboard: [[{ text, callback_data: callbackData }]] };
+}
+
+async function tgCall(token: string, method: string, body: any) {
+  return await $fetch(`https://api.telegram.org/bot${token}/${method}`, {
+    method: "POST",
+    body,
+  });
 }
 
 export async function tgSendMessage(params: {
@@ -19,14 +24,29 @@ export async function tgSendMessage(params: {
 }) {
   const { token, chatId, text, replyMarkup } = params;
 
-  return await $fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: "POST",
-    body: {
-      chat_id: chatId,
-      text,
-      parse_mode: "HTML",
-      ...(replyMarkup ? { reply_markup: replyMarkup } : {}),
-    },
+  return tgCall(token, "sendMessage", {
+    chat_id: chatId,
+    text,
+    parse_mode: "HTML",
+    ...(replyMarkup ? { reply_markup: replyMarkup } : {}),
+  });
+}
+
+export async function tgSendVideo(params: {
+  token: string;
+  chatId: number;
+  video: string; // file_id ИЛИ https URL
+  caption?: string;
+  replyMarkup?: ReplyMarkup;
+}) {
+  const { token, chatId, video, caption, replyMarkup } = params;
+
+  return tgCall(token, "sendVideo", {
+    chat_id: chatId,
+    video,
+    caption,
+    parse_mode: "HTML",
+    ...(replyMarkup ? { reply_markup: replyMarkup } : {}),
   });
 }
 
@@ -38,12 +58,9 @@ export async function tgAnswerCallback(params: {
 }) {
   const { token, callbackQueryId, text, showAlert } = params;
 
-  return await $fetch(`https://api.telegram.org/bot${token}/answerCallbackQuery`, {
-    method: "POST",
-    body: {
-      callback_query_id: callbackQueryId,
-      ...(text ? { text } : {}),
-      ...(typeof showAlert === "boolean" ? { show_alert: showAlert } : {}),
-    },
+  return tgCall(token, "answerCallbackQuery", {
+    callback_query_id: callbackQueryId,
+    ...(text ? { text } : {}),
+    ...(typeof showAlert === "boolean" ? { show_alert: showAlert } : {}),
   });
 }
