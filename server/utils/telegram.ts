@@ -1,19 +1,25 @@
-type ReplyKeyboardMarkup = {
+// server/utils/telegram.ts
+export type ReplyKeyboardMarkup = {
   keyboard: Array<Array<{ text: string }>>;
   resize_keyboard?: boolean;
   one_time_keyboard?: boolean;
 };
 
-type ReplyMarkup =
-  | { reply_keyboard_markup: ReplyKeyboardMarkup } 
-  | ReplyKeyboardMarkup
-  | { remove_keyboard: true };
+export type ReplyMarkup = ReplyKeyboardMarkup | { remove_keyboard: true };
+
+export function makeBottomButton(text: string): ReplyKeyboardMarkup {
+  return {
+    keyboard: [[{ text }]],
+    resize_keyboard: true,
+    one_time_keyboard: false,
+  };
+}
 
 export async function tgSendMessage(params: {
   token: string;
   chatId: number;
   text: string;
-  replyMarkup?: ReplyKeyboardMarkup | { remove_keyboard: true };
+  replyMarkup?: ReplyMarkup;
 }) {
   const { token, chatId, text, replyMarkup } = params;
 
@@ -26,19 +32,8 @@ export async function tgSendMessage(params: {
 
   if (replyMarkup) body.reply_markup = replyMarkup;
 
-  const res = await $fetch<{ ok: boolean; description?: string }>(url, {
+  return await $fetch<{ ok: boolean; description?: string }>(url, {
     method: "POST",
     body,
   });
-
-  return res;
-}
-
-export function makeBottomButton(text: string) {
-  const kb: ReplyKeyboardMarkup = {
-    keyboard: [[{ text }]],
-    resize_keyboard: true,
-    one_time_keyboard: false,
-  };
-  return kb;
 }

@@ -20,11 +20,10 @@ export default defineEventHandler(async (event) => {
 
   if (!token) throw createError({ statusCode: 500, statusMessage: "Missing TELEGRAM_BOT_TOKEN" });
 
-  // Проверка секрета webhook (рекомендуется)
+  // проверка секретного токена вебхука (Telegram header)
   if (secret) {
     const headerSecret = getHeader(event, "x-telegram-bot-api-secret-token");
     if (headerSecret !== secret) {
-      // Telegram будет ретраить, но лучше вернуть 401
       throw createError({ statusCode: 401, statusMessage: "Invalid webhook secret" });
     }
   }
@@ -34,17 +33,16 @@ export default defineEventHandler(async (event) => {
   const chatId = update.message?.chat?.id;
   const text = update.message?.text?.trim();
 
-  // Telegram ждёт быстрый 200 OK — мы и так успеем
   if (!chatId) return { ok: true };
 
-  // 1) /start
+  // /start
   if (text === "/start") {
     await resetTgState(chatId);
 
     await tgSendMessage({
       token,
       chatId,
-      text: `Привет! Я бот на Nuxt3 Nitro.\nНажми кнопку снизу, и я покажу 10 шагов.`,
+      text: `Привет! Я бот на Nuxt3 (Vercel) + Upstash KV.\nНажми кнопку снизу — будет 10 шагов.`,
       replyMarkup: makeBottomButton(BTN_TEXT),
     });
 
@@ -52,7 +50,7 @@ export default defineEventHandler(async (event) => {
     return { ok: true };
   }
 
-  // 2) Дальше (нажатие reply-кнопки приходит как текст)
+  // нажатие ReplyKeyboard-кнопки приходит как обычный текст
   if (text === BTN_TEXT) {
     const state = await getTgState(chatId);
     const nextStep = state.step + 1;
@@ -61,6 +59,7 @@ export default defineEventHandler(async (event) => {
       await setTgState(chatId, { step: nextStep });
 
       const isLast = nextStep === MAX_STEPS;
+
       await tgSendMessage({
         token,
         chatId,
@@ -73,17 +72,17 @@ export default defineEventHandler(async (event) => {
       return { ok: true };
     }
 
-    // Если вдруг жмут после завершения
     await tgSendMessage({
       token,
       chatId,
       text: `Мы уже закончили. Напиши /start чтобы начать заново.`,
       replyMarkup: { remove_keyboard: true },
     });
+
     return { ok: true };
   }
 
-  // 3) Любой другой текст
+  // любой другой текст
   await tgSendMessage({
     token,
     chatId,
