@@ -105,6 +105,7 @@ export default defineNuxtConfig({
     // Upstash KV (Redis REST)
     kvRestApiUrl: process.env.UPSTASH_REDIS_REST_URL,
     kvRestApiToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+    telegramAnalyticsSecret: process.env.TELEGRAM_ANALYTICS_SECRET,
   },
   // ssr: true,
 });
