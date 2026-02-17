@@ -7,10 +7,10 @@ if (!token) {
   process.exit(1);
 }
 
-const filePath = "public/intro.mp4";
+const filePath = "public/intro_small.mp4";
 const buf = await readFile(filePath);
 
-const blob = await put("intro.mp4", buf, {
+const blob = await put("intro_small.mp4", buf, {
   access: "public",
   contentType: "video/mp4",
   token,

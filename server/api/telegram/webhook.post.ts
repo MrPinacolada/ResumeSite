@@ -15,7 +15,7 @@ type TgUpdate = {
   };
 };
 
-const START_VIDEO = "https://na7bileqnaywmmto.public.blob.vercel-storage.com/intro.mp4";
+const START_VIDEO = "https://na7bileqnaywmmto.public.blob.vercel-storage.com/intro_small.mp4";
 
 // callback_data
 const CB_START = "start_practice";
