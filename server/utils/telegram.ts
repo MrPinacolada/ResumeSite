@@ -1,17 +1,13 @@
 // server/utils/telegram.ts
-export type ReplyKeyboardMarkup = {
-  keyboard: Array<Array<{ text: string }>>;
-  resize_keyboard?: boolean;
-  one_time_keyboard?: boolean;
+export type InlineKeyboardMarkup = {
+  inline_keyboard: Array<Array<{ text: string; callback_data: string }>>;
 };
 
-export type ReplyMarkup = ReplyKeyboardMarkup | { remove_keyboard: true };
+export type ReplyMarkup = InlineKeyboardMarkup | { remove_keyboard: true };
 
-export function makeBottomButton(text: string): ReplyKeyboardMarkup {
+export function makeInlineButton(text: string, callbackData: string): InlineKeyboardMarkup {
   return {
-    keyboard: [[{ text }]],
-    resize_keyboard: true,
-    one_time_keyboard: false,
+    inline_keyboard: [[{ text, callback_data: callbackData }]],
   };
 }
 
@@ -23,17 +19,31 @@ export async function tgSendMessage(params: {
 }) {
   const { token, chatId, text, replyMarkup } = params;
 
-  const url = `https://api.telegram.org/bot${token}/sendMessage`;
-  const body: Record<string, any> = {
-    chat_id: chatId,
-    text,
-    parse_mode: "HTML",
-  };
-
-  if (replyMarkup) body.reply_markup = replyMarkup;
-
-  return await $fetch<{ ok: boolean; description?: string }>(url, {
+  return await $fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
-    body,
+    body: {
+      chat_id: chatId,
+      text,
+      parse_mode: "HTML",
+      ...(replyMarkup ? { reply_markup: replyMarkup } : {}),
+    },
+  });
+}
+
+export async function tgAnswerCallback(params: {
+  token: string;
+  callbackQueryId: string;
+  text?: string;
+  showAlert?: boolean;
+}) {
+  const { token, callbackQueryId, text, showAlert } = params;
+
+  return await $fetch(`https://api.telegram.org/bot${token}/answerCallbackQuery`, {
+    method: "POST",
+    body: {
+      callback_query_id: callbackQueryId,
+      ...(text ? { text } : {}),
+      ...(typeof showAlert === "boolean" ? { show_alert: showAlert } : {}),
+    },
   });
 }
