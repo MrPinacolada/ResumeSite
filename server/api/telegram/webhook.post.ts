@@ -162,6 +162,11 @@ export default defineEventHandler(async (event) => {
 
       const isLast = nextStep === QUESTIONS.length;
 
+      const followUp = AFTER_MESSAGES[state.step];
+      if (followUp) {
+        await tgSendMessage({ token, chatId: cbChatId, text: followUp });
+      }
+
       await tgSendMessage({
         token,
         chatId: cbChatId,
@@ -170,11 +175,6 @@ export default defineEventHandler(async (event) => {
           ? undefined
           : makeInlineButton("Следующий вопрос ▶️", CB_NEXT),
       });
-
-      const followUp = AFTER_MESSAGES[state.step];
-      if (followUp) {
-        await tgSendMessage({ token, chatId: cbChatId, text: followUp });
-      }
 
       if (isLast) {
         await tgSendMessage({
