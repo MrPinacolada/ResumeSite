@@ -10,11 +10,29 @@ export function makeInlineButton(text: string, callbackData: string): InlineKeyb
 }
 
 async function tgCall(token: string, method: string, body: any) {
-  return await $fetch(`https://api.telegram.org/bot${token}/${method}`, {
-    method: "POST",
-    body,
-  });
+  const url = `https://api.telegram.org/bot${token}/${method}`;
+
+  try {
+    return await $fetch(url, { method: "POST", body });
+  } catch (err: any) {
+    const status = err?.response?.status;
+    const data = err?.data; // <-- тут обычно { ok:false, description:"..." }
+
+    console.error("[tg] error", {
+      method,
+      status,
+      telegram: data,
+      bodyPreview: {
+        chat_id: body?.chat_id,
+        hasVideo: !!body?.video,
+        video: body?.video,
+      },
+    });
+
+    throw err;
+  }
 }
+
 
 export async function tgSendMessage(params: {
   token: string;

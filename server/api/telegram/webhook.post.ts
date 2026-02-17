@@ -15,11 +15,26 @@ type TgUpdate = {
   };
 };
 
-const MAX_STEPS = 10;
-const BTN_TEXT = "Дальше ▶️";
-const CB_NEXT = "next";
-
 const START_VIDEO = "https://na7bileqnaywmmto.public.blob.vercel-storage.com/intro.mp4";
+
+// callback_data
+const CB_START = "start_practice";
+const CB_NEXT = "next_question";
+
+// шаги
+// step=0 — сразу после /start (практика ещё не началась, ждём кнопку Start)
+// step=1..9 — вопросы 1..9
+const QUESTIONS = [
+  "1) Зачем вам нужна эта цель?",
+  "2) Сколько времени вы уже собираетесь действовать?",
+  "3) Как я красиво объясняю себе бездействие?",
+  "4) Какую иллюзию контроля я выбираю вместо действия?",
+  "5) Чего я больше боюсь: успеха или неудачи?",
+  "6) Что внутри меня противится этой цели?",
+  "7) Что вы потеряете или что станет невозможно, если у вас получится?",
+  "8) В чем моя выгода быть жертвой?",
+  "9) Какой мне придется перестать быть, чтобы цель осуществилась?\n\nКакую роль (свою) я тогда потеряю?",
+];
 
 export default defineEventHandler(async (event) => {
   const cfg = useRuntimeConfig();
@@ -30,12 +45,14 @@ export default defineEventHandler(async (event) => {
 
   if (secret) {
     const headerSecret = getHeader(event, "x-telegram-bot-api-secret-token");
-    if (headerSecret !== secret) throw createError({ statusCode: 401, statusMessage: "Invalid webhook secret" });
+    if (headerSecret !== secret) {
+      throw createError({ statusCode: 401, statusMessage: "Invalid webhook secret" });
+    }
   }
 
   const update = await readBody<TgUpdate>(event);
 
-  // /start
+  // ===== /start =====
   const chatId = update.message?.chat?.id;
   const text = update.message?.text?.trim();
 
@@ -43,49 +60,98 @@ export default defineEventHandler(async (event) => {
     await resetTgState(chatId);
     await setTgState(chatId, { step: 0 });
 
+    // 1) Видео + текст (caption)
     await tgSendVideo({
       token,
       chatId,
       video: START_VIDEO,
-      caption: `Привет! Я бот на Nuxt3 (Vercel) + Upstash.\nНажми кнопку в сообщении — будет 10 шагов.`,
-      replyMarkup: makeInlineButton(BTN_TEXT, CB_NEXT),
+      caption:
+        "Привет!\nОтправляю видео на тему «Почему я саботирую свою цель и как начать действовать»",
+    });
+
+    // 2) Инструкция + кнопка "Начать"
+    await tgSendMessage({
+      token,
+      chatId,
+      text:
+        "Начать практику 📃 🖊️\n" +
+        "Отвечать на вопросы нужно письменно — либо в телефоне, либо приготовьте ручку и блокнот.",
+      replyMarkup: makeInlineButton("Начать ✅", CB_START),
     });
 
     return { ok: true };
   }
 
-  // callback на кнопку
+  // ===== callbacks =====
   const cb = update.callback_query;
   const cbId = cb?.id;
   const cbData = cb?.data;
   const cbChatId = cb?.message?.chat?.id;
 
-  if (cbId && cbChatId && cbData === CB_NEXT) {
-    await tgAnswerCallback({ token, callbackQueryId: cbId });
+  if (!cbId || !cbChatId || !cbData) return { ok: true };
 
-    const state = await getTgState(cbChatId);
-    const nextStep = state.step + 1;
+  // убираем "часики" на кнопке
+  await tgAnswerCallback({ token, callbackQueryId: cbId });
 
-    if (nextStep <= MAX_STEPS) {
-      await setTgState(cbChatId, { step: nextStep });
-      const isLast = nextStep === MAX_STEPS;
-
-      await tgSendMessage({
-        token,
-        chatId: cbChatId,
-        text: isLast
-          ? `Шаг ${nextStep}/${MAX_STEPS}. Это был последний шаг ✅`
-          : `Шаг ${nextStep}/${MAX_STEPS}. Нажми кнопку ниже:`,
-        replyMarkup: isLast ? undefined : makeInlineButton(BTN_TEXT, CB_NEXT),
-      });
-
-      return { ok: true };
-    }
+  // Нажали "Начать"
+  if (cbData === CB_START) {
+    await setTgState(cbChatId, { step: 1 });
 
     await tgSendMessage({
       token,
       chatId: cbChatId,
-      text: `Мы уже закончили. Напиши /start чтобы начать заново.`,
+      text: QUESTIONS[0],
+      replyMarkup: makeInlineButton("Следующий вопрос ▶️", CB_NEXT),
+    });
+
+    return { ok: true };
+  }
+
+  // Нажали "Следующий вопрос"
+  if (cbData === CB_NEXT) {
+    const state = await getTgState(cbChatId);
+
+    // если вдруг state слетел — мягко просим /start
+    if (!state?.step || state.step < 1) {
+      await tgSendMessage({
+        token,
+        chatId: cbChatId,
+        text: "Чтобы начать, напишите /start",
+      });
+      return { ok: true };
+    }
+
+    const nextStep = state.step + 1;
+
+    // step 1..9 соответствуют QUESTIONS[0..8]
+    if (nextStep <= QUESTIONS.length) {
+      await setTgState(cbChatId, { step: nextStep });
+
+      const isLast = nextStep === QUESTIONS.length;
+
+      await tgSendMessage({
+        token,
+        chatId: cbChatId,
+        text: QUESTIONS[nextStep - 1],
+        replyMarkup: isLast ? undefined : makeInlineButton("Следующий вопрос ▶️", CB_NEXT),
+      });
+
+      if (isLast) {
+        await tgSendMessage({
+          token,
+          chatId: cbChatId,
+          text: "✅ Практика завершена. Если хотите пройти заново — напишите /start",
+        });
+      }
+
+      return { ok: true };
+    }
+
+    // на всякий — если жмут после конца
+    await tgSendMessage({
+      token,
+      chatId: cbChatId,
+      text: "Мы уже закончили. Напишите /start чтобы начать заново.",
     });
 
     return { ok: true };
