@@ -88,6 +88,7 @@ export default defineNuxtConfig({
     base: "/",
   },
   nitro: {
+    preset: "vercel",
     hooks: {
       "prerender:done": async () => {
         const fs = await import("fs/promises");
