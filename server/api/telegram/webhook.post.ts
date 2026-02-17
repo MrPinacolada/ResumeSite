@@ -1,5 +1,6 @@
 // server/api/telegram/webhook.post.ts
 import { getTgState, resetTgState, setTgState } from "~/server/utils/tgState";
+import { recordQuestion, recordStart } from "~/server/utils/tgAnalytics";
 import {
   makeInlineButton,
   tgAnswerCallback,
@@ -137,6 +138,8 @@ export default defineEventHandler(async (event) => {
       replyMarkup: makeInlineButton("Следующий вопрос ▶️", CB_NEXT),
     });
 
+    await recordStart(cbChatId);
+
     return { ok: true };
   }
 
@@ -166,6 +169,8 @@ export default defineEventHandler(async (event) => {
       if (followUp) {
         await tgSendMessage({ token, chatId: cbChatId, text: followUp });
       }
+
+      await recordQuestion(cbChatId, nextStep, isLast);
 
       await tgSendMessage({
         token,
