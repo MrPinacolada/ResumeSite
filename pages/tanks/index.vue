@@ -84,8 +84,11 @@ onMounted(() => {
   tank1.src = tank;
   tank2.src = tank;
   wallone.src = wall;
-  window.addEventListener("keydown", PressDown);
-  window.addEventListener("keyup", PressUp);
+  if (import.meta.client) {
+    window.addEventListener("keydown", PressDown);
+    window.addEventListener("keyup", PressUp);
+  }
+
   let walls: any = [];
   let bulletsPlayer1: any = [];
   let bulletsPlayer2: any = [];
@@ -186,7 +189,7 @@ onMounted(() => {
         Player1.y + Math.sin((Player1.rot * Math.PI) / 180),
         Player1.w,
         Player1.h,
-        Player1.rot
+        Player1.rot,
       );
       let isCollide = false;
       GoustPlayer1;
@@ -206,7 +209,7 @@ onMounted(() => {
         Player1.y - Math.sin((Player1.rot * Math.PI) / 180),
         Player1.w,
         Player1.h,
-        Player1.rot
+        Player1.rot,
       );
       let isCollide = false;
       GoustPlayer1;
@@ -249,7 +252,7 @@ onMounted(() => {
         Player2.y + Math.sin((Player2.rot * Math.PI) / 180),
         Player2.w,
         Player2.h,
-        Player2.rot
+        Player2.rot,
       );
       let isCollide = false;
       GoustPlayer2;
@@ -272,7 +275,7 @@ onMounted(() => {
         Player2.y - Math.sin((Player2.rot * Math.PI) / 180),
         Player2.w,
         Player2.h,
-        Player2.rot
+        Player2.rot,
       );
       let isCollide = false;
       GoustPlayer2;
@@ -311,7 +314,7 @@ onMounted(() => {
       public speed: number,
       public rot: number,
       public h: number,
-      public w: number
+      public w: number,
     ) {
       this.x = x;
       this.y = y;
@@ -341,7 +344,7 @@ onMounted(() => {
       public rot: number,
       public h: number,
       public w: number,
-      public color: any
+      public color: any,
     ) {
       this.x = x;
       this.y = y;
@@ -361,7 +364,7 @@ onMounted(() => {
       public y: number,
       public w: number,
       public h: number,
-      public rot: number
+      public rot: number,
     ) {
       this.x = x;
       this.y = y;
@@ -383,7 +386,7 @@ onMounted(() => {
       public moveX: number,
       public moveY: number,
       public direction: number,
-      public shouldmove: boolean
+      public shouldmove: boolean,
     ) {
       this.x = x;
       this.y = y;
@@ -403,7 +406,7 @@ onMounted(() => {
       public type: any,
       public start: any,
       public stop: any,
-      public delay: any
+      public delay: any,
     ) {
       this.x = x;
       this.y = y;
@@ -414,13 +417,19 @@ onMounted(() => {
     }
   }
   class XY {
-    constructor(public x: number, public y: number) {
+    constructor(
+      public x: number,
+      public y: number,
+    ) {
       this.x = x;
       this.y = y;
     }
   }
   class Polugon {
-    constructor(public verts: any, public eges: any) {
+    constructor(
+      public verts: any,
+      public eges: any,
+    ) {
       this.verts = verts;
       this.eges = eges;
     }
@@ -594,112 +603,112 @@ onMounted(() => {
           drawspace!.drawImage(
             exp1,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 1) {
           drawspace!.drawImage(
             exp2,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 2) {
           drawspace!.drawImage(
             exp3,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 3) {
           drawspace!.drawImage(
             exp4,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 4) {
           drawspace!.drawImage(
             exp5,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 5) {
           drawspace!.drawImage(
             exp6,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 6) {
           drawspace!.drawImage(
             exp7,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 7) {
           drawspace!.drawImage(
             exp8,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 8) {
           drawspace!.drawImage(
             exp9,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 9) {
           drawspace!.drawImage(
             exp10,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 10) {
           drawspace!.drawImage(
             exp11,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 11) {
           drawspace!.drawImage(
             exp12,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 12) {
           drawspace!.drawImage(
             exp13,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 13) {
           drawspace!.drawImage(
             exp14,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 14) {
           drawspace!.drawImage(
             exp15,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         if (animations[i].start == 15) {
           drawspace!.drawImage(
             exp1,
             Math.floor(animations[i].x),
-            Math.floor(animations[i].y)
+            Math.floor(animations[i].y),
           );
         }
         animations[i].delay++;
@@ -748,8 +757,8 @@ onMounted(() => {
               1,
               0,
               15,
-              0
-            )
+              0,
+            ),
           );
           soundOfBullExp();
           if (depX != 0 && depY != 0) {
@@ -789,8 +798,8 @@ onMounted(() => {
               1,
               0,
               15,
-              0
-            )
+              0,
+            ),
           );
           soundOfBullExp();
           if (depX != 0 && depY != 0) {
@@ -814,8 +823,8 @@ onMounted(() => {
         0,
         0,
         0,
-        false
-      )
+        false,
+      ),
     );
     walls.push(
       new Wall(
@@ -827,8 +836,8 @@ onMounted(() => {
         0,
         0,
         0,
-        false
-      )
+        false,
+      ),
     );
     walls.push(
       new Wall(
@@ -840,8 +849,8 @@ onMounted(() => {
         0,
         0,
         0,
-        false
-      )
+        false,
+      ),
     );
     walls.push(
       new Wall(
@@ -853,8 +862,8 @@ onMounted(() => {
         0,
         0,
         0,
-        false
-      )
+        false,
+      ),
     );
     walls.push(new Wall(250, 200, 300, 20, "black", 500, 0, -1, true));
     walls.push(new Wall(250, 400, 300, 20, "black", 500, 0, 1, true));
@@ -899,7 +908,7 @@ onMounted(() => {
         bulletsPlayer1[i].x,
         bulletsPlayer1[i].y,
         bulletsPlayer1[i].w,
-        bulletsPlayer1[i].h
+        bulletsPlayer1[i].h,
       );
       bulletsPlayer1[i].x +=
         bulletsPlayer1[i].speed *
@@ -915,7 +924,7 @@ onMounted(() => {
         bulletsPlayer2[g].x,
         bulletsPlayer2[g].y,
         bulletsPlayer2[g].w,
-        bulletsPlayer2[g].h
+        bulletsPlayer2[g].h,
       );
       drawspace!.fillStyle = bulletsPlayer2[g].color;
       bulletsPlayer2[g].x +=
@@ -932,7 +941,7 @@ onMounted(() => {
     y: number,
     width: number,
     height: number,
-    deg: number
+    deg: number,
   ) {
     let rad = (deg * Math.PI) / 180;
     drawspace!.translate(x + width / 2, y + height / 2);
@@ -942,7 +951,7 @@ onMounted(() => {
       Math.floor(width / 2) * -1,
       Math.floor(height / 2) * -1,
       Math.floor(width),
-      Math.floor(height)
+      Math.floor(height),
     );
     drawspace!.rotate(rad * -1);
     drawspace!.translate((x + width / 2) * -1, (y + height / 2) * -1);
@@ -953,7 +962,7 @@ onMounted(() => {
     tankGame.value?.offsetHeight - 220,
     50,
     50,
-    -90
+    -90,
   );
   function innerPlayersScore() {
     let innerPlayer1Score = document.getElementById("Player1Score");
@@ -966,7 +975,7 @@ onMounted(() => {
       0,
       0,
       drawspace!.canvas.width,
-      drawspace!.canvas.height
+      drawspace!.canvas.height,
     );
     drawWalls();
     drawbulletsPlayer1();

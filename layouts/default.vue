@@ -58,7 +58,6 @@
 
 <script setup lang="ts">
 import amazingSpider from "amazing__spider";
-import "@lottiefiles/lottie-player";
 import "swiper/css/scrollbar";
 import "swiper/css/grid";
 import "swiper/css";
@@ -69,7 +68,7 @@ type LottieData = Record<string, any>;
 const route = useRoute();
 const router = useRouter();
 
-const majorAnim = ref<Record<string, any> | null>(null);
+const majorAnim = ref<string | null>(null);
 const footerIcons = ref([
   {
     icon: "telegram",
@@ -106,6 +105,7 @@ const callLoaderOf = () => {
 };
 
 const urls: Record<string, string> = {
+  MajPage: "https://assets8.lottiefiles.com/packages/lf20_ioJYvK.json",
   ExpPage: "https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json",
   SkillPage: "https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json",
   WorksPage: "https://assets3.lottiefiles.com/packages/lf20_jhaabiai.json",
@@ -114,43 +114,16 @@ const urls: Record<string, string> = {
 const getMajotAnim = async () => {
   loader.value = true;
   try {
-    const data = await useFetch(
-      "https://assets8.lottiefiles.com/packages/lf20_ioJYvK.json"
-    );
-    if (!data.data.value) {
-      return;
-    }
-    majorAnim.value = data.data.value as unknown as LottieData;
-
+    majorAnim.value = urls.MajPage;
+  } finally {
     callLoaderOf();
-  } catch (error) {
-    console.log("error: ", error);
-    throw Error;
   }
 };
 
 const fetchRestAnims = async (
   urls: Record<string, string>
 ): Promise<LottieData> => {
-  const entries = Object.entries(urls);
-
-  try {
-    const results = await Promise.all(
-      entries.map(async ([key, url]) => {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Failed to load ${key} from ${url}`);
-        }
-        const data = await response.json();
-        return [key, data] as [string, any];
-      })
-    );
-
-    return Object.fromEntries(results);
-  } catch (error) {
-    console.error("Error loading Lottie data:", error);
-    throw error;
-  }
+  return urls;
 };
 
 onMounted(async () => {

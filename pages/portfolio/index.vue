@@ -128,7 +128,9 @@ const activeSlide = ref<number>(0);
 
 const goExplore = (url: string | undefined) => {
   if (!url) return;
-  window.open(url, "_blank");
+  if (import.meta.client) {
+    window.open(url, "_blank");
+  }
 };
 </script>
 

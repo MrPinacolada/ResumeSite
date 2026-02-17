@@ -98,6 +98,10 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
+    telegramWebhookSecret: process.env.TELEGRAM_WEBHOOK_SECRET,
+  },
   target: "static",
-  ssr: false,
+  ssr: true,
 });

@@ -5,15 +5,17 @@
       I'm a ninja frontend <br />
       developer.
     </h3>
-    <lottie-player
-      v-if="props.majorAnim"
-      autoplay
-      loop
-      mode="reverse-bounce"
-      :src="props.majorAnim"
-      style="width: 620px"
-    >
-    </lottie-player>
+    <client-only>
+      <lottie-player
+        v-if="props.majorAnim"
+        autoplay
+        loop
+        mode="reverse-bounce"
+        :src="props.majorAnim"
+        style="width: 620px"
+      >
+      </lottie-player>
+    </client-only>
   </section>
   <section class="me me-about">
     <div class="about-container">
@@ -159,15 +161,17 @@
       </article>
     </div>
 
-    <lottie-player
-      v-if="anim?.ExpPage"
-      class="animate__animated animate__fadeIn"
-      autoplay
-      loop
-      mode="reverse-bounce"
-      :src="anim.ExpPage"
-      style="width: 620px"
-    />
+    <client-only>
+      <lottie-player
+        v-if="anim?.ExpPage"
+        class="animate__animated animate__fadeIn"
+        autoplay
+        loop
+        mode="reverse-bounce"
+        :src="anim.ExpPage"
+        style="width: 620px"
+      />
+    </client-only>
   </section>
 
   <section class="me me-portfolio">
