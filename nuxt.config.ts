@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
   app: {
-    // baseURL: "/",
+    baseURL: "/",
     pageTransition: { name: "slide-fade", mode: "out-in" },
     head: {
       title: "NinjaDev — Vasilii Skovorodin",
@@ -84,20 +84,20 @@ export default defineNuxtConfig({
       sourcemap: true,
     },
   },
-  // router: {
-  //   base: "/",
-  // },
+  router: {
+    base: "/",
+  },
   nitro: {
     preset: "vercel",
-    // hooks: {
-    //   "prerender:done": async () => {
-    //     const fs = await import("fs/promises");
-    //     const path = await import("path");
-    //     const publicDir = path.resolve(".output/public");
+    hooks: {
+      "prerender:done": async () => {
+        const fs = await import("fs/promises");
+        const path = await import("path");
+        const publicDir = path.resolve(".output/public");
 
-    //     await fs.writeFile(path.join(publicDir, "CNAME"), "devninja.net");
-    //   },
-    // },
+        await fs.writeFile(path.join(publicDir, "CNAME"), "devninja.net");
+      },
+    },
   },
   runtimeConfig: {
     telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
