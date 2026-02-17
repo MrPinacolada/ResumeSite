@@ -1,0 +1,14 @@
+.DS_Store
+.git
+.gitignore
+.vercel
+.vscode
+.idea
+node_modules
+.nuxt
+.output
+pnpm-debug.log
+npm-debug.log
+*.log
+coverage
+dist
