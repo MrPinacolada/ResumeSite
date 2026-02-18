@@ -1,7 +1,11 @@
 // server/api/telegram/webhook.post.ts
 import { getTgState, resetTgState, setTgState } from "~/server/utils/tgState";
 import { recordQuestion, recordStart } from "~/server/utils/tgAnalytics";
-import { makeBottomButton, tgSendMessage, tgSendVideo } from "~/server/utils/telegram";
+import {
+  makeBottomButton,
+  tgSendMessage,
+  tgSendVideo,
+} from "~/server/utils/telegram";
 
 type TgUpdate = {
   message?: {
@@ -39,7 +43,7 @@ const AFTER_MESSAGES: Record<number, string> = {
   3: "Уже сам факт, что вы это замечаете — шаг вперёд🦶",
   6: "Обратите внимание, что внутри вас есть не только сопротивление, но осознанность и желание развиваться 🧬🔥",
   8: "Важно не торопиться. Позвольте себе быть искренней здесь 🫂",
-  10: "Вы проделали большую работу 🤌🔥 Осталось 5 вопросов 🤍",
+  10: "Вы проделали большую работу 🤌🔥\n" + "Осталось 5 вопросов 🤍",
   13: "Очень ценно, что вы это увидели! Так держать❤️‍🔥",
 };
 
@@ -48,11 +52,19 @@ export default defineEventHandler(async (event) => {
   const token = cfg.telegramBotToken as string | undefined;
   const secret = cfg.telegramWebhookSecret as string | undefined;
 
-  if (!token) throw createError({ statusCode: 500, statusMessage: "Missing TELEGRAM_BOT_TOKEN" });
+  if (!token)
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Missing TELEGRAM_BOT_TOKEN",
+    });
 
   if (secret) {
     const headerSecret = getHeader(event, "x-telegram-bot-api-secret-token");
-    if (headerSecret !== secret) throw createError({ statusCode: 401, statusMessage: "Invalid webhook secret" });
+    if (headerSecret !== secret)
+      throw createError({
+        statusCode: 401,
+        statusMessage: "Invalid webhook secret",
+      });
   }
 
   const update = await readBody<TgUpdate>(event);
@@ -71,16 +83,18 @@ export default defineEventHandler(async (event) => {
       token,
       chatId,
       video: START_VIDEO,
-      caption: "Привет!\nОтправляю видео на тему «Почему я саботирую свою цель и как начать действовать»",
+      caption:
+        "Привет!\nОтправляю видео на тему «Почему я саботирую свою цель и как начать действовать»",
     });
 
     await tgSendMessage({
       token,
       chatId,
       text:
-        "Подготовьтесь к важной необходимой работе с вашим мышлением и бессознательным🧬\n" +
-        "Отвечать на вопросы нужно письменно — либо в телефоне, либо приготовьте ручку и блокнот.\n" +
-        "Выделите примерно полчаса-час ⌚️ Будет 15 вопросов.",
+        "Подготовьтесь к важной необходимой работе с вашим мышлением и бессознательным🧬\n\n" +
+        "Отвечать на вопросы нужно письменно - либо в телефоне, либо приготовьте ручку и блокнот.\n" +
+        "Выделите примерно полчаса-час ⌚️\n" +
+        "Будет 15 вопросов.",
       replyMarkup: makeBottomButton(BTN_START),
     });
 
@@ -134,7 +148,9 @@ export default defineEventHandler(async (event) => {
         token,
         chatId,
         text: QUESTIONS[nextStep - 1],
-        replyMarkup: isLast ? { remove_keyboard: true } : makeBottomButton(BTN_NEXT),
+        replyMarkup: isLast
+          ? { remove_keyboard: true }
+          : makeBottomButton(BTN_NEXT),
       });
 
       if (isLast) {
@@ -144,7 +160,7 @@ export default defineEventHandler(async (event) => {
           text:
             `Вы - большая молодец! Победитель 🏆 🥇\n` +
             `Посмотрите, какой путь вы уже прошли, отвечая на эти вопросы 🤌\n\n` +
-            `Дальше важно распаковать ваши осознания и поставить первые три легкие действия по направлению к вашей 🎯\n` +
+            `Дальше важно распаковать ваши осознания и поставить первые три легкие действия по направлению к вашей цели 🎯\n\n` +
             `Приглашаю вас на первую бесплатную встречу, где мы познакомимся, получше поисследуем ваш запрос, барьеры, которые сейчас видите перед собой, и поймём, с чем важно будет работать.\n` +
             `Чтобы записаться на коуч-сессию, пиши мне в личные сообщения @raliyaya- хочу записаться на бесплатную сессию и мы выберем с тобой время для нашей встречи ✍️`,
           replyMarkup: { remove_keyboard: true },
