@@ -3,7 +3,8 @@ import { kvGetJson, kvSetJson } from "~/server/utils/kv";
 
 export type TgAnalytics = {
   chatId: number;
-  startedAt: number;
+  visitedAt: number;
+  startedAt?: number;
   lastQuestion: number;
   questionsSeen: number;
   finished: boolean;
@@ -42,11 +43,31 @@ export async function getAllAnalytics(): Promise<TgAnalytics[]> {
   return results;
 }
 
-export async function recordStart(chatId: number) {
+export async function recordVisit(chatId: number) {
   const now = Date.now();
+  const prev = await getAnalytics(chatId);
+  if (prev) return; // уже записан
 
   const next: TgAnalytics = {
     chatId,
+    visitedAt: now,
+    lastQuestion: 0,
+    questionsSeen: 0,
+    finished: false,
+    updatedAt: now,
+  };
+
+  await addToIndex(chatId);
+  await kvSetJson(analyticsKey(chatId), next, { exSeconds: ANALYTICS_TTL_SECONDS });
+}
+
+export async function recordStart(chatId: number) {
+  const now = Date.now();
+  const prev = await getAnalytics(chatId);
+
+  const next: TgAnalytics = {
+    chatId,
+    visitedAt: prev?.visitedAt ?? now,
     startedAt: now,
     lastQuestion: 1,
     questionsSeen: 1,
@@ -62,7 +83,7 @@ export async function recordQuestion(chatId: number, questionNumber: number, isL
   const now = Date.now();
   const prev = (await getAnalytics(chatId)) ?? {
     chatId,
-    startedAt: now,
+    visitedAt: now,
     lastQuestion: 0,
     questionsSeen: 0,
     finished: false,

@@ -1,6 +1,6 @@
 // server/api/telegram/webhook.post.ts
 import { getTgState, resetTgState, setTgState } from "~/server/utils/tgState";
-import { recordQuestion, recordStart } from "~/server/utils/tgAnalytics";
+import { recordQuestion, recordStart, recordVisit } from "~/server/utils/tgAnalytics";
 import {
   makeBottomButton,
   tgSendMessage,
@@ -78,6 +78,7 @@ export default defineEventHandler(async (event) => {
   if (text === "/start") {
     await resetTgState(chatId);
     await setTgState(chatId, { step: 0 });
+    await recordVisit(chatId);
 
     await tgSendVideo({
       token,
