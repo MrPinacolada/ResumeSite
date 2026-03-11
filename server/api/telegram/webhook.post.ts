@@ -181,6 +181,12 @@ export default defineEventHandler(async (event) => {
   }
 
   // любой другой текст
+  const state = await getTgState(chatId);
+  if (state?.step && state.step >= 1 && state.step <= QUESTIONS.length) {
+    // пользователь в процессе практики — игнорируем свободный текст (это ответ на вопрос)
+    return { ok: true };
+  }
+
   await tgSendMessage({
     token,
     chatId,
