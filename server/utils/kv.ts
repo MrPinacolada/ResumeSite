@@ -1,52 +1,42 @@
 // server/utils/kv.ts
-type UpstashKVResult<T> = { result: T };
+import Redis from "ioredis";
 
-function getKvConfig() {
+let redis: Redis | null = null;
+
+function getRedis(): Redis {
+  if (redis) return redis;
+
   const cfg = useRuntimeConfig();
-  const url = cfg.kvRestApiUrl as string | undefined;
-  const token = cfg.kvRestApiToken as string | undefined;
+  const url = cfg.redisUrl as string | undefined;
 
-  if (!url) throw createError({ statusCode: 500, statusMessage: "Missing KV_REST_API_URL" });
-  if (!token) throw createError({ statusCode: 500, statusMessage: "Missing KV_REST_API_TOKEN" });
+  if (!url) throw createError({ statusCode: 500, statusMessage: "Missing REDIS_URL" });
 
-  return { url, token };
+  redis = new Redis(url);
+  return redis;
 }
 
 export async function kvGetJson<T>(key: string): Promise<T | null> {
-  const { url, token } = getKvConfig();
-
-  const res = await $fetch<UpstashKVResult<string | null>>(
-    `${url}/get/${encodeURIComponent(key)}`,
-    {
-      headers: { Authorization: `Bearer ${token}` },
-    },
-  );
-
-  if (!res.result) return null;
+  const val = await getRedis().get(key);
+  if (!val) return null;
 
   try {
-    return JSON.parse(res.result) as T;
+    return JSON.parse(val) as T;
   } catch {
-    // если внезапно сохранили не JSON — считаем как отсутствующее
     return null;
   }
 }
 
 export async function kvSetJson<T>(key: string, value: T, opts?: { exSeconds?: number }) {
-  const { url, token } = getKvConfig();
+  const r = getRedis();
+  const data = JSON.stringify(value);
 
-  const base = `${url}/set/${encodeURIComponent(key)}/${encodeURIComponent(JSON.stringify(value))}`;
-  const full = opts?.exSeconds ? `${base}?EX=${opts.exSeconds}` : base;
-
-  await $fetch(full, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  if (opts?.exSeconds) {
+    await r.set(key, data, "EX", opts.exSeconds);
+  } else {
+    await r.set(key, data);
+  }
 }
 
 export async function kvDel(key: string) {
-  const { url, token } = getKvConfig();
-
-  await $fetch(`${url}/del/${encodeURIComponent(key)}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  await getRedis().del(key);
 }
