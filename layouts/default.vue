@@ -1,240 +1,286 @@
 <template>
-  <header
-    v-show="!loader"
-    class="layout layout__header animate__animated animate__fadeInDown"
-    @mouseleave="handleHoverLink"
-  >
-    <h5
-      v-if="route.name === 'index'"
-      class="title font--b3 text-white-contrast"
-    >
-      NinjaDev
-    </h5>
-    <button
-      v-else
-      class="go-back-butt font--b3 text-white-contrast"
-      @click="router.back()"
-    >
-      <base-icon
-        name="ArrowDown"
-        rot="90deg"
-        color="var(--white-monochrome)"
-        size="18px"
-      />
-      Back
-    </button>
-   <HeaderDinoRunner class="text-current" />
-  </header>
-  <main v-if="!loader" class="layout__main animate__animated animate__fadeIn">
-    <!-- <div
-      :class="['curtain', { 'curtain--active': showCurtain }]"
-      class="animate__animated"
-      @mouseenter="handleHoverLink"
-      @mouseleave="handleHoverLink"
-    ></div> -->
-    <NuxtPage :major-anim="majorAnim" />
-  </main>
+  <div class="shell">
+    <header class="masthead">
+      <div class="masthead__inner">
+        <nuxt-link v-if="!isHome" to="/" class="masthead__back">
+          <base-icon
+            name="ArrowDown"
+            rot="90deg"
+            color="var(--c-accent-bright)"
+            size="16px"
+          />
+          <span>Back</span>
+        </nuxt-link>
+        <nuxt-link v-else to="/" class="masthead__brand" aria-label="NinjaDev — home">
+          <span class="masthead__mark" aria-hidden="true">◤</span>
+          NINJA<span>DEV</span>
+        </nuxt-link>
 
-  <backdrop v-if="!loader" />
-  <base-loader v-if="loader" />
-  
-  <footer
-    v-show="!loader"
-    class="layout layout__footer animate__animated animate__fadeInUp"
-  >
-    <nuxt-link v-for="icon in footerIcons" :to="icon.link" target="_blank">
-      <base-icon :name="icon.icon" filled size="32px" />
-    </nuxt-link>
-  </footer>
-  <div class="spider-box">
-    <amazing-spider
-      v-if="!$device.isMobile"
-      v-show="!loader"
-      background_color="#fff"
-      dots_border_color="rgba(10, 163, 243, 0.39)"
-    />
+        <HeaderDinoRunner v-if="isHome" class="masthead__dino" aria-hidden="true" />
+
+        <nav v-if="isHome" class="masthead__nav" aria-label="Sections">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#stack">Stack</a>
+          <a
+            class="masthead__cv"
+            href="/senior_dev.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            CV
+            <base-icon name="ArrowDown" color="#fff" size="14px" />
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="stage">
+      <NuxtPage />
+    </main>
+
+    <footer class="colophon">
+      <span class="mono-label">© {{ year }} Vasilii Skovorodin</span>
+      <div class="colophon__icons">
+        <a
+          v-for="icon in footerIcons"
+          :key="icon.icon"
+          :href="icon.link"
+          target="_blank"
+          rel="noopener"
+          :aria-label="icon.label"
+        >
+          <base-icon :name="icon.icon" filled size="22px" />
+        </a>
+      </div>
+      <span class="mono-label">Lead Frontend Engineer · Built with Nuxt</span>
+    </footer>
+
+    <Transition name="loader-fade">
+      <base-loader v-if="loader" />
+    </Transition>
+
+    <client-only>
+      <div class="spider-box" aria-hidden="true">
+        <amazing-spider
+          v-if="!$device.isMobile"
+          background_color="transparent"
+          dots_border_color="rgba(45, 110, 225, 0.32)"
+        />
+      </div>
+    </client-only>
   </div>
 </template>
 
 <script setup lang="ts">
 import amazingSpider from "amazing__spider";
-import "swiper/css/scrollbar";
-import "swiper/css/grid";
-import "swiper/css";
 import HeaderDinoRunner from "~/components/base/HeaderDinoRunner.vue";
 
-type LottieData = Record<string, any>;
-
 const route = useRoute();
-const router = useRouter();
 
-const majorAnim = ref<string | null>(null);
-const footerIcons = ref([
-  {
-    icon: "telegram",
-    link: "https://t.me/Nkanka44",
-  },
-  {
-    icon: "google",
-    link: "mailto:vasiasko112@gmail.com",
-  },
+const isHome = computed(() => route.name === "index");
+const year = new Date().getFullYear();
+
+const footerIcons = [
+  { icon: "telegram", link: "https://t.me/Nkanka44", label: "Telegram" },
+  { icon: "google", link: "mailto:vasiasko112@gmail.com", label: "Email" },
   {
     icon: "linkedin",
     link: "https://www.linkedin.com/in/mr-pinacolada/",
+    label: "LinkedIn",
   },
-]);
+];
+
+// Content is always rendered (SSR-friendly); the loader is just a brief
+// brand curtain that fades out on the client.
 const loader = ref(true);
-const showCurtain = ref(false);
-const { lockScroll, unlockScroll } = useScrollLock();
 
-const blockScroll = () => {
-  lockScroll();
-  setTimeout(() => {
-    unlockScroll();
-  }, 600);
-};
-
-const handleHoverLink = () => {
-  showCurtain.value = !showCurtain.value;
-};
-
-const callLoaderOf = () => {
+onMounted(() => {
   setTimeout(() => {
     loader.value = false;
-  }, 2000);
-};
-
-const urls: Record<string, string> = {
-  MajPage: "https://assets8.lottiefiles.com/packages/lf20_ioJYvK.json",
-  ExpPage: "https://assets2.lottiefiles.com/packages/lf20_lrdkqhnc.json",
-  SkillPage: "https://assets3.lottiefiles.com/packages/lf20_jvkbug4h.json",
-  WorksPage: "https://assets3.lottiefiles.com/packages/lf20_jhaabiai.json",
-};
-
-const getMajotAnim = async () => {
-  loader.value = true;
-  try {
-    majorAnim.value = urls.MajPage;
-  } finally {
-    callLoaderOf();
-  }
-};
-
-const fetchRestAnims = async (
-  urls: Record<string, string>
-): Promise<LottieData> => {
-  return urls;
-};
-
-onMounted(async () => {
-  getMajotAnim();
-  router.afterEach(blockScroll);
-  const anims = await fetchRestAnims(urls);
-  useState("lottie_anims", () => anims);
+  }, 650);
 });
 </script>
 
 <style lang="scss">
-.layout {
+.shell {
   position: relative;
-  height: 60px;
-  max-width: 100dvw;
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 30px;
-  background-color: var(--gray-800);
-  z-index: 3;
-  &__header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    z-index: 9999;
-    .go-back-butt {
-      @include drop-button-styles;
-      display: flex;
-      width: fit-content;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 5px;
-      .base-icon {
-        margin-top: 3px;
-      }
-    }
-    .pages {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      h5 {
-        cursor: default;
-      }
-      a {
-        cursor: pointer;
-        text-decoration: none;
-      }
-    }
-  }
-  &__main {
-    position: relative;
-    width: 100dvw;
-    height: calc(100dvh - 120px);
-    margin-bottom: 60px;
-    z-index: 4;
-    overflow-y: auto;
-    .curtain {
-      position: relative;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 0;
-      background-color: var(--lilac-secondary);
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      z-index: -1;
-      overflow: hidden;
-      transition: height 0.5s ease;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
 
-      &--active {
-        height: 30px;
-      }
-    }
-  }
-  &__footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+/* ── Masthead ─────────────────────────────────────────────── */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--c-ink);
+  color: var(--c-paper);
+  border-bottom: 1px solid var(--c-paper-line);
+
+  &__inner {
+    height: 64px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2.5rem);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
-    z-index: 9999;
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+
+  &__brand {
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--c-paper);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5ch;
+    white-space: nowrap;
+    span {
+      color: var(--c-accent-bright);
+    }
+  }
+
+  &__mark {
+    color: var(--c-accent-bright);
+    font-size: 0.9em;
+    transform: translateY(-1px);
+  }
+
+  &__back {
+    @include drop-button-styles;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5ch;
+    color: var(--c-paper);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    &:hover {
+      color: var(--c-accent-bright);
+    }
+  }
+
+  &__dino {
+    flex: 1;
+    min-width: 0;
+    max-width: 360px;
+    height: 40px;
+    margin-inline: auto;
+    color: var(--c-paper-line-strong);
+    @media (max-width: 56rem) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.9rem, 2vw, 1.6rem);
+    font-family: "Roboto Mono", ui-monospace, monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+
     a {
-      transition: scale 0.3s ease, rotate 0.3s ease-in-out;
-      will-change: scale, rotate;
+      text-decoration: none;
+      color: var(--c-paper);
+      opacity: 0.78;
+      padding: 0.7rem 0.3rem;
+      transition: opacity 0.2s var(--ease-out-quart);
       &:hover {
-        scale: 1.1;
-        rotate: 1turn;
+        opacity: 1;
+      }
+    }
+    a:not(.masthead__cv) {
+      @media (max-width: 40rem) {
+        display: none;
+      }
+    }
+  }
+
+  &__cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4ch;
+    padding: 0.6rem 1rem;
+    background: var(--c-accent);
+    color: #fff !important;
+    opacity: 1 !important;
+    font-weight: 600;
+    border-radius: 2px;
+    &:hover {
+      background: var(--c-accent-bright);
+    }
+  }
+}
+
+/* ── Stage / footer ───────────────────────────────────────── */
+.stage {
+  position: relative;
+  z-index: var(--z-content);
+  flex: 1;
+}
+
+.colophon {
+  position: relative;
+  z-index: var(--z-content);
+  background: var(--c-ink);
+  color: var(--c-paper);
+  padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 4vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .mono-label {
+    opacity: 0.6;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 0.6rem;
+    a {
+      display: inline-flex;
+      padding: 0.5rem;
+      color: var(--c-paper);
+      transition: color 0.25s var(--ease-out-quart), transform 0.25s var(--ease-out-quart);
+      &:hover {
+        color: var(--c-accent-bright);
+        transform: translateY(-3px);
       }
     }
   }
 }
+
+/* ── Background particle web ──────────────────────────────── */
 .spider-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bg);
+  pointer-events: none;
   overflow: hidden;
+  opacity: 0.5;
+  /* isolate the constantly-repainting particle canvas on its own GPU layer
+     so it can't trigger repaints of the scrolling content above it */
+  transform: translateZ(0);
+  contain: layout paint;
+  canvas {
+    width: 100vw;
+    height: 100vh;
+  }
 }
-.me {
-  position: relative;
-  padding-left: 30px;
-  padding-right: 30px;
-  width: 100%;
-  height: 100vh;
+
+/* Loader curtain lift */
+.loader-fade-leave-active {
+  transition: opacity 0.5s var(--ease-out-quart);
+}
+.loader-fade-leave-to {
+  opacity: 0;
 }
 </style>

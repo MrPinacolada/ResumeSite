@@ -1,118 +1,103 @@
 <template>
   <div class="loader">
-    <lottie-player
-      v-if="anim"
-      autoplay
-      loop
-      mode="reverse-bounce"
-      :src="anim"
-      style="width: 620px"
-    ></lottie-player>
+    <div class="loader__inner">
+      <p class="loader__brand">
+        <span class="loader__mark">◤</span> NINJA<span class="loader__accent">DEV</span>
+      </p>
+      <div class="loader__bar" aria-hidden="true">
+        <span class="loader__fill"></span>
+      </div>
+      <p class="loader__status mono-label">Loading interface</p>
+    </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import anim from "~/assets/anim/loader.json";
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
   display: grid;
-  height: 100vh;
-  justify-items: center;
   place-content: center;
-  width: 100vw;
-  overflow: hidden;
-}
+  background: var(--c-paper);
+  background-image:
+    linear-gradient(var(--c-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px;
 
-svg {
-  width: 50vw;
-  height: 50vh;
-  display: block;
-}
-
-.fbottom,
-.ll {
-  fill: none;
-}
-
-.fbottom {
-  stroke-width: inherit;
-  stroke: var(--neutral);
-  stroke-opacity: 0.3;
-}
-
-.ll {
-  stroke: var(--brand);
-  animation: loop 3s linear infinite;
-  stroke-width: 0.35;
-  stroke-dasharray: 3 24.5;
-  stroke-linecap: round;
-}
-
-.finny {
-  stroke-width: 1.43;
-  animation: rot 36s linear infinite;
-}
-
-.shad {
-  animation: raise 3s linear infinite;
-}
-
-.shad.odd {
-  animation-delay: -1.5s;
-}
-
-@keyframes raise {
-  0%,
-  20% {
-    opacity: 1;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 2rem;
   }
-  30%,
-  70% {
+
+  &__brand {
+    font-weight: 800;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    letter-spacing: -0.02em;
+    color: var(--c-ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4ch;
+    animation: loader-rise 0.6s var(--ease-out-expo) both;
+  }
+  &__mark,
+  &__accent {
+    color: var(--c-accent);
+  }
+
+  &__bar {
+    width: min(280px, 70vw);
+    height: 4px;
+    background: var(--c-line);
+    overflow: hidden;
+    border-radius: 999px;
+  }
+  &__fill {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: var(--c-accent);
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: loader-fill 1.05s var(--ease-out-expo) forwards;
+  }
+
+  &__status {
+    color: var(--c-ink-3);
+  }
+}
+
+@keyframes loader-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes loader-rise {
+  from {
     opacity: 0;
+    transform: translateY(14px);
   }
-  80%,
-  100% {
+  to {
     opacity: 1;
+    transform: none;
   }
 }
-.ll {
-  animation-delay: -1.5s;
-}
 
-.finny {
-  perspective: 500px;
-}
-
-@keyframes loop {
-  0% {
-    stroke-dashoffset: 0.5;
+@media (prefers-reduced-motion: reduce) {
+  .loader__fill {
+    transform: scaleX(1);
+    animation: none;
   }
-  100% {
-    stroke-dashoffset: 28;
-  }
-}
-.clip-shadow {
-  stroke-linecap: butt;
-  fill: none;
-  opacity: 0.3;
-  stroke-width: inherit;
-  stroke: url(#sgrad);
-}
-
-#sgrad stop {
-  stop-color: var(--bg-3);
-}
-
-@media (prefers-color-scheme: light) {
-  #sgrad stop {
-    stop-color: #2345;
+  .loader__brand {
+    animation: none;
   }
 }
 </style>

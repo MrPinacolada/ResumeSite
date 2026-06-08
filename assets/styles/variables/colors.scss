@@ -1,6 +1,34 @@
 :root {
+    /* ── Brutalist design system (2026 redesign) ─────────────── */
+    /* Ink-dominant light scheme. OKLCH. See DESIGN.md. */
+    --c-paper: oklch(0.972 0.004 280);
+    --c-paper-2: oklch(0.99 0.004 280);
+    --c-ink: oklch(0.17 0.014 280);
+    --c-ink-2: oklch(0.32 0.018 280);
+    --c-ink-3: oklch(0.44 0.02 280);
+    /* electric azure / cobalt — blue-cyan accent, flat fills only (no gradients) */
+    --c-accent: oklch(0.52 0.16 245);
+    --c-accent-bright: oklch(0.73 0.13 232);
+    --c-line: oklch(0.17 0.014 280 / 0.14);
+    --c-line-strong: oklch(0.17 0.014 280 / 0.3);
+    --c-paper-line: oklch(0.97 0.004 280 / 0.16);
+    --c-paper-line-strong: oklch(0.97 0.004 280 / 0.4);
+
+    /* motion */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+    /* semantic z-index scale */
+    --z-bg: 0;
+    --z-content: 1;
+    --z-sticky: 50;
+    --z-header: 100;
+    --z-overlay: 500;
+    --z-loader: 1000;
+
+    /* ── Legacy tokens (kept for /tanks + base components) ───── */
     --gray-800: #424242;
-    
+
     --violet-main: #5a2fcf;
     --violet-light: #5a2fcfed;
     --violet-dark: #5029bc;

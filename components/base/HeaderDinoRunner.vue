@@ -53,10 +53,11 @@
 <style scoped>
 .dino-runner {
   width: 100%;
-  height: 50%; 
+  height: 100%;
+  display: flex;
+  align-items: center;
   overflow: hidden;
-  color: #333;
-  margin-top: auto;
+  /* color is set by the host (currentColor drives the SVG fill) */
 }
 
 .scene {

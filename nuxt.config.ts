@@ -6,21 +6,21 @@ export default defineNuxtConfig({
     // baseURL: "/",
     pageTransition: { name: "slide-fade", mode: "out-in" },
     head: {
-      title: "NinjaDev — Vasilii Skovorodin",
+      title: "Vasilii Skovorodin · Lead Frontend Engineer",
       htmlAttrs: { lang: "en" },
       meta: [
         {
           name: "description",
           content:
-            "Frontend Ninja Developer with 4+ years of experience in Vue, Nuxt, and React Native. Building scalable, high-performance interfaces and leading teams to deliver products used by thousands.",
+            "Lead frontend engineer with 5+ years building and scaling SaaS in FinTech and Web3 with Vue, Nuxt, React, and Next. Owns frontend architecture, performance, SSR/SEO, CI/CD, and team quality.",
         },
 
         // Open Graph
-        { property: "og:title", content: "NinjaDev — Vasilii Skovorodin" },
+        { property: "og:title", content: "Vasilii Skovorodin · Lead Frontend Engineer" },
         {
           property: "og:description",
           content:
-            "Creative and pragmatic frontend ninja with 4+ years of experience in Vue, Nuxt, and React Native. Passionate about clean UI, performance optimization, and scalable architecture.",
+            "Lead frontend engineer, 5+ years in FinTech and Web3. Vue, Nuxt, React, Next, TypeScript. Architecture, performance (90+ Lighthouse), SSR/SEO, CI/CD, and mentoring.",
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: "https://devninja.net" },
@@ -30,21 +30,22 @@ export default defineNuxtConfig({
 
         // Twitter
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "NinjaDev — Vasilii Skovorodin" },
+        { name: "twitter:title", content: "Vasilii Skovorodin · Lead Frontend Engineer" },
         {
           name: "twitter:description",
           content:
-            "Frontend Ninja Developer with 4+ years of experience in Vue, Nuxt, and React Native. Focused on clean UI, performance, and scalable frontend systems.",
+            "Lead frontend engineer, 5+ years in FinTech and Web3. Vue, Nuxt, React, Next. Owns architecture, performance, SSR/SEO, and CI/CD.",
         },
         { name: "twitter:image", content: "https://devninja.net/og-image.png" },
 
         // Extra SEO
         { name: "author", content: "Vasilii Skovorodin" },
         { name: "robots", content: "index, follow" },
+        { name: "theme-color", content: "#f3f3f6" },
         {
           name: "keywords",
           content:
-            "Frontend Developer, NinjaDev, Vasilii Skovorodin, Vue, Nuxt, React Native, TypeScript, Web Performance, Team Lead",
+            "Lead Frontend Engineer, Frontend Team Lead, Vasilii Skovorodin, NinjaDev, Vue, Nuxt, React, Next.js, TypeScript, SSR, SEO, CI/CD, DevOps, FinTech, Web3, Performance",
         },
       ],
       link: [
@@ -69,8 +70,11 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      "Roboto+Mono": "200..700",
+      "Roboto+Mono": "400..600",
+      "Bricolage+Grotesque": "300..800",
     },
+    display: "swap",
+    preload: true,
   },
   vite: {
     css: {

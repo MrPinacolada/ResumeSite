@@ -4,11 +4,27 @@
 @import "normalize.css";
 @import "animate.css";
 
+/* ── Base ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 88px; /* clear the sticky header on anchor jumps */
+}
+
 body {
-  font-family: "Roboto Mono", ui-sans-serif, system-ui, sans-serif;
-  color: black;
+  font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--c-paper);
+  color: var(--c-ink);
   line-height: 1.5;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* faint ink grid texture — atmosphere, not decoration that fights content */
+  background-image:
+    linear-gradient(var(--c-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px;
+  background-position: -1px -1px;
 }
 
 *,
@@ -54,16 +70,89 @@ select {
   font: inherit;
 }
 
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.5s ease;
+a {
+  color: inherit;
 }
 
+::selection {
+  background: var(--c-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* slim ink scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-ink);
+  border: 3px solid var(--c-paper);
+  border-radius: 999px;
+}
+
+/* ── Shared mono label ─────────────────────────────────────── */
+.mono-label {
+  font-family: "Roboto Mono", ui-monospace, monospace;
+  font-size: clamp(0.68rem, 0.9vw, 0.78rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── Scroll-reveal (v-reveal directive) ────────────────────── */
+/* Content is visible by default; JS adds [data-reveal] then .is-in.
+   Renderers without JS / hidden tabs still show everything. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Page transition (gentle fade, replaces the full-screen slide) ── */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition:
+    opacity 0.35s var(--ease-out-quart),
+    transform 0.35s var(--ease-out-quart);
+}
 .slide-fade-enter-from {
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateY(12px);
 }
 .slide-fade-leave-to {
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }
